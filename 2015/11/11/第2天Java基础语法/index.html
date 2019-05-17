@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+ .pace .pace-progress {
+ background: #1E92FB; /*进度条颜色*/
+ height: 3px;
+ }
+ .pace .pace-progress-inner {
+ box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; /*阴影颜色*/
+ }
+ .pace .pace-activity {
+ border-top-color: #1E92FB; /*上边框颜色*/
+ border-left-color: #1E92FB; /*左边框颜色*/
+ }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、标识符 在java语言中，对各种变量，方法和类等要素命名时所使用的字符序列就是标识符。这些标识符有jdk定义好的，也有我们自己开发时候需要定义的.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2天Java基础语法">
+<meta property="og:url" content="http://yoursite.com/2015/11/11/第2天Java基础语法/index.html">
+<meta property="og:site_name" content="Zhou&#39;Note">
+<meta property="og:description" content="一、标识符 在java语言中，对各种变量，方法和类等要素命名时所使用的字符序列就是标识符。这些标识符有jdk定义好的，也有我们自己开发时候需要定义的.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/5.png">
+<meta property="og:image" content="http://yoursite.com/img/6.png">
+<meta property="og:image" content="http://yoursite.com/img/7.png">
+<meta property="og:image" content="http://yoursite.com/img/8.png">
+<meta property="og:image" content="http://yoursite.com/img/9.png">
+<meta property="og:updated_time" content="2018-12-15T09:08:08.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2天Java基础语法">
+<meta name="twitter:description" content="一、标识符 在java语言中，对各种变量，方法和类等要素命名时所使用的字符序列就是标识符。这些标识符有jdk定义好的，也有我们自己开发时候需要定义的.">
+<meta name="twitter:image" content="http://yoursite.com/img/5.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/11/第2天Java基础语法/">
+
+
+
+
+
+  <title>第2天Java基础语法 | Zhou'Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com" class="github-corner" aria-label="View source on GitHub">
+	<svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z">
+	</path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+	</path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhou'Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to Zhou'Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/11/第2天Java基础语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pic.58pic.com/58pic/15/68/59/71X58PICNjx_1024.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第2天Java基础语法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-11T13:57:04+08:00">
+                2015-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、标识符"><a href="#一、标识符" class="headerlink" title="一、标识符"></a>一、标识符</h3><ol>
+<li>在java语言中，对各种变量，方法和类等要素命名时所使用的字符序列就是标识符。这些标识符有jdk定义好的，也有我们自己开发时候需要定义的.<a id="more"></a></li>
+<li>java中标识符由26个英文字符大小写，数字0-9，符号_ $。注意：数字不能开头。</li>
+<li>java中是严格区分大小写</li>
+<li>在实际写程序的过程中定义标识符遵守“见名之意”.</li>
+</ol>
+<ul>
+<li>类名和接口的规范：</li>
+</ul>
+<p>在上面的约束的命名规范的情况下，首字符要大写。如果由多个单词构成每个单词的首字符都大写。</p>
+<p>XxxYyy 如：PersonService</p>
+<ul>
+<li>变量名和方法名：</li>
+</ul>
+<p>在上面的约束的命名规范的情况下，我们遵守单词首字符不要大写，如果由多个单词构成，从第二个单词起首字符都大写。这叫驼峰模式。</p>
+<p>xxxYyyZzz  如：personDao</p>
+<ul>
+<li>包名<br>在上面的约束的命名规范的情况下，都小写。</li>
+</ul>
+<p>xxx.yyy.zzz</p>
+<ul>
+<li>常量</li>
+</ul>
+<p>所有字符都大写，多个单词之间使用下划线来分隔。</p>
+<p>XXX_YYY_ZZZ</p>
+<h3 id="二、关键字"><a href="#二、关键字" class="headerlink" title="二、关键字"></a>二、关键字</h3><p>Jdk定义的标识符就是关键字，我们不可以使用。所以我们定义标识符的时候一定要避开关键字。<br><img src="/img/5.png" alt="关键字" title="关键字"><br><img src="/img/6.png" alt="关键字" title="关键字"></p>
+<h3 id="三、java中的注释"><a href="#三、java中的注释" class="headerlink" title="三、java中的注释"></a>三、java中的注释</h3><p>注释就是给程序说明的作用，我们要养成写注释的良好习惯，增强代码的可读性。<br>Jvm运行时注释不会被解析。Jvm会跳过注释。</p>
+<ul>
+<li>多行注释：/<em>….</em>/,通常用于方法内的多行或者类的多行注释</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">	System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">	System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">	System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">	System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">	System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		</span><br><span class="line">  &#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>单行注释语法：//，注释代码中的一行，建议大家放在要注释的代码的上面</p>
+</li>
+<li><p>文档注释：语法/*<em>..</em>/,用于类的说明和方法的说明</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *这是我们第一个HelloWorld的程序</span><br><span class="line"> */</span><br><span class="line">class HelloWorld&#123;</span><br><span class="line">	</span><br><span class="line">	/**</span><br><span class="line">   *这是这是我们的主方法</span><br><span class="line">   */</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">		//输出helloWorld</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		//输出helloWorld1</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		</span><br><span class="line">		/*</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld1"</span>);</span><br><span class="line">		*/</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、数据类型"><a href="#四、数据类型" class="headerlink" title="四、数据类型"></a>四、数据类型</h3><h4 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1.基本数据类型"></a>1.基本数据类型</h4><ol>
+<li>基本数据类型概述</li>
+</ol>
+<p>根据不同的数据类型可以划分内存的存储的空间大小，不同的类型就是数据类型</p>
+<ul>
+<li><p>整数的基本类型</p>
+<p>  byte        最小存储整数的空间 <font color="red">1字节</font></p>
+<p>  short                                   <font color="red">2字节</font></p>
+<p>  int                            <font color="red">4字节</font></p>
+<p>  long        最大存储整数的空间        <font color="red">8字节</font><br>  <img src="/img/7.png" alt="基本数据类型" title="基本数据类型"></p>
+<p>  byte和short计算时产生的结果默认是int类型</p>
+</li>
+<li><p>小数的基本类型</p>
+</li>
+</ul>
+<p>flout     <font color="red">4字节</font></p>
+<p>double        <font color="red">8字节</font></p>
+<p>如果整型数据在计算的时候结果出现了小数，结果类型默认是double</p>
+<p>  <img src="/img/8.png" alt="基本数据类型" title="基本数据类型"></p>
+<p>  建议使用double</p>
+<ul>
+<li><p>字符数据类型<br>char             <font color="red">2字节</font><br>如：‘a‘，’周‘</p>
+</li>
+<li><p>布尔数据类型</p>
+</li>
+</ul>
+<p>boolean    <font color="red">true   false</font></p>
+<p>一共8种数据类型。</p>
+<ol start="2">
+<li>定义变量</li>
+</ol>
+<p>语法：数据类型 变量名 = 值;</p>
+<p>我们对变量的操作：取值和存值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Demo1&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		//数据类型 变量名 = 值;</span><br><span class="line">		int age = 10;</span><br><span class="line">		System.out.println(age);</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>变量的定义位置：定义在方法中或者语句块中。</p>
+<p>变量的一定要赋初始值，否则使用该变量的时候会报错的。</p>
+<p>变量的作用范围：<br>只在当前的大括号内有效，大括号外的所有程序不能使用该变量，所以这种变量也称为局部变量。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class Demo2&#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		//字节数据类型</span><br><span class="line">		byte workYear = 10;</span><br><span class="line">		//短整型</span><br><span class="line">		short salary = 2000;</span><br><span class="line">		//数据类型 变量名 = 值;</span><br><span class="line">		int age = 30;</span><br><span class="line">		//长整型,在定义长长整型的数据时在值后面加上l</span><br><span class="line">		long empTime = 10000000l;</span><br><span class="line">		</span><br><span class="line">		//小数类型<span class="built_in">float</span>,<span class="built_in">float</span>类型的数值后面一定要有f</span><br><span class="line">		<span class="built_in">float</span> price = 45.6f;</span><br><span class="line">		//小数类型double,建议在值的后面加d</span><br><span class="line">		double totalPrice = 10000.5d;</span><br><span class="line">		</span><br><span class="line">		//布尔数据类型</span><br><span class="line">		boolean isMarry = <span class="literal">false</span>;</span><br><span class="line">		//字符类型</span><br><span class="line">		char sex = <span class="string">'男'</span>;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"工作年限："</span>+workYear);</span><br><span class="line">		System.out.println(<span class="string">"月薪："</span>+salary);</span><br><span class="line">		System.out.println(<span class="string">"年龄："</span>+age);</span><br><span class="line">		System.out.println(<span class="string">"入职时长："</span>+empTime);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"单价："</span>+price);</span><br><span class="line">		System.out.println(<span class="string">"总价："</span>+totalPrice);</span><br><span class="line">		System.out.println(<span class="string">"是否结婚："</span>+isMarry);</span><br><span class="line">		System.out.println(<span class="string">"性别："</span>+sex);</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这八种数据类型是有默认值的。这个默认值如果在变量中不能使用的，必须是在类的属性中使用，因为类的属性可以不赋初始化值。<br><img src="/img/9.png" alt="默认值" title="默认值"></p>
+<ol start="3">
+<li>基本数据类型转换</li>
+</ol>
+<p>八种数据类型除了布尔类型以外都可以相互的转换。</p>
+<ul>
+<li>1.自动类型转换</li>
+</ul>
+<p>基本数据类型在计算的时候都会向数值范围大的方向转换</p>
+<p>byte—short–int —-long–float—double</p>
+<ol>
+<li>所有的byte类型和short类型和char值运算的时候都会提供成int类型。</li>
+<li>如果计算中一个操作数据类型是long，另一个数的空间小于等于long，那么结果就是long</li>
+<li>如果计算中一个操作数据类型是float，另一个数的空间小于等于float，那么结果就是float</li>
+<li>如果计算中一个操作数据类型是double，另一个数的空间小于等于double，那么结果就是double</li>
+</ol>
+<ul>
+<li>2.强制转换</li>
+</ul>
+<p>当大容量类型的变量向小容量的类型去转换需要强制转换。</p>
+<p>语法：（目标类型）值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//在java程序中同一个范围内变量名字不能重复</span><br><span class="line">		 int i3 = 97;</span><br><span class="line">		 //把int类型的数据强制转换成byte</span><br><span class="line">		 byte b3 = (byte)i3;</span><br><span class="line">		 //把int类型的数据强制转换成short</span><br><span class="line">		 short s3 = (short)i3;</span><br><span class="line">		 //把int类型的数据强制转换成char</span><br><span class="line">		 char c3 = (char)i3;</span><br><span class="line">		 System.out.println(b3);</span><br><span class="line">		 System.out.println(s3);</span><br><span class="line">		 System.out.println(c3);</span><br><span class="line">		 </span><br><span class="line">		  int i4 = 200;</span><br><span class="line">		  //注意如果被转换的值超过了要转换的值的最大值，转换时精度就损失了，不准确。</span><br><span class="line">		  byte b4 = (byte)i4;</span><br><span class="line">		  System.out.println(b4);</span><br><span class="line">		  //把long类型的数据转换成int</span><br><span class="line">		  long l4 = 10000l;</span><br><span class="line">		  int i5 = (int)l4;</span><br><span class="line">		  System.out.println(i5);</span><br><span class="line">		  </span><br><span class="line">		  //把小数<span class="built_in">float</span>转换成整型，直接把小数舍弃（非四舍五入）</span><br><span class="line">		  <span class="built_in">float</span> f1 = 12.5f;</span><br><span class="line">		  int i6 = (int)f1;</span><br><span class="line">		  System.out.println(i6);</span><br><span class="line">		   //把小数double转换成整型，直接把小数舍弃（非四舍五入）</span><br><span class="line">		  double d1 = 15.5f;</span><br><span class="line">		  int i7 = (int)d1;</span><br><span class="line">		  System.out.println(i7);</span><br></pre></td></tr></table></figure></p>
+<font color="red">思考：</font>
+
+<p>byte b1 = 3，b2=4, b;</p>
+<p>b = b1 + b2;//报错，因为byte类型计算完毕后会自动提升为int类型。</p>
+<p>b= 4+3;//不会报错，因为int类型的常量相加只要没有达到byte的上限就可以。</p>
+<ul>
+<li>2.引用数据类型</li>
+</ul>
+<h3 id="五、运算符"><a href="#五、运算符" class="headerlink" title="五、运算符"></a>五、运算符</h3><ol>
+<li>算数运算符</li>
+</ol>
+<ul>
+<li><p>四则运算：+，-，*，/</p>
+</li>
+<li><p>给数值变量自身加1或减一</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class Demo4&#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">		//定义两个int类型的变量</span><br><span class="line">		int a = 30;</span><br><span class="line">		int b = 20;</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"a+b="</span>+(a+b));</span><br><span class="line">		System.out.println(<span class="string">"a-b="</span>+(a-b));</span><br><span class="line">		System.out.println(<span class="string">"a*b="</span>+(a*b));</span><br><span class="line">		//整数之间做除法叫取整30/20=1.5,要把小数位舍弃</span><br><span class="line">		System.out.println(<span class="string">"a/b="</span>+(a/b));</span><br><span class="line">		</span><br><span class="line">		//++, --</span><br><span class="line">		//a++起到了给a加1的作用</span><br><span class="line">		a++;</span><br><span class="line">		//会输出a加1之后的值</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		//a--起到了给a减1的作用</span><br><span class="line">		a--;</span><br><span class="line">		//会输出a减一1之后的值</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		//如果我后++或者后--和用变量在同一句代码中使用，是先使用a变量，再做加1或者减一</span><br><span class="line">		System.out.println(a--);</span><br><span class="line">		System.out.println(a)</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		//起到了给变量a加1的作用</span><br><span class="line">		--a;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		//如果我前++或者前--和用变量在同一句代码中使用，是先做加1或者减一，再使用a变量</span><br><span class="line">		System.out.println(--a);</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>赋值运算符</li>
+</ol>
+<p>=，+=，-=，*=，/=, %=</p>
+<p>=：将左边的数值赋给右边的变量</p>
+<p>+=：int x = 2；x+=3;相当于x=x+3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Demo5&#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		//把20这个值赋给a变量</span><br><span class="line">		int a = 20;</span><br><span class="line">		</span><br><span class="line">		//+=,相当于a = a + 5;</span><br><span class="line">		//a = a + 5;</span><br><span class="line">		</span><br><span class="line">		a+=5;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		//-=,相当于a = a - 5;</span><br><span class="line">		a-=5;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		//*=,相当于a = a * 5;</span><br><span class="line">		a*=5;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		///=,相当于a = a / 5;</span><br><span class="line">		a/=5;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		//%=,相当于a = a % 5;</span><br><span class="line">		a%=5;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>比较运算符</li>
+</ol>
+<p>==，!=, &gt;, &gt;=, &lt;, &lt;=</p>
+<p>==:等于 !=:不等于   &gt;:大于 &gt;=:大于等于<br>&lt;:小于<br>&lt;=:小于等于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Demo6&#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">		int a = 19;</span><br><span class="line">		</span><br><span class="line">		int b = 10;</span><br><span class="line">		//比较运算符的结果是布尔类型<span class="literal">true</span>，<span class="literal">false</span></span><br><span class="line">		System.out.println(<span class="string">"a==b:"</span>+(a==b));</span><br><span class="line">		System.out.println(<span class="string">"a!=b:"</span>+(a!=b));</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"a&gt;b:"</span>+(a&gt;b));</span><br><span class="line">		System.out.println(<span class="string">"a&lt;b:"</span>+(a&lt;b));</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"a&gt;=b:"</span>+(a&gt;=b));</span><br><span class="line">		System.out.println(<span class="string">"a&lt;=b:"</span>+(a&lt;=b));</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>逻辑运算符</li>
+</ol>
+<p>&amp;，|，^, &amp;&amp;, ||，！</p>
+<p>应用场景：如果某个结果需要多个条件满足或者部分条件满足的判断时使用。</p>
+<p>&amp;: 用于连接多个表达式的判断，true&amp;true=true，<strong>&amp;两边的表达式都要参与计算。</strong></p>
+<p>|:用于连接多个表达式的判断，false|false=false, <strong>&amp;两边的表达式都要参与计算</strong></p>
+<font color="red">短路逻辑（效率高）</font>
+
+<p>&amp;&amp;:用于连接多个表达式的判断, true&amp;&amp;true=true，<strong>如果第一个表达式能决定整个表达式的结果第二个表达式就不计算了。</strong></p>
+<p>||:用于连接多个表达式的判断, false||false=false，<strong>如果第一个表达式能决定整个表达式的结果第二个表达式就不计算了。</strong><br>^:用于连接多个表达式的判断,<strong>如果两个表达式相同就是false，不同是true，两边都参加计算</strong> （了解）<br>！：取反</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Demo7&#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">		int java = 90;</span><br><span class="line">		int sql = 70;</span><br><span class="line">		</span><br><span class="line">		//只有java和sql打分都大于90分才合格</span><br><span class="line">		//System.out.println(java&gt;=90&amp;(sql++) &gt;= 90);</span><br><span class="line">		</span><br><span class="line">		//System.out.println(java&gt;=90|(sql++) &gt;= 90);</span><br><span class="line">		</span><br><span class="line">		//短路与，如果第一个表达式是<span class="literal">false</span>，后面的表达式就不需要判断了，效率高</span><br><span class="line">		//System.out.println(java&gt;=90&amp;&amp;(sql++) &gt;= 90);</span><br><span class="line">		//短路或，如果第一个表达式是<span class="literal">true</span>，后面的表达式就不需要判断了，效率高</span><br><span class="line">		//System.out.println(java&gt;=90||(sql++) &gt;= 90);</span><br><span class="line">		//异或了解</span><br><span class="line">		//System.out.println(java&gt;=90^(sql++) &gt;= 90);</span><br><span class="line">		//System.out.println(sql);</span><br><span class="line">		//如果对于表达式取反需要通过括号括上。</span><br><span class="line">		System.out.println(!(java &gt; 80));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+       <div>
+      
+      <div>  <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>  </div>
+
+
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/15/第1天计算机基础初识JAVASE/" rel="next" title="第1天计算机基础初识JAVASE">
+                <i class="fa fa-chevron-left"></i> 第1天计算机基础初识JAVASE
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/18/第3天程序的流程控制/" rel="prev" title="第3天程序的流程控制">
+                第3天程序的流程控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://pic.58pic.com/58pic/15/68/59/71X58PICNjx_1024.jpg" alt="zhoumingyan">
+            
+              <p class="site-author-name" itemprop="name">zhoumingyan</p>
+              <p class="site-description motion-element" itemprop="description">You never know what you can do till you try</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.testwo.com" title="测试窝" target="_blank">测试窝</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/fnng/" title="虫师博客" target="_blank">虫师博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.testtao.com" title="测试之道" target="_blank">测试之道</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ltesting.net" title="领测国际" target="_blank">领测国际</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51testing.com" title="软件测试网" target="_blank">软件测试网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51ste.com" title="软件测试部落" target="_blank">软件测试部落</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chinatesting.cn" title="中国测试平台" target="_blank">中国测试平台</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.btestingsky.com/" title="软件测试空间" target="_blank">软件测试空间</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、标识符"><span class="nav-number">1.</span> <span class="nav-text">一、标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、关键字"><span class="nav-number">2.</span> <span class="nav-text">二、关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、java中的注释"><span class="nav-number">3.</span> <span class="nav-text">三、java中的注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、数据类型"><span class="nav-number">4.</span> <span class="nav-text">四、数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本数据类型"><span class="nav-number">4.1.</span> <span class="nav-text">1.基本数据类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、运算符"><span class="nav-number">5.</span> <span class="nav-text">五、运算符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhoumingyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">  个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客 &mdash; Copyright zhoumingyan </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":250,"height":650},"mobile":{"show":true},"log":false});</script></body>
+</html>
