@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Robot Framework的环境搭建]]></title>
-    <url>%2F2020%2F08%2F12%2FRobot%20Framework%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[1.Python3.8安装下载地址：https://www.python.org/downloads/release/python-381/ python-3.8.1.amd64.msi(python2官方已宣布到2020年元旦起不再维护，所以为了以后方便在这里安装python3) 下载完成后，选择安装路径自行安装即可。安装完成后注意配置系统环境变量path:配置Python38安装路径和Python27/Scripts路径。 2.Robot framework的安装RF框架是基于python的，所以一定要有python环境 安装方式选择一种即可： （1）exe包安装下载地址：https://pypi.org/project/robotframework/3.2.1/#downloads robotframework-3.2.1.win-amd64.exe 直接双击下一步即可。 （2）pip命令安装pip install robotframework这样子会直接安装最新的版本，我们可以指定版本安装pip install robotframework==3.2.1 3.wxPython 的安装作用：Wxpython 是python 非常有名的一个GUI库，因为RIDE 是基于这个库开发的，所以这个必须安装。 （1）exe包安装下载地址：http://sourceforge.net/projects/wxpython/files/wxPython/ 直接双击下一步即可。 （2）pip命令安装pip install wxPython==4.0.7 在线安装 wxPython，最好指定版本安装，否则会直接安装最新的版本 （这个版本不能太低…太低不支持python3.8，太高也会报错…所以找了个版本不高，又支持3.8的wxPython==4.0.7） 4.Robot framework-ride作用：RIDE就是一个图形界面的用于创建、组织、运行测试的软件。 安装方式选一种即可： （1）包安装下载地址：https://pypi.python.org/pypi/robotframework-ride robotframework-ride-1.7.4.2.tar.gz 下载完成后将其解压，然后进入到解压后的文件路径进行安装123cd D:\robotframework-ride-1.7.4.2python setup.py install （2）pip安装1pip install robotframework-ride=1.7.4.1（安装了最新的1.7.4.2一直报错，所以我这里装的是1.7.4.1） 5.Robot framework-selenium2library作用：RF-seleniumlibrary 可以看做RF版的selenium 库，selenium （webdriver）可以认为是一套基于web的规范（API），所以，RF 、appium 等测试工具都可以基于这套API进行页面的定位与操作。 （1）包安装下载地址：https://github.com/robotframework/Selenium2Library#readme Selenium2Library-master.zip 下载完成后将其解压，然后进入到解压后的文件路径进行安装 12cd D:\Selenium2Library-masterpython setup.py install （2）pip安装pip install robotframework-selenium2library 6.放入驱动以上步骤都已安装完毕后，把需要用的驱动放到python3的目录下，用谷歌浏览器较多，所以我把谷歌驱动文件chromedriver.exe放入我的python3安装目录D:\Python38\Scripts 7.查看pybot版本12cd D:\Python27\Scriptspybot --version 8.启动RIDE 1.通过文件启动（双击D:\Python38\Lib\site-packages\robotide下的init.py文件） 2.通过命令启动（运行-&gt;ride.py回车/确认，打开ride.py文件之后（以python方式打开 ） 12cd D:\Python38\Scripts\python ride.py 3.将D:\Python38\Scripts\ride.py创建快捷键 注：根据自己的python安装路径，我的是在D盘的]]></content>
+    <title><![CDATA[robotframework-[ ERROR ] Suite 'TestProject' contains no tests matching name]]></title>
+    <url>%2F2020%2F08%2F12%2F%5B%20ERROR%20%5D%20Suite%20'TestProject'%20contains%20no%20tests%20matching%20name%2F</url>
+    <content type="text"><![CDATA[编写用例完成，运行测试用例，运行完成报错：1[ ERROR ] Suite &apos;TestProject&apos; contains no tests matching name &apos;TestProject.TestSuites.baidu_search&apos; in suite &apos;TestProject.TestSuites&apos;. 如图： 原因：是由于在创建测试套件（test suite）时，格式选择为TXT文件格式导致 解决办法：将文件修改为robot格式即可。]]></content>
+      <categories>
+        <category>问题+解决方法记录</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[RIDE桌面快捷方式制作]]></title>
+    <url>%2F2020%2F08%2F12%2FRIDE%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%88%B6%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[接上一篇笔记0.0 1.创建快捷方式 在桌面右键鼠标，弹出的菜单选择 新建-快捷方式，然后在请键入对象的位置输入这一行命令 D:\Python38\pythonw.exe -c “from robotide import main; main()” 注：根据自己安装python的路径，我的是在D盘的，还有双引号记得是英文格式哦，否则会启动不了哦 如图： 点击下一步，输入快捷方式的名称，根据自己需要随意命名就好。 点击完成后会在桌面生成图标 2.如果想要把图标换成机器人图标需要快捷方式上点击右键-属性，如图 点击“更改图标”，在浏览里找到目录D:\Python38\Lib\site-packages\robotide\widgets，里面有个robot.ico的图标 选它就可以了，效果如图 最后快捷方式就制作完成了，可以打开正常使用了。]]></content>
+      <categories>
+        <category>Robot Framework</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Robot Framework环境搭建]]></title>
+    <url>%2F2020%2F08%2F11%2FRobot%20Framework%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[1.Python3.8安装下载地址：https://www.python.org/downloads/release/python-381/ python-3.8.1.amd64.msi(python2官方已宣布到2020年元旦起不再维护，所以为了以后方便在这里安装python3) 下载完成后，选择安装路径自行安装即可。安装完成后注意配置系统环境变量path:配置Python38安装路径和Python38/Scripts路径。 2.Robot framework的安装RF框架是基于python的，所以一定要有python环境 安装方式选择一种即可： （1）exe包安装下载地址：https://pypi.org/project/robotframework/3.2.1/#downloads robotframework-3.2.1.win-amd64.exe 直接双击下一步即可。 （2）pip命令安装1pip install robotframework 这样子会直接安装最新的版本，我们可以指定版本安装pip install robotframework==3.2.1 3.wxPython 的安装作用：Wxpython 是python 非常有名的一个GUI库，因为RIDE 是基于这个库开发的，所以这个必须安装。 （1）exe包安装下载地址：http://sourceforge.net/projects/wxpython/files/wxPython/ 直接双击下一步即可。 （2）pip命令安装1pip install wxPython==4.0.7 在线安装 wxPython，最好指定版本安装，否则会直接安装最新的版本 （这个版本不能太低…太低不支持python3.8，太高也会报错…所以找了个版本不高，又支持3.8的wxPython==4.0.7） 4.Robot framework-ride作用：RIDE就是一个图形界面的用于创建、组织、运行测试的软件。 安装方式选一种即可： （1）包安装下载地址：https://pypi.python.org/pypi/robotframework-ride robotframework-ride-1.7.4.2.tar.gz 下载完成后将其解压，然后进入到解压后的文件路径进行安装123cd D:\robotframework-ride-1.7.4.2python setup.py install （2）pip安装1pip install robotframework-ride=1.7.4.1（安装了最新的1.7.4.2一直报错，所以我这里装的是1.7.4.1） 5.Robot framework-selenium2library作用：RF-seleniumlibrary 可以看做RF版的selenium 库，selenium （webdriver）可以认为是一套基于web的规范（API），所以，RF 、appium 等测试工具都可以基于这套API进行页面的定位与操作。 （1）包安装下载地址：https://github.com/robotframework/Selenium2Library#readme Selenium2Library-master.zip 下载完成后将其解压，然后进入到解压后的文件路径进行安装 12cd D:\Selenium2Library-masterpython setup.py install （2）pip安装1pip install robotframework-selenium2library 6.放入驱动以上步骤都已安装完毕后，把需要用的驱动放到python3的目录下，用谷歌浏览器较多，所以我把谷歌驱动文件chromedriver.exe放入我的python3安装目录D:\Python38\Scripts 7.查看pybot版本12cd D:\Python38\Scriptspybot --version 8.启动RIDE 1.通过文件启动（双击D:\Python38\Lib\site-packages\robotide下的init.py文件） 2.通过命令启动（运行-&gt;ride.py回车/确认，打开ride.py文件之后（以python方式打开 ） 12cd D:\Python38\Scripts\python ride.py 3.将D:\Python38\Scripts\ride.py创建快捷键 注：根据自己的python安装路径，我的是在D盘的]]></content>
       <categories>
         <category>Robot Framework</category>
       </categories>
