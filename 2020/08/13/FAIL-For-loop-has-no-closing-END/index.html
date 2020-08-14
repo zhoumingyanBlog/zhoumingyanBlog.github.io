@@ -95,17 +95,21 @@
 
 
 
-<meta name="description" content="本博客主要作为学习记录笔记使用。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Robot Framework-FAIL For loop has no closing &#39;END&#39;">
+<meta property="og:url" content="http://yoursite.com/2020/08/13/FAIL-For-loop-has-no-closing-END/index.html">
 <meta property="og:site_name" content="Zhou&#39;Note">
-<meta property="og:description" content="本博客主要作为学习记录笔记使用。">
+<meta property="og:description" content="今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-12T02:54:58.325Z">
+<meta property="og:image" content="http://yoursite.com/img/RF28.png">
+<meta property="og:image" content="http://yoursite.com/img/RF29.png">
+<meta property="og:image" content="http://yoursite.com/img/RF30.png">
+<meta property="og:updated_time" content="2020-08-13T07:12:53.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="本博客主要作为学习记录笔记使用。">
+<meta name="twitter:title" content="Robot Framework-FAIL For loop has no closing &#39;END&#39;">
+<meta name="twitter:description" content="今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’">
+<meta name="twitter:image" content="http://yoursite.com/img/RF28.png">
 
 
 
@@ -135,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/13/FAIL-For-loop-has-no-closing-END/">
 
 
 
 
 
-  <title>关于我 | Zhou'Note</title>
+  <title>Robot Framework-FAIL For loop has no closing 'END' | Zhou'Note</title>
   
 
 
@@ -304,36 +308,175 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/FAIL-For-loop-has-no-closing-END/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <ul>
-<li>本博客主要作为学习记录笔记使用。</li>
-</ul>
-
+          <h1 class="post-title" itemprop="name headline">Robot Framework-FAIL For loop has no closing 'END'</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T14:47:09+08:00">
+                2020-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题-解决方法记录/" itemprop="url" rel="index">
+                    <span itemprop="name">问题+解决方法记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’<br><a id="more"></a><br> <img src="/img/RF28.png" alt="示例图" title="示例图"></p>
+<p>最后发现输入:FOR时冒号自动消失了，于是打开F5查看了:FOR关键字，发现文档写着已经不赞成使用了，使用请查看FOR关键字.RIDE最新版本和之前的版本在用例脚本编写还是有一些差异存在的，如果冒号（:）丢失就要在FOR循环语句后加上END。<br> <img src="/img/RF29.png" alt="示例图" title="示例图"></p>
+<p> RIDE1.7.4.1版本的FOR循环语句结构与RIDE之前版本稍微有些变化，需要在FOR循环语句结束后加上END（注意END一定要大写）。<br> 加上END后就可以运行成功了，正确用例脚本如下：</p>
+<p>  <img src="/img/RF30.png" alt="示例图" title="示例图"></p>
+
       
     </div>
     
     
     
+
+       <div>
+      
+      <div>  <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>  </div>
+
+
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/13/Robot-Framework-Selenium2Library关键字/" rel="next" title="Robot Framework-关键字">
+                <i class="fa fa-chevron-left"></i> Robot Framework-关键字
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/14/Robot-Framework-分层思想/" rel="prev" title="Robot Framework--分层思想">
+                Robot Framework--分层思想 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -342,6 +485,10 @@
 
 
           
+
+  
+
+
 
         </div>
         

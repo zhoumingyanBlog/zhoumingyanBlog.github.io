@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Robot Framework--分层思想]]></title>
+    <url>%2F2020%2F08%2F14%2FRobot-Framework-%E5%88%86%E5%B1%82%E6%80%9D%E6%83%B3%2F</url>
+    <content type="text"><![CDATA[在Java中，程序设计讲究设计模式，设计模式其实就是根据需求使用抽象和封装，其实这个就是分层思想，把一个实现过程分成不同多层，提高灵活性，从而达到可扩展性和可维护性。要谈RF的分层思想，就不得不说到关键字驱动，刚刚我们介绍了关键字驱动：类似函数，通过调用不同的关键字，从而测试结果就不同。在RF中，我们可以把操作步骤封装一个一个的方法（关键字），通过调用关键字来实现测试用例。 比如我们要登录测试环境，创建下面的一条登录的测试用例。 现在我要写3条测试环境登录的用例： 可以在测试套件下创建3条测试用例，如果我们现在要检查登录，登陆不同的账号，其实只是输入的文本变了，而操作步骤和操作的元素都是不变的，如果这样做，无疑增加的脚本的冗余，而且不便于维护。假如，输入框的定位方式变了，我不得不打开每一条用例进行修改。 所以我们把一个个操作封装成关键字，放在一个专放操作的文件夹里，以便管理。需要用到是则去一一调用这些关键字，而不需要重复写这些步骤，从而实现分层的思想来解决这个问题。如下：右键“测试项目”选择“new resource”创建资源。输入资源名称：2、创建关键字右键“业务关键字”选择“new User Keyword” 来创建用户关键字。输入关键字的名称： 3、编辑关键字对于一个测试用例来说，用户关心的是输入什么内容，得到什么结果。所以，对于“登录”关键字来说，需要创建三个接口变量${mobile}，${password}和${result}三个变量，用于接收输入内容和预期结果。点击Arguments输入框，定义变量，多个变量从用“|”隔开。 在登录用户中使用参数化变量。 4、添加创建的资源切换到测试套件页面，添加资源（业务关键字.txt）5、调用关键字现在就可以在测试用例中使用创建的关键字了（登录页面）。对于每一条用例来说，调用“登录”关键字，输入手机号、密码，输入预期结果即可。不用关心用例是如何执行的。如果手机号码，密码输入框的定位发生了变化，只用去修改“登录”关键字即可，不用对每一条用例做任何修改。大大提高的用例的维护性和扩展性。 继续分层的设计： 为了以后维护更方便，可以再把元素定位分离出来，放在一个专放元素定位的文件夹里…如果以后页面发生了调整，我们就需要修改元素的定位，就不用一条条用例打开去修改，只要修改页面定位元素即可如下：]]></content>
+      <categories>
+        <category>Robot Framework</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Robot Framework-FAIL For loop has no closing 'END']]></title>
+    <url>%2F2020%2F08%2F13%2FFAIL-For-loop-has-no-closing-END%2F</url>
+    <content type="text"><![CDATA[今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’ 最后发现输入:FOR时冒号自动消失了，于是打开F5查看了:FOR关键字，发现文档写着已经不赞成使用了，使用请查看FOR关键字.RIDE最新版本和之前的版本在用例脚本编写还是有一些差异存在的，如果冒号（:）丢失就要在FOR循环语句后加上END。 RIDE1.7.4.1版本的FOR循环语句结构与RIDE之前版本稍微有些变化，需要在FOR循环语句结束后加上END（注意END一定要大写）。 加上END后就可以运行成功了，正确用例脚本如下：]]></content>
+      <categories>
+        <category>问题+解决方法记录</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Robot Framework-关键字]]></title>
+    <url>%2F2020%2F08%2F13%2FRobot-Framework-Selenium2Library%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[关键字的使用可以通过F5查找关键字库，输入关键字，点击搜索。选择关键字就可以查看关键字的说明。如图： 1、浏览器驱动 通过不同的浏览器执行脚本 Open Browser https://www.baidu.com Chrome 常用浏览器对应的关键字 firefox Firefox chrome Chrome ie InternetExplorer safari Safari open browser 同样也可以打开本地html页面，如： Open Browser file:///D:/RFpath/js.html Chrome 备注：要想通过不同的浏览器打开url地址，一定要安装对应的驱动。chrome的驱动为：chromedriver.exefirefox的驱动为：geckodriver.exe…浏览器默认为空时启动FireFox 2、关闭浏览器 Close Browser Close All Browser Close Browser关闭当前的浏览器，Close All Browser 关闭所有打开的浏览器和缓存重置。 3、浏览器最大化 Maximize Browser Window 4、设置浏览器宽、高 Set Window Size 800 600 Set Window Size关键字，用于设置当前浏览器的宽度和高度，以像素为单位，第一个参数800表示宽度，第二个参数600表示高度。 Get Window Size关键字，用于获取当前浏览器的宽度和高度，获得浏览器的宽、高并打印，如下： 5、文本输入input text用于向文本框输入信息，id=KW表示元素定位，定位文本框输入 6、点击按钮 7、点击元素 8、等待页面元素出现 Wait Until Page Contains Element关键字用于等待页面上的元素显示出来。//*[@id=”container”]/div[2]/div/div[2]/span:表示元素定位，这里定位出现的元素60：表示最长等待时间error:表示错误提示，可以自己自定义错误提示 如：元素不能正常显示 9、获取title Get Title关键字用于获得当前浏览器窗口的title信息。Should Contain 比较${title}是否等于“robot_百度搜索”这里只获得title是没有意义的，我们通常会将获取的title传递给一个变量，然后与预期结果进行比较。从而判断当前脚本执行成功。 10、获取Text Get Text关键字用于获取元素的文本信息//*[@id=”container”]/div[2]/div/div[2]/span:表示定位文本信息的元素 11、获取元素属性值 id=kw 表示定位的元素name 表示获取这个元素的 name 属性值。 12、log 打印log关键字就是编程语言里的“print”一样，可以打印任何你想打印的内容。 13、定义变量通过”Set Variable”关键字来定义变量 14、连接对象“Catenate”关键字可以连接多个信息加上“SEPARATOR=”可以对多个连接的信息进行分割。 15、定义列表通过“Create List”关键字可以定义列表。每个字符串前面加 u，是为了统一编码问题，将字符串转为 Unicode 编码。如果通过“@{}”去定义列表的话，可以通过“log many”关键字进行打印 16、时间操作 Robot Framework 中提供了“get time”关键字用来获取当前时间。 17、设置休眠时间 “sleep”关键字用来设置休眠一定时间，sleep 关键字默认以“秒”为单位。 18、if语句 通过“run keyword if”关键字可以编写 if 分支语句。 首先定义一个变量 a 等于 59 。If 判断 a 大于等于 90 ，满足条件 log 输出 “优秀 ”；不满足上面的条件，接着 else if 判断 a 大于等于 70 ，满足条件 log 输出 “良好”；不满足上面的条件，接着 else if 判断 a 大于等于 60 ，满足条件 log 输出 “及格”；上面的条件都不满足，else log 输出“不及格”。注：注意 ELSE IF 和 ELSE 前面的三个点点点（…）。注意ELSE IF和ELSE要是大写。 19、for循环在 Robot Framework 中编写循环通过“for”。通过“：for”定义 for 循环；in range 用于指定循环的范围。例子1，这个例子为执行 10 次循环注意：in range 定义为 10，它的范围是 0~9例 2，遍历列表“create list” 关键字用来定义列表（a,b,c），“@{}”用来存放列表。通过“for”循环来来遍历@{abc}列表中的字符。20、 Evaluate生成随即数21、注释Robot Framework 中添加注释也非常简单。（1）“Comment”关键字用于设置脚本中的注释。（2）也可以像 Python 一样使用“#”号进行注释]]></content>
+      <categories>
+        <category>Robot Framework</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Robot Framework -元素定位]]></title>
+    <url>%2F2020%2F08%2F13%2FRobot-Framework-%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%2F</url>
+    <content type="text"><![CDATA[1.id和name定位id、name定位，这两个比较简单直接可以id=和name=，前提是这个id和name的值在当前页面上是唯一的。12345…&lt;input id=&quot;kw&quot; name=&quot;wd&quot; class=&quot;s_ipt&quot; value=&quot;&quot; maxlength=&quot;255&quot; autocomplete=&quot;off&quot;&gt;…&lt;input type=&quot;submit&quot; id=&quot;su&quot; value=&quot;百度一下&quot; class=&quot;bg s_btn&quot;&gt;… 根据上面的例子，百度输入框可以提取id或name进行定位。 id=kw name=wd在Robot framework中可以这样写：Input Text 用于文本输入的关键字，“robot framework学习”是要给输入框输入的内容.百度按钮没有name，所以这里可以用id： id=suClick Button 是按钮点击的关键字。 2.Xpath定位Xpath是XML文档中定位元素的一种语言，HTML可以看成一种XML文档，Xpath定位也是所有定位元素的方法中用的最多的。Xpath 中的绝对路径从 HTML 根节点开始算，相对路径从任意节点开始。通过开发者工具，我们可以拷贝到 Xpath 的绝对路径和相对路径代码：但是由于拷贝出来的代码缺乏灵活性，也不全然准确。大部分情况下，都需要自己定义 Xpath 语句，因此 Xpath 语法还是有必要学习。 2.1绝对路径定位以百度中的输入框和按钮为例，通过拷贝出来的 full Xpath：1/html/body/div[1]/div[1]/div[5]/div/div/form/span[1]/input 这是一个绝对路径，绝对路径是从根节点/html开始往下找，html下面的body下面的div下面的第5个div下面的….input标签。通过一级一级的锁定就找到了想要的元素。 2.2相对路径定位除了绝对路径，Xpath中更常用的方式是相对路径定位方法，以“//”开头相对路径可以从任意节点开始，一般我们会选取一个可以唯一定位到的元素开始写，增加查找的准确性。 2.2.1元素属性定位Xpath可以利用元素自身的属性进行定位：1Xpath=//*[@id=’kw’] //表示某个层级下，*表示某个标签名。@id=kw 表示这个元素有个id等于kw（@ 符号指定需要使用的属性）也可以制定标签名1Xpath=//input[@id=”kw”] 元素本身，可以利用的属性不止局限于id和name,还可以使用其他属性，如：12Xpath=//input[@type=”text”]Xpath=//input[@autocomplete=&quot;off&quot;] 但是这些元素必须在这个页面是唯一的，否则定位时会出错。 2.2.2找上级遇到某些元素无法精确定位的时候，可以查找其父级及其祖先节点，找到有确定的祖先节点后通过层级依次向下定位。元素的上级属性为：123&lt;form id=&quot;form1&quot; class=&quot;fm&quot; action=&quot;/s&quot; name=&quot;f1&quot;&gt;&lt;span class=&quot;bg s_ipt_wr&quot;&gt;&lt;input id=&quot;kw&quot; class=&quot;s_ipt&quot; type=&quot;text&quot; maxlength=&quot;100&quot; name=&quot;wd&quot; autocomplete=&quot;off&quot;&gt; 找爸爸：1Xpath=//span[@class=” bg s_ipt_wr”]/input 如果爸爸没有唯一的属性，可以找爷爷：1Xpath=//from[@id=’from1]/span/input 这样一级一级找上去，直到html,那么就是一个绝对路径了 2.2.3使用逻辑运算符如果元素的某个属性无法精确定位到这个元素，我们还可以用逻辑运算符 and 连接多个属性进行定位，以百度输入框为例。1、 使用and:1//*[@name=&apos;wd&apos; and @class=&apos;s_ipt&apos;] 查找 name 属性为 wd 并且 class 属性为 s_ipt 的任意元素 2、 使用or:1//*[@name=&apos;wd&apos; or @class=&apos;s_ipt&apos;] 查找 name 属性为 wd 或者 class 属性为 s_ipt 的任意元素，取其中之一满足即可 3、使用|，同时查找多个路径，取或：1//form[@id=&quot;form&quot;]//span | //form[@id=&quot;form&quot;]//input 选取 form 下所有的 span 和所有的 input。 3.CSS定位CSS(Cascading Style Sheets)是一种语言，它被用来描述HTML 和XML 文档的表现。CSS 使用选择器来为页面元素绑定属性。CSS 可以比较灵活选择控件的任意属性，一般情况下定位速度要比XPath 快，但对于初学者来说比较难以学习使用，下面我们就详细的介绍CSS 的语法与使用。CSS 选择器的常见语法:同样以百度输入框的代码，我们来看看CSS如何定位。123&lt;form id=&quot;form1&quot; class=&quot;fm&quot; action=&quot;/s&quot; name=&quot;f1&quot;&gt; &lt;span class=&quot;bg s_ipt_wr&quot;&gt; &lt;input id=&quot;kw&quot; class=&quot;s_ipt&quot; type=&quot;text&quot; maxlength=&quot;100&quot; name=&quot;wd&quot; autocomplete=&quot;off&quot;&gt; id定位：1css=#kw class 定位：1css=.s_ipt 其他属性定位：123css=[name=wd]css=[type=text]css=[autocomplete=off] 父子定位：12Css=span&gt;inputCss=from&gt;span&gt;input 根据标签名定位：1Css=input 代码实现：]]></content>
+      <categories>
+        <category>Robot Framework</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Robot Framework-[ ERROR ] Suite 'TestProject' contains no tests matching name]]></title>
     <url>%2F2020%2F08%2F12%2F%5B%20ERROR%20%5D%20Suite%20'TestProject'%20contains%20no%20tests%20matching%20name%2F</url>
     <content type="text"><![CDATA[编写用例完成，运行测试用例，运行完成报错：1[ ERROR ] Suite &apos;TestProject&apos; contains no tests matching name &apos;TestProject.TestSuites.baidu_search&apos; in suite &apos;TestProject.TestSuites&apos;. 如图： 原因：是由于在创建测试套件（test suite）时，格式选择为TXT文件格式导致 解决办法：将文件修改为robot格式即可。]]></content>
@@ -25,7 +57,7 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[RIDE桌面快捷方式制作]]></title>
+    <title><![CDATA[Robot Framework-RIDE桌面快捷方式制作]]></title>
     <url>%2F2020%2F08%2F12%2FRIDE%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%88%B6%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[接上一篇笔记0.0 1.创建快捷方式 在桌面右键鼠标，弹出的菜单选择 新建-快捷方式，然后在请键入对象的位置输入这一行命令 D:\Python38\pythonw.exe -c “from robotide import main; main()” 注：根据自己安装python的路径，我的是在D盘的，还有双引号记得是英文格式哦，否则会启动不了哦 如图： 点击下一步，输入快捷方式的名称，根据自己需要随意命名就好。 点击完成后会在桌面生成图标 2.如果想要把图标换成机器人图标需要快捷方式上点击右键-属性，如图 点击“更改图标”，在浏览里找到目录D:\Python38\Lib\site-packages\robotide\widgets，里面有个robot.ico的图标 选它就可以了，效果如图 最后快捷方式就制作完成了，可以打开正常使用了。]]></content>
       <categories>
