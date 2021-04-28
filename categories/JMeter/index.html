@@ -98,7 +98,7 @@
 <meta name="description" content="You never know what you can do till you try">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Zhou&#39;Note">
-<meta property="og:url" content="http://yoursite.com/categories/Jmeter/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/JMeter/index.html">
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="You never know what you can do till you try">
 <meta property="og:locale" content="zh-Hans">
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Jmeter/">
+  <link rel="canonical" href="http://yoursite.com/categories/JMeter/">
 
 
 
 
 
-  <title>分类: Jmeter | Zhou'Note</title>
+  <title>分类: JMeter | Zhou'Note</title>
   
 
 
@@ -308,35 +308,9 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Jmeter<small>分类</small>
+        <h1>JMeter<small>分类</small>
         </h1>
       </div>
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/19/Jmeter断言/" itemprop="url">
-              
-                <span itemprop="name">Jmeter断言</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-19T09:15:39+08:00" content="2020-01-19">
-          01-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
 
       
         
@@ -357,84 +331,6 @@
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2020-01-18T12:25:30+08:00" content="2020-01-18">
           01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/17/Jmeter连接mysql数据库/" itemprop="url">
-              
-                <span itemprop="name">Jmeter连接mysql数据库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-17T11:25:30+08:00" content="2020-01-17">
-          01-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/16/Jmeter快捷键/" itemprop="url">
-              
-                <span itemprop="name">Jmeter常用快捷键</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-16T20:15:38+08:00" content="2020-01-16">
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/16/Jmeter介绍/" itemprop="url">
-              
-                <span itemprop="name">Jmeter介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-16T17:15:38+08:00" content="2020-01-16">
-          01-16
         </time>
       </div>
 
@@ -508,7 +404,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -519,7 +415,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1045,6 +941,79 @@
                 }
               });
               var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":250,"height":650},"mobile":{"show":true},"log":false});</script></body>
+</html>
+result-list\">';
               resultItems.forEach(function (result) {
                 searchResultList += result.item;
               })
