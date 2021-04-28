@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+ .pace .pace-progress {
+ background: #1E92FB; /*进度条颜色*/
+ height: 3px;
+ }
+ .pace .pace-progress-inner {
+ box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; /*阴影颜色*/
+ }
+ .pace .pace-activity {
+ border-top-color: #1E92FB; /*上边框颜色*/
+ border-left-color: #1E92FB; /*左边框颜色*/
+ }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="正则表达式是对字符串操作的一种逻辑公式，就是事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符”，这个“规则字符”来表达对字符的一种过滤逻辑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式（五）">
+<meta property="og:url" content="http://yoursite.com/2020/09/01/正则表达式（五）/index.html">
+<meta property="og:site_name" content="Zhou&#39;Note">
+<meta property="og:description" content="正则表达式是对字符串操作的一种逻辑公式，就是事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符”，这个“规则字符”来表达对字符的一种过滤逻辑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-10-19T05:56:43.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式（五）">
+<meta name="twitter:description" content="正则表达式是对字符串操作的一种逻辑公式，就是事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符”，这个“规则字符”来表达对字符的一种过滤逻辑">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/01/正则表达式（五）/">
+
+
+
+
+
+  <title>正则表达式（五） | Zhou'Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com" class="github-corner" aria-label="View source on GitHub">
+	<svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z">
+	</path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+	</path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhou'Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to Zhou'Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/正则表达式（五）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式（五）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-01T17:35:41+08:00">
+                2020-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>正则表达式是对字符串操作的一种逻辑公式，就是事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符”，这个“规则字符”来表达对字符的一种过滤逻辑<br><a id="more"></a><br>正则并不是python独有的，其他语言也都有正则。python中的正则，封装了re模块.</p>
+<h4 id="匹配字符串的几个方法"><a href="#匹配字符串的几个方法" class="headerlink" title="匹配字符串的几个方法"></a>匹配字符串的几个方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">s = &apos;besttest is good&apos;</span><br><span class="line">print(re.match(&apos;best&apos;, s))</span><br><span class="line"># match方法接收3个参数，第一个是匹配的规则，也就是正则表达式，第二个是要查找的字符串，</span><br><span class="line"># 第三个参数不是必填的，用于控制正则表达式的匹配方式，看下面正则表达式的匹配模式。是从字符串的第一个单词中匹配字符串，如果匹配到返回一个对象，如果匹配不到，则返回None</span><br><span class="line"># &gt;&gt;&gt;&lt;_sre.SRE_Match object; span=(0, 4), match=&apos;best&apos;&gt;</span><br><span class="line">print(re.search(&apos;best&apos;, s))</span><br><span class="line"># search方法的参数和match一样，和match方法不一样的是，match是从字符串里面的第一个单词里面找，而search方法则是从字符串的整个内容里面找，如果找到了就返回第一个，找不到就返回None</span><br><span class="line"># &gt;&gt;&gt; &lt;_sre.SRE_Match object; span=(0, 4), match=&apos;best&apos;&gt;</span><br><span class="line">print(re.findall(&apos;best&apos;, s))</span><br><span class="line"># findall方法的参数上面的match、search一样，和他们不一样的是，findall会返回所有一个list，把所有匹配到的字符串，放到这个list里面，如果找不到的话，就返回一个空的list</span><br><span class="line"># &gt;&gt;&gt; [&apos;best&apos;]</span><br><span class="line">print(re.sub(&apos;best&apos;, &apos;Best&apos;, s))</span><br><span class="line"># sub方法和字符串的replace方法一样，是用来替换字符串的，把匹配到的值替换成一个新的字符串，接收3个参数，第一个是正则表达式，第二个是要替换成什么，第三个就是要查找的字符串，会返回一个新的字符串，如果匹配不到的话，返回原来的字符串</span><br><span class="line"># &gt;&gt;&gt; Besttest is good</span><br><span class="line">print(re.split(&apos;best&apos;, s))</span><br><span class="line"># split 方法和字符串的split方法一样，是用来分割字符的，按照匹配到的字符串进行分割，返回的是一个list，如果匹配不到的话，那返回的list中还是原来的字符串</span><br><span class="line"># &gt;&gt;&gt; [&apos;&apos;, &apos;test is good&apos;]</span><br></pre></td></tr></table></figure>
+<h4 id="常用正则表达式符号"><a href="#常用正则表达式符号" class="headerlink" title="常用正则表达式符号"></a>常用正则表达式符号</h4><ul>
+<li><p>1.数量词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">#&apos;*&apos;     匹配*号前的字符0次或多次，只是*前面的一个字符</span><br><span class="line">print(re.findall(r&apos;be*&apos;,&apos;besttest very best&apos;))</span><br><span class="line"># [&apos;be&apos;]</span><br><span class="line">#&apos;+&apos;     匹配前一个字符1次或多次，只是+前面的一个字符</span><br><span class="line">print(re.findall(r&apos;st+&apos;,&apos;besttest is best&apos;))</span><br><span class="line">#[&apos;stt&apos;, &apos;st&apos;, &apos;st&apos;]</span><br><span class="line">#&apos;?&apos;     匹配前一个字符1次或0次,只是?前面的一个字符</span><br><span class="line">print(re.findall(r&apos;st?&apos;,&apos;besttest is best&apos;))</span><br><span class="line">#&apos;&#123;m&#125;&apos;   匹配前一个字符m次</span><br><span class="line">print(re.findall(r&apos;t&#123;2&#125;&apos;,&apos;besttest is best&apos;))</span><br><span class="line">#[&apos;tt&apos;]</span><br><span class="line">#&apos;&#123;n,m&#125;&apos; 匹配前一个字符n到m次</span><br><span class="line">print(re.findall(r&apos;t&#123;1,2&#125;&apos;,&apos;besttest is best&apos;))</span><br><span class="line"># [&apos;tt&apos;, &apos;t&apos;, &apos;t&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.一般字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"># &apos;.&apos;     默认匹配除\n之外的任意一个字符</span><br><span class="line">print(re.findall(r&apos;b.&apos;,&apos;besttest is good&apos;))</span><br><span class="line"># &apos;[....]&apos;,字符集合，</span><br><span class="line"># &gt;&gt;&gt; [&apos;be&apos;]</span><br><span class="line"># &gt;&gt;&gt; [&apos;st&apos;, &apos;st&apos;, &apos;s&apos;, &apos;st&apos;]</span><br><span class="line"># &apos;\&apos;   转译符，前面的* + ?这样的字符都有特殊含义了，如果你想就想找它的话，那就得转译了</span><br><span class="line"># 意思就是说如果你想让特殊字符失去以前的含义，那么就得给它前面加上\</span><br><span class="line">print(re.findall(r&apos;\?&apos;,&apos;besttest is best????&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;?&apos;, &apos;?&apos;, &apos;?&apos;, &apos;?&apos;]</span><br><span class="line"># &apos;|&apos;     匹配|左或|右的字符</span><br><span class="line">print(re.findall(r&apos;best|is&apos;,&apos;besttest is best&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;best&apos;, &apos;is&apos;, &apos;best&apos;]</span><br><span class="line"># &apos;[]&apos; 字符集合，某些字符的集合，匹配的时候是这个集合里面的任意一个就行</span><br><span class="line">print(re.findall(r&apos;be[stacj]&apos;,&apos;besttest is best bejson&apos;))</span><br><span class="line"># &gt;&gt;&gt;[&apos;bes&apos;, &apos;bes&apos;, &apos;bej&apos;]</span><br><span class="line"># 在[]里面如果用^的话代表取反，也就是不包括的这些字符串的</span><br><span class="line">print(re.findall(r&apos;be[^stac]&apos;,&apos;besttest is best bejson&apos;))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.边界匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"># &apos;^&apos;     匹配以什么字符开头,多行情况下匹配每一行的开头</span><br><span class="line">print(re.findall(r&apos;^b&apos;,&apos;besttest is good&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;b&apos;]</span><br><span class="line">print(re.findall(r&apos;^b&apos;,&apos;besttest is good\nbest&apos;,re.M))#多行模式</span><br><span class="line"># &gt;&gt;&gt; [&apos;b&apos;,&apos;b&apos;]</span><br><span class="line"># &apos;$&apos;     匹配以什么字符结尾,多行情况下匹配每一行的结尾</span><br><span class="line">print(re.findall(r&apos;d$&apos;,&apos;besttest is good&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;d&apos;]</span><br><span class="line">print(re.findall(r&apos;d$&apos;,&apos;besttest is good\nbest is good&apos;,re.M))#多行模式</span><br><span class="line">#  &gt;&gt;&gt;[&apos;d&apos;,&apos;d&apos;]</span><br><span class="line"># &apos;\A&apos; 仅以什么字符开头，和^不同的是它不能用多行模式</span><br><span class="line">print(re.findall(r&apos;\Ab&apos;,&apos;besttest is good&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;b&apos;]</span><br><span class="line"># &apos;\Z&apos; 仅以什么字符结尾，和$不同的是它不能用多行模式</span><br><span class="line">print(re.findall(r&apos;d\Z&apos;,&apos;besttest is good&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;d&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.预定义字符集合</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"># &apos;\d&apos;  匹配数字0-9</span><br><span class="line">print(re.findall(r&apos;\d+&apos;,&apos;sdf2342312sdfs&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;2342312&apos;]</span><br><span class="line"># &apos;\D&apos;    匹配非数字</span><br><span class="line">print(re.findall(r&apos;\D&apos;,&apos;sdf2342312sdfs&apos;))</span><br><span class="line"># &gt;&gt;&gt;[&apos;sdf&apos;, &apos;sdfs&apos;]</span><br><span class="line"># &apos;\w&apos;    匹配[A-Za-z0-9],也就是所有的字母和数字</span><br><span class="line">print(re.findall(r&apos;\w&apos;,&apos;sdf234%^2312sdfs&amp;&apos;))</span><br><span class="line"># &gt;&gt;&gt;[&apos;sdf234&apos;, &apos;2312sdfs&apos;]</span><br><span class="line"># &apos;\W&apos; 匹配不是[A-Za-z0-9]，也就是不是字母和数字</span><br><span class="line">print(re.findall(r&apos;\W&apos;,&apos;sdf234%^2312sdfs&amp;&apos;))</span><br><span class="line"># &gt;&gt;&gt;[&apos;%&apos;, &apos;^&apos;, &apos;&amp;&apos;]</span><br><span class="line"># &apos;\s&apos; 匹配空白字符、\t、\n、\r,空格</span><br><span class="line">print(re.findall(&apos;\s&apos;,&apos;axss\n\tsdf\t\r\t&apos;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;\n&apos;, &apos;\t&apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\t&apos;]</span><br><span class="line"># &apos;\S&apos;匹配空白字符,不是\t、\n、\r,空格</span><br><span class="line">print(re.findall(&apos;\s&apos;,&apos;axss\n\tsdf\t\r\t&apos;))</span><br><span class="line"># &gt;&gt;&gt;[&apos;\n&apos;, &apos;\t&apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\t&apos;]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>5.分组匹配</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"># &apos;(...)&apos; 分组匹配，把某些规则写成在一个组里，这样就可以直接对这个进行一些匹配了，举个例子的话，如果要匹配ip地址的话</span><br><span class="line"># ip地址是类似这样的192.168.5.1，每一位都是1位或者3位的数字然后后面有个点正常写的话,得这么写</span><br><span class="line">print(re.findall(r&apos;\d&#123;1,3&#125;.\d&#123;1,3&#125;.\d&#123;1,3&#125;.\d&#123;1,3&#125;&apos;,&quot;192.168.1.3&quot;))</span><br><span class="line"># &gt;&gt;&gt; [&apos;192.168.1.3&apos;]</span><br><span class="line"># 这样写的话，有点麻烦了，通过上面的我们可以发现规律，除了第一个后面的全都是&apos;.\d&#123;1,3&#125;&apos;，写重复的代码就是低级的，这样的话就可以用分组了</span><br><span class="line"># 就把&apos;.\d&#123;1,3&#125;&apos;当做一个整体，然后让他们出现3次就ok了，可以改成下面这样的</span><br><span class="line">print(re.search(r&apos;\d&#123;1,3&#125;(.\d&#123;1,3&#125;)&#123;3&#125;&apos;,&quot;192.168.1.3&quot;).group())#这个是用search方法的，结果和上面的一样的</span><br><span class="line"># &gt;&gt;&gt; 192.168.1.3</span><br><span class="line">print(re.findall(r&apos;\d&#123;1,3&#125;(.\d&#123;1,3&#125;)&#123;3&#125;&apos;,&quot;192.168.1.3&quot;))#咱们继续用findall方法，发现结果是下面的</span><br><span class="line"># &gt;&gt;&gt; [&apos;.3&apos;]</span><br><span class="line"># 为啥会这样呢，用match方法和search方法都是正常的，findall方法这里有个坑，就是如果findall方法里面有分组的话，那结果就只是分组里面的内容</span><br><span class="line"># ，如果想让结果正确的话就在分组最前面写上&apos;?:&apos;，一个问号和一个冒号就好了，启用“不捕捉模式”</span><br><span class="line">print(re.findall(r&apos;\d&#123;1,3&#125;(?:.\d&#123;1,3&#125;)&#123;3&#125;&apos;,&quot;192.168.1.3&quot;))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+       <div>
+      
+      <div>  <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>  </div>
+
+
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/31/requests模块使用（四）/" rel="next" title="requests模块使用（四）">
+                <i class="fa fa-chevron-left"></i> requests模块使用（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/03/BeautifulSoup库（六） /" rel="prev" title="BeautifulSoup库（六）">
+                BeautifulSoup库（六） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg" alt="zhoumingyan">
+            
+              <p class="site-author-name" itemprop="name">zhoumingyan</p>
+              <p class="site-description motion-element" itemprop="description">You never know what you can do till you try</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.testwo.com" title="测试窝" target="_blank">测试窝</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/fnng/" title="虫师博客" target="_blank">虫师博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.testtao.com" title="测试之道" target="_blank">测试之道</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ltesting.net" title="领测国际" target="_blank">领测国际</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51testing.com" title="软件测试网" target="_blank">软件测试网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51ste.com" title="软件测试部落" target="_blank">软件测试部落</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chinatesting.cn" title="中国测试平台" target="_blank">中国测试平台</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.btestingsky.com/" title="软件测试空间" target="_blank">软件测试空间</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配字符串的几个方法"><span class="nav-number">1.</span> <span class="nav-text">匹配字符串的几个方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用正则表达式符号"><span class="nav-number">2.</span> <span class="nav-text">常用正则表达式符号</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhoumingyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">  个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客 &mdash; Copyright zhoumingyan </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":250,"height":650},"mobile":{"show":true},"log":false});</script></body>
+</html>
