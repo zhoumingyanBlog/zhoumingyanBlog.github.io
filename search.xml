@@ -18,10 +18,10 @@
   </entry>
   <entry>
     <title><![CDATA[PyMysql（十）]]></title>
-    <url>%2F2020%2F09%2F16%2FPyMysql%2F</url>
+    <url>%2F2020%2F09%2F16%2FPyMysql(%E5%8D%81)%2F</url>
     <content type="text"><![CDATA[pymysql是纯用Python操作MySQL的模块，其使用方法和MySQLdb几乎相同。此次介绍mysql以及在python中如何用pymysql操作数据库, 以及在mysql中存储过程, 触发器以及事务的实现, 对应到pymysql中应该如何操作。 1.准备 首先通过mysql客户端或命令行创建一个数据库user 1CREATE DATABASE USER 然后，在这个数据库下创建一张简单的表people 接着创建几个字段：id，name，age，其中id为主键 123456CREATE TABLE `people` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(10) NOT NULL, `age` varchar(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8; 2.安装pymysql 用pip安装依赖 1pip install pymysql 连接数据库，获取数据连接对象及游标对象 使用pymysql中的connect()方法，传入数据库的HOST地址，端口号，用户名，密码，待操作数据库的名称，即可以获取数据库的连接对象 然后再通过连接对象，获取执行数据库具体操作的游标对象 1234567import pymysql#数据库连接db=pymysql.connect(host=&apos;localhost&apos;, port=3306,user=&apos;root&apos;,password=&apos;root&apos;,database=&apos;user&apos;)#获取游标cursor=db.cursor() 接着，来实现增删改查操作 1.新增 新增包含新增单条数据和多条数据 对于单条数据的插入，只需要编写一条插入的SQL语句，然后作为参数执行上面游标对象的execute(sql)方法，最后使用数据库连接对象的commit()方法将数据提交到数据中]]></content>
       <categories>
-        <category>python</category>
+        <category>爬虫</category>
       </categories>
   </entry>
   <entry>
@@ -193,6 +193,61 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[Jmeter断言]]></title>
+    <url>%2F2020%2F01%2F19%2FJmeter%E6%96%AD%E8%A8%80%2F</url>
+    <content type="text"><![CDATA[Jmeter中有个元件叫做断言（Assertion），它的作用和loadrunner中的检查点类似；用于检查测试中得到的响应数据等是否符合预期，用以保证性能测试过程中的数据交互与预期一致。Jmeter里面的检查点通过添加断言来完成，上一章讲到，我们对用户名和密码进行了参数化，那么怎么来判断Jmeter有没有正确调用user.txt里面的文件呢，我们可以在登录这个地方添加断言来进行检查 1、 添加响应断言，右键点击要断言的那个接口—-&gt;添加—-&gt;断言—-&gt;响应断言 2、 设置响应断言 3、添加断言结果，右键点击登录接口—-&gt;添加—-&gt;监听器—-&gt;断言结果 再添加一个“察看结果树” 右键点击登录接口—-&gt;添加—-&gt;监听器—-&gt;察看结果树 在线程组中设置用户数量（我有6个用户，所以我的设置为6），点击运行. 4、查看断言结果 1)、断言成功，如下图： 2）、若断言失败，如下图： 注意：一般成功只会显示一行数据，否则会多显示一行。 5、再察看结果树 至此，检查点设置完成。]]></content>
+      <categories>
+        <category>Jmeter</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jmeter参数化]]></title>
+    <url>%2F2020%2F01%2F18%2FJmeter%E5%8F%82%E6%95%B0%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[Jmeter参数化的四种方法介绍： 一、CSV数据配置文件 在测试的过程中我们需要批量的随机性数据，比如测试登录需要用到大量的用户名及对应的密码，我们将需要的数据写在txt（或csv，dat）文件中，并在Jmeter中读取这个文件中的数据。 这里我新建一个user.txt文件，并用notepad++编辑工具打开编辑（文件编码格式为utf-8），编码问题在使用CSV Data Set Config参数化时要求的比较严格，按照JMeter读取csv文件的逻辑，每次读取一行参数，一行代表一组参数。 注意用户名和密码是一一对应的，中间用户逗号（,）隔开。 接下来在需要用到参数的接口上右键添加—配置元件–CSV数据文件设置 配置内容如下： 变量名称：待会调用时用到的名称忽略首行：是否忽略csv文件中的首行内容分隔符：一般使用英文逗号 1、使用变量 在需要使用的接口中，将参数值改为变量,变量名称为CSV数据文件设置里填写的变量名称。 2、设置线程数及循环次数 3、运行，察看结果树，整个参数化过程完成。 二、借助函数助手的方式： 点击菜单栏“Tools”–&gt;函数助手对话框， 复制生成的参数化函数，打开要使用参数化的接口页面，找到我们要参数化的字段，这里对用户名和密码做参数化，第一列是用户名，列号为0；第二列是密码，列号为1；修改函数中对应的参数化字段列号就可以啦。 好了，现在我们的参数化设置完成，在脚本的时候，会调用我们D:\apache-jmeter-5.1.1盘下面的user.txt文件，第一列是用户名，第二列是密码。运行，察看结果树，即可和上面操作的结果一致。 三、用户参数添加-前置处理器-用户参数可以添加多个变量或者参数 四、用户自定义变量 线程组右键添加—配置元件—用户定义的变量 以上就是jmeter参数化的四种方式，其中：1、 CSV Data Set Config:CSV配置文件，适用于参数取值范围较大的时候使用，该方法具有更大的灵活性；2、 函数助手_CSVRead的参数化，功能相比CSV Data Set Config较弱；3、 User Variables:用户参数，适用于参数取值范围很小的时候使用；4、 User Defined Variables:用户自定义变量，一般用于test plan中不需要随请求迭代的参数设置；]]></content>
+      <categories>
+        <category>Jmeter</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jmeter连接mysql数据库]]></title>
+    <url>%2F2020%2F01%2F17%2FJmeter%E8%BF%9E%E6%8E%A5mysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[1、下载数据库驱动，放至D:\apache-jmeter-5.1.1\lib\ext目录下 2、在顶层目录《测试计划》中加载驱动，点击【浏览】按钮，在jmeter/lib目录下选择mysql驱动包。如图所示： 3、新增线程组，右键添加-&gt;配置元件-&gt; JDBC Connection Configuration 4、配置数据库信息1）Variable Name数据库变量名，不能为空，后续JDBC Request中会用到这个值2）DataBase URL 格式为：jdbc:mysql://服务器ip:端口号/数据库名称3）JDBC Driver Class：com.mysql.jdbc.Driver4）输入连接的数据库用户名和密码 5、线程组右键添加-取样器-JDBC Request 6、添加变量和查询语句Variable Name：数据库变量名，必须和JDBC Connection Configuration中的Variable Name保持一致 按照下面的操作执行，执行单条sql语句时可以执行成功，执行多条的时候，报错了，这时需要配置数据库信息DataBase URL那里在数据库后加参数?allowMultiQueries=true,就可同时执行多条mysql语句；否则报错 7、执行查询语句 可以看到上方写的两条查询sql脚本已经能够查询出数据。]]></content>
+      <categories>
+        <category>Jmeter</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jmeter常用快捷键]]></title>
+    <url>%2F2020%2F01%2F16%2FJmeter%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[JMeter常用快捷键： Ctrl + C 复制 Ctrl + V 粘贴 Ctrl + Shift + C 复制粘贴当前组件到下一行Ctrl + R 运行测试计划 Ctrl + E 清空运行结果 Ctrl + T 启用/禁用当前组件 Ctrl + F 全文搜索 Ctrl + - 全部收起 Ctrl + Shift + - 全部展开 Ctrl + 0 创建线程组 Ctrl + 1 新增HTTP请求 Ctrl + 2 正则表达式提取器 Ctrl + 3 响应断言 Ctrl + 4 固定定时器 Ctrl + 5 Test Action Ctrl + 7 JSR223 PreProcessor Ctrl + 8 Debug Sampler Ctrl + 9 查看结果树]]></content>
+      <categories>
+        <category>Jmeter</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jmeter介绍]]></title>
+    <url>%2F2020%2F01%2F16%2FJmeter%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[一、Jmeter简介 Apache JMeter是100%纯JAVA桌面应用程序，被设计为用于测试客户端/服务端结构的软件(例如web应用程序)。它可以用来测试静态和动态资源的性能，例如：静态文件，Java Servlet,CGI Scripts,Java Object,数据库和FTP服务器等等。JMeter可用于模拟大量负载来测试一台服务器，网络或者对象的健壮性或者分析不同负载下的整体性能。 同时，JMeter可以帮助你对你的应用程序进行回归测试。通过你创建的测试脚本和assertions来验证你的程序返回了所期待的值。为了更高的适应性，JMeter允许你使用正则表达式来创建这些assertions. 二、安装Jmeter运行环境安装JDK下载地址：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html JDK环境变量配置 a、安装JDK 选择安装目录 安装过程中会出现两次 安装提示 。第一次是安装 jdk ，第二次是安装 jre 。建议两个都安装在同一个java文件夹中的不同文件夹中。（不能都安装在java文件夹的根目录下，jdk和jre安装在同一文件夹会出错）正确的安装如下图所示 b、安装完JDK后配置环境变量 计算机→右键属性→高级系统设置→高级→环境变量 c、系统变量→新建 JAVA_HOME 变量 变量值填写上面安装jdk的安装目录，这里注意根据自己安装的路径来写，不是都一样（本人是 C:\Program Files\Java\jdk1.8.0_101)所以填的这个路径。 d、系统变量→寻找 Path 变量→编辑 在变量值最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;（注意原来Path的变量值末尾有没有;号，如果没有的话，记得要先输入；号再输入上面的代码） e、系统变量→新建 CLASSPATH 变量 变量值填写.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（注意最前面有一点）系统变量配置完毕 f、检验是否配置成功运行cmd 输入 java -version （java 和 -version 之间有空格） 若如图所示 显示版本信息 则说明安装和配置成功。 安装JMeter下载最新版本的JMeter，解压缩到本地任意目录，下载地址如下： http://jmeter.apache.org/download_jmeter.cgi 运行JMeter a) 进入bin目录运行jmeter.bat启动JMeter b) 注意：打开的时候会有两个窗口，JMeter的命令窗口和JMeter的图形操作界面，不可以关闭命令窗口。 c) Jmeter默认为英文界面，可通过修改安装路径下bin目录下的 jmeter.properties中#language=en所在的第37行修改为language=zh_CN（记得去掉注释#）重启后即为中文界面]]></content>
+      <categories>
+        <category>Jmeter</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDLE如何清屏]]></title>
     <url>%2F2019%2F04%2F10%2FIDLE%E5%A6%82%E4%BD%95%E6%B8%85%E5%B1%8F%2F</url>
     <content type="text"><![CDATA[IDLE如何清屏1、下载ClearWindow.py（最下面有代码，保存为ClearWindow.py）。 2、拷贝ClearWindow.py文件，放在Python安装目录Python XXX\Lib\idlelib下面（XXX为你的python版本）。3、记事本打开Python XXX\Lib\idlelib目录下的config-extensions.def（IDLE扩展的配置文件）， 为防止出错，你可以在打开它之前先copy一个备份 。 4、修改config-extensions.def ，在末尾添加如下内容，然后保存退出：123456[ClearWindow]enable=1enable_editor=0enable_shell=1[ClearWindow_cfgBindings]clear-window=&lt;Control-Key-;&gt; 5、打开Python的IDLE，options选项中就可以看到增加了Clear shell window ctrl+;。 6、在IDLE输入代码，然后按Ctrl+;（是指Ctrl和;），发现刚输入代码可以被清除了。 ClearWindow.py 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980"""Clear Window ExtensionVersion: 0.2Author: Roger D. Serwy roger.serwy@gmail.comDate: 2009-06-14It provides "Clear Shell Window" under "Options"with ability to undo.Add these lines to config-extensions.def[ClearWindow]enable=1enable_editor=0enable_shell=1[ClearWindow_cfgBindings]clear-window=&lt;Control-Key-l&gt;"""class ClearWindow: menudefs = [ ('options', [None, ('Clear Shell Window', '&lt;&lt;clear-window&gt;&gt;'), ]),] def __init__(self, editwin): self.editwin = editwin self.text = self.editwin.text self.text.bind("&lt;&lt;clear-window&gt;&gt;", self.clear_window2) self.text.bind("&lt;&lt;undo&gt;&gt;", self.undo_event) # add="+" doesn't work def undo_event(self, event): text = self.text text.mark_set("iomark2", "iomark") text.mark_set("insert2", "insert") self.editwin.undo.undo_event(event) # fix iomark and insert text.mark_set("iomark", "iomark2") text.mark_set("insert", "insert2") text.mark_unset("iomark2") text.mark_unset("insert2") def clear_window2(self, event): # Alternative method # work around the ModifiedUndoDelegator text = self.text text.undo_block_start() text.mark_set("iomark2", "iomark") text.mark_set("iomark", 1.0) text.delete(1.0, "iomark2 linestart") text.mark_set("iomark", "iomark2") text.mark_unset("iomark2") text.undo_block_stop() if self.text.compare('insert', '&lt;', 'iomark'): self.text.mark_set('insert', 'end-1c') self.editwin.set_line_and_column() def clear_window(self, event): # remove undo delegator undo = self.editwin.undo self.editwin.per.removefilter(undo) # clear the window, but preserve current command self.text.delete(1.0, "iomark linestart") if self.text.compare('insert', '&lt;', 'iomark'): self.text.mark_set('insert', 'end-1c') self.editwin.set_line_and_column() # restore undo delegator self.editwin.per.insertfilter(undo)]]></content>
@@ -212,14 +267,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[测试基础]]></title>
-    <url>%2F2019%2F01%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[一、软件测试目标 基于软件测试的目标，站在不同的立场，有两种完全不同的观点。从用户的角度出发，用户普遍希望通过软件测试暴露软件中隐藏的错误和缺陷，以考虑是否可以接受该产品；那么从软件开发者的角度来说，他们希望测试成为表名软件中不存在错误的过程，验证该软件已正确的实现了用户的要求，确立人们对软件质量的信心。 由于一个软件产品不可能完全正确，没有bug,如果只是为了表明软件产品中不存在错误，那么这样的软件测试对于软件质量的提高和功能的完善没有任何的帮助。所以，归根到底，软件测试就是为了发现软件产品中错误和缺陷，然后软件开发人员对错误和缺陷进行修复，提高软件的质量，最后提交一个满足用户需求的软件产品。 《软件测试艺术》中有这样的观点： 软件测试是程序的执行过程，目的在于发现错误 测试是为了证明程序有错，而不是证明程序无错误 一个好的测试用例在于能发现至今未发现的错误 一个成功的测试是发现了至今未发现的错误的测试]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[换了电脑如何使用hexo继续写博客]]></title>
     <url>%2F2019%2F01%2F02%2F%E6%8D%A2%E4%BA%86%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[电脑中病毒了，换了系统，无法使用hexo再发布文章到个人博客，百度找教程0.0特此记录一下，万一哪天又中病毒了呢！ 一、安装必要软件 安装Git客户端 安装node.js 二、原文件拷贝将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如D:/Blog目录下），注意无需拷全部，只拷如下几个目录：12345config.ymlpackage.jsonscaffolds/source/themes/ 三、安装 hexo在 cmd 下输入下面指令安装 hexo：1npm install hexo-cli -g 四、进入 D:/Blog 目录（你拷贝到新电脑的目录），输入下面指令安装相关模块12npm installnpm install hexo-deployer-git --save // 文章部署到 git 的模块 五、在github官网添加新电脑产生的秘钥 Github 添加 SSH Keys 首先在本地创建 SSH Keys:1$ ssh-keygen -t rsa -C "15754367707@163.com" 后面的邮箱即为 github 注册邮箱，也是登录 Github 的邮箱，之后会要求确认路径和输入密码，一路回车就行。 成功的话会在 ~/下生成 .ssh文件夹，进去，打开 id_rsa.pub，复制里面的key即可。 输入 eval “$(ssh-agent -s)” ，添加密钥到ssh-agent，再输入 ssh-add ~/.ssh/id_rsa ，添加生成的SSH key到ssh-agent 然后我们再次测试下公钥有没有添加成功：ssh -T git@github.com 六、测试 这时候使用 hexo s 基本可以看到你新添加的文章了。 七、部署发布文章123hexo clean // 清除缓存 网页正常情况下可以忽略此条命令hexo g // 生成静态网页hexo d // 开始部署]]></content>
@@ -231,25 +278,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JMeter学习(二)元件的作用域与执行顺序]]></title>
-    <url>%2F2018%2F07%2F15%2FJMeter%E5%AD%A6%E4%B9%A0-%E4%BA%8C-%E5%85%83%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%2F</url>
-    <content type="text"><![CDATA[一、元件的作用域&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JMeter中共有8类可被执行的元件（测试计划与线程组不属于元件），这些元件中，取样器是典型的不与其它元件发生交互作用的元件，逻辑控制器只对其子节点的取样器有效，而其它元件（config elements 、timers 、post-processors、assertions、listeners、）需要与取样器（sampler）等元件交互。 配置元件（config elements ） 元件会影响其作用范围内的所有元件。 前置处理程序（Per-processors） 元件在其作用范围内的每一个sampler元件之前执行。 定时器（timers ） 元件对其作用范围内的每一个sampler 有效。 后置处理程序（Post-processors） 元件在其作用范围内的每一个sampler元件之后执行。 断言（Assertions） 元件对其作用范围内的每一个sampler 元件执行后的结果执行校验。 监听器（Listeners） 元件收集其作用范围的每一个sampler元件的信息并呈现。 在Jmeter中，元件的作用域是靠测试计划的的树型结构中元件的父子关系来确定的，作用域的原则是： 取样器（sampler）元件不和其它元件相互作用，因此不存在作用域的问题。逻辑控制器（Logic Controller）元件只对其子节点中的取样器 和 逻辑控制器作用。除取样器 和逻辑控制器 元件外，其他6类元件，如果是某个sampler的子节点，则该元件公对其父子节点起作用。除取样器和逻辑控制器元件外的其他6类元件，如果其父节点不是sampler ，则其作用域是该元件父节点下的其他所有后代节点（包括子节点，子节点的子节点等）。 二、元件的执行顺序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;了解了元件有作用域之后，来看看元件的执行顺序，元件执行顺序的规则很简单，在同一作用域名范围内，测试计划中的元件按照如下顺序执行。 （1）配置元件（config elements ） （2）前置处理程序（Per-processors） （3）定时器（timers ） （4）取样器（Sampler） （5）后置处理程序（Post-processors） （除非Sampler 得到的返回结果为空）。 （6）断言（Assertions）（除非Sampler 得到的返回结果为空）。 （7）监听器（Listeners）（除非Sampler 得到的返回结果为空）。 关于执行顺序，有三点需要注意： 前置处理器、后置处理器和断言等元件只能对 取样器作用，因此，如果在它们的作用域内没有任何取样器，则不会被执行。 如果在同一作用域范围内有多个同一类型的元件，则这些元件按照它们在测试计划中的上下顺序一次执行。 一个断言在测试树中是分等级的。如果它的父元件是请求，它就被应用于那个请求。如果它的父元件是控制器，它就影响所有那个控制器下的所有请求。]]></content>
+    <title><![CDATA[端口被占用问题]]></title>
+    <url>%2F2018%2F11%2F15%2F%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[当我们同时安装了Oracle和Tomcat的时候，Tomcat启动时就会报错说端口被占用了。那么如何来解决呢?两种方法： 第一种方法就是修改我们的Tomcat的端口号，改成其他不冲突的即可。方便简单 第二种方法就是结束当前占用端口的进程，下面是具体步骤： 以我电脑进程为例： 1.打开cmd 输入 netstat -ano|findstr 8080 //说明：查看占用8080端口的进程 2.接着输入 taskkill /pid 2956 /f 2956是占用端口的进程 //说明：结束掉占用端口号的进程 但是呢这种方法只能是一时的，下次启动还是会占用的。个人认为修改端口较好。一次解决。]]></content>
       <categories>
-        <category>JMeter</category>
+        <category>问题+解决方法记录</category>
       </categories>
       <tags>
-        <tag>JMeter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[JMeter学习(一)工具简单介绍]]></title>
-    <url>%2F2018%2F07%2F14%2FJMeter%E5%AD%A6%E4%B9%A0-%E4%B8%80-%E5%B7%A5%E5%85%B7%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%2F</url>
-    <content type="text"><![CDATA[一、JMeter 介绍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache JMeter是100%纯JAVA桌面应用程序，被设计为用于测试客户端/服务端结构的软件(例如web应用程序)。它可以用来测试静态和动态资源的性能，例如：静态文件，Java Servlet,CGI Scripts,Java Object,数据库和FTP服务器等等。JMeter可用于模拟大量负载来测试一台服务器，网络或者对象的健壮性或者分析不同负载下的整体性能。同时，JMeter可以帮助你对你的应用程序进行回归测试。通过你创建的测试脚本和assertions来验证你的程序返回了所期待的值。为了更高的适应性，JMeter允许你使用正则表达式来创建这些assertions. JMeter与LoadRunner比较&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JMeter 是一款开源(有着典型开源工具特点：界面不美观)测试工具，虽然与LoadRunner相比有很多不足，比如：它结果分析能力没有LoadRunner详细；但它的优点也有很多： 开源，它是一款开源的免费软件，使用它你不需要支付任何费用， 小巧，相比LR的庞大（最新LR11将近4GB），它非常小巧，不需要安装，但需要JDK环境，因为它是使用java开发的工具。 功能强大，jmeter设计之初只是一个简单的web性能测试工具，但经过不段的更新扩展，现在可以完成数据库、FTP、LDAP、WebService等方面的测试。因为它的开源性，当然你也可以根据自己的需求扩展它的功能。两者最大的区别：jmeter不支持IP欺骗，而LR支持。JMeter缺点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用JMeter无法验证JS程序，也无法验证页面UI，所以必须要和Selenium配合来完成Web2.0应用的测试。 二、JMeter 下载安装1）JMeter安装 http://jmeter.apache.org/下载最新版本的JMeter，解压文件到任意目录 安装JDK，配置环境变量JAVA_HOME. 系统要求：JMeter2.11 需要JDK1.6以上的版本支持运行 JMeter可以运行在如下操作系统上：Unix，Windows和Open VMS. 避免在一个有空格的路径安装JMeter，这将导致远程测试出现问题。 2）JMeter插件安装 插件下载地址： http://jmeter-plugins.org/downloads/all/ 插件下载后解压：找到JMeterPlugins-Extras.jar,把JMeterPlugins-Extras.jar放到apache-jmeter-2.12\lib\ext目录。 三、JMeter 运行 进入bin目录运行jmeter.bat启动jmeter 注意：打开的时候会有两个窗口，JMeter的命令窗口和JMeter的图形操作界面，不可以关闭命令窗口。 JMeter的classpath: 如果你想添加其他JAR文件到JMeter的classpath中，你必须复制他们到lib目录中; 如果你开发了一个JMeter特定组件或有效的jar文件，复制到lib目录下的ext目录中。 打开之后显示的是中文，如果你想使用其他语言，比如英文，那么通过菜单选项-&gt;选择语言-&gt;英文即可，当然转为中文也是同样操作。 四、JMeter 测试计划元件打开Jmeter页面：包括测试计划。 1、Test Plan (测试计划) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用来描述一个性能测试，包含与本次性能测试所有相关的功能。也就说本的性能测试的所有内容是于基于一个计划的。 右键单击“测试计划”弹出菜单 2、Threads（Users）线程 用户 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虽然有三个添加线程组的选项，名字不一样， 创建之后，其界面是完全一样的。之前的版本只有一个线程组的名字。现在多一个setUp theread Group 与terDown Thread Group 1) setup thread group &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一种特殊类型的ThreadGroup的，可用于执行预测试操作。这些线程的行为完全像一个正常的线程组元件。不同的是，这些类型的线程执行测试前进行定期线程组的执行。 setUp Thread Group类似于lr的init.可用于执行预测试操作。 2) teardown thread group. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一种特殊类型的ThreadGroup的，可用于执行测试后动作。这些线程的行为完全像一个正常的线程组元件。不同的是，这些类型的线程执行测试结束后执行定期的线程组。 tearDown Thread Group类似于lr的end.可用于执行测试后动作。 3) thread group(线程组). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个就是我们通常添加运行的线程。通俗的讲一个线程组,，可以看做一个虚拟用户组，线程组中的每个线程都可以理解为一个虚拟用户。线程组中包含的线程数量在测试执行过程中是不会发生改变的。 3、测试片段（Test Fragment） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测试片段元素是控制器上的一个种特殊的线程组，它在测试树上与线程组处于一个层级。它与线程组有所不同，因为它不被执行，除非它是一个模块控制器或者是被控制器所引用时才会被执行。 控制器 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JMeter有两种类型的控制器：取样器（sample）和逻辑控制器（Logic Controller），用这些原件来驱动处理一个测试。 4、取样器（Sampler） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取样器（Sampler）是性能测试中向服务器发送请求，记录响应信息，记录响应时间的最小单元，JMeter 原生支持多种不同的sampler ， 如 HTTP Request Sampler 、 FTP Request Sampler 、TCP Request Sampler 、 JDBC Request Sampler 等，每一种不同类型的 sampler 可以根据设置的参数向服务器发出不同类型的请求。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Jmeter的所有Sampler中，Java Request Sampler与BeanShell Requst Sampler是两种特殊的可定制的Sampler. 5、逻辑控制器（Logic Controller） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;逻辑控制器，包括两类无件，一类是用于控制test plan 中 sampler 节点发送请求的逻辑顺序的控制器，常用的有 如果（If）控制器 、 switch Controller 、Runtime Controller、循环控制器等。另一类是用来组织可控制 sampler 来节点的， 如 事务控制器、吞吐量控制器。 6、配置元件（Config Element） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置元件（config element）用于提供对静态数据配置的支持。CSV Data Set config 可以将本地数据文件形成数据池 （Data Pool），而对应于HTTP Request Sampler和 TCP Request Sampler等类型的配制无件则可以修改 Sampler的默认数据。 例如，HTTP Cookie Manager 可以用于对 HTTP Request Sampler 的 cookie 进行管理。 HTTP 请求默认值不会触发Jmeter发送http请求，而只是定义HTTP请求的默认属性。 7、定时器（Timer） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定时器（Timer）用于操作之间设置等待时间，等待时间是性能测试中常用的控制客户端QPS的手段。类似于LoadRunner里面的“思考时间”。 JMeter 定义了Bean Shell Timer、Constant Throughput Timer、固定定时器等不同类型的Timer。 8、前置处理器（Per Processors） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前置处理器用于在实际的请求发出之前对即将发出的请求进行特殊处理。例如，HTTP URL重写修复符则可以实现URL重写，当RUL中有sessionID 一类的session信息时，可以通过该处理器填充发出请求的实际的sessionID 。 9、后置处理器（Post Processors） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后置处理器是用于对Sampler 发出请求后得到的服务器响应进行处理。一般用来提取响应中的特定数据（类似LoadRunner测试工具中的关联概念）。例如，XPath Extractor 则可以用于提取响应数据中通过给定XPath 值获得的数据;正则表达式提取器，则可以提取响应数据中通过正则表达式获得的数据。 10、断言（Assertions） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;断言用于检查测试中得到的相应数据等是否符合预期，断言一般用来设置检查点，用以保证性能测试过程中的数据交互是否与预期一致。 11、监听器（Listener） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个监听器可不是用来监听系统资源的元件。它是用来对测试结果数据进行处理和可视化展示的一系列元件。 图形结果、查看结果树、聚合报告、用表格察看结果都是我们经常用到的元件。]]></content>
-      <categories>
-        <category>JMeter</category>
-      </categories>
-      <tags>
-        <tag>JMeter</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -257,7 +293,7 @@
     <url>%2F2018%2F06%2F20%2Fwinscp%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E7%A0%814%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于使用winscp 上传文件发生错误码4的问题，各种百度找资料，最后的原因竟然是磁盘容量不足。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;换个物理分区，重新上传就好了。 所以下次遇到类似错误时，我觉得，对应磁盘的容量和权限也是一个排除的方向。]]></content>
       <categories>
-        <category>学习中遇到问题及解决方法</category>
+        <category>问题+解决方法记录</category>
       </categories>
       <tags>
         <tag>WinScp</tag>
@@ -267,6 +303,17 @@
     <title><![CDATA[查看Linux系统配置的命令]]></title>
     <url>%2F2018%2F06%2F09%2F%E6%9F%A5%E7%9C%8BLinux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[一：CPU1[root@zhoumingyan /]# cat /proc/cpuinfo 二：内存1[root@zhoumingyan /]# cat /proc/meminfo 三：查看CPU位数1231.[root@zhoumingyan /]# getconf LONG_BIT2.[root@zhoumingyan /]# uname -i 四：查看Linux版本121.[root@zhoumingyan /]# cat /etc/issue2.[root@zhoumingyan /]# cat /proc/version 五：查看内核版本1[root@zhoumingyan /]# uname -a 六：主机名1[root@zhoumingyan /]# hostname 七：查看selinux情况1[root@zhoumingyan /]# sestatus 八：网络 IP 1[root@zhoumingyan /]# ifconfig 网关 1[root@zhoumingyan /]# cat /etc/sysconfig/network DNS 1[root@zhoumingyan /]# cat /etc/resolv.conf 修改HOST文件 1[root@zhoumingyan /]# cat /etc/hosts 九：磁盘和分区1[root@zhoumingyan /]# df -h 十：查看键盘布局1[root@zhoumingyan /]# cat /etc/sysconfig/keyboard 十一：查看默认语言1[root@zhoumingyan /]#cat /etc/sysconfig/i18n 十二：查看文件或目录在磁盘空间的大小1[root@zhoumingyan /]#du -h]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux常用命令]]></title>
+    <url>%2F2018%2F06%2F09%2FLinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1.1 find功能：在linux文件系统中，用来查找一个文件放在哪里了。 举例：find /etc -name “interfaces” 总结： （1）什么时候用find？ 当你知道你要找的文件名，但是你忘记了它被放在哪个目录下，要找该文件时，用find. （2）怎么用find？123456find 路径 -name &quot;文件名&quot;find ./ -name 文件或文件夹名1.命令中的./ 指的是当前目录下，如果要整个系统下查找，可以用/即可；2.在其他目录下，就将./变为其他目录的绝对路径即可。 1.2 grep功能：在一个文本文件中，查找某个词 举例：grep -nr “SUN” * （1）什么时候用grep？ 当你想查找某个符号在哪些地方（有可能是一个文件，也可能是多个文件组成的文件夹）出现过，就用grep. （2）怎么用？ grep -nr “要查找的符号” 要查找的目录或文件集合 注意：-n表示查找结果中显示行号，-r表示要递归查找 1.3 which和whereis 功能：查找一个应用程序（二进制文件）在哪里 举例：which ls whereis ls(查找更详细) 区别：which 只显示二进制的路径 whereis显示二进制的路径，和其源码或man书册位置 1.4 uname 功能：查看系统信息 举例：123uname -a 查看系统所有信息 uname -n 网络结点名 uname -r 内核版本 1.5 开机和关机1234shutdown -h now 立即关机init 0 关机shutdown -r now 立即重启reboot 重启 1.6 tree/lstree 功能：显示文件和目录由根目录开始的树形结构 1.7 mount/umount 功能：用来挂载磁盘到文件系统中 举例：12mount -t nfs -o nolock 192.168.1.141:root/rootfs/mnt 挂载 umount /mnt 卸载 1.8 磁盘空间相关123df -h 显示已挂载的分区列表du -h 列出文件或文件夹的大小du -h 文件名 可以列出这个文件有多大，列出方式是以人比较好看懂的方式。不像ls -l 列出的都是以字节为单位。 1.9 用户管理123useradd user1 添加一个名为user1的用户userdel user1 删除一个名为user1的用户passwd user1 为名为user的用户设置密码 1.10 权限管理123chmod （change mode,修改文件权限）比较常用，要记得chown （change owner,修改属主）chgrp（change group,修改文件的组） ls -l 列出的属性 -rwxr-xr-x 一共10个字符，第一个表示文件属性（d表示文件夹，-表示普通文件），剩下的9个分成三组。每组中三个分别表示r可读w可写x可执行。如果是字母表示有这个权限，如果是-表示没有这个权限。三组分别表示：第一组表示文件属主的权限，第二组表示所属主所在的组用户的权限，第三组表示其他用户的权限。权限还有另一种表示方法，用数字来表示。 123456789编码规则如下：r 可读 4w 可写 2x 可执行 1- 无权限 0有了这个编码规则，则rwxr -xr-x 编码后为755第一种修改权限的方法：要把权限改成 rwxr--r--则对应的编码值为744修改命令为：chmod 744 文件名 第二种修改权限方法： 在原来的权限基础上进行修改，即增加或减少某权限。 三个组用户的编码依次为：属主u 属主所在的组g 其他用户o123456789譬如：要属主增加可执行权限 chmod u+x 文件名其他用户增加可执行权限 chmod o+w 文件名属主所在组用户去掉可执行权限 chmod g-x 文件名1.11 文件打包压缩与解压缩tar -czvf dir.tar.gz dir/ 将dir目录打包成dir.tar.gztar -cjvf dir.tar.bz2 dir/ 将dir目录打包成dir.tar.bz2tar -zxvf dir.tar.gz 解压缩dir.tar.gztar -jxvf dir.tar.bz2 解压缩dir.tar.bz2 1.12 sed和awk 正则表达式。匹配加替换 1.13 格式化文件系统12mkfs /dev/hd1mkfs -t vfat 32 -F /dev/hd1 创建一个FAT32文件系统 1.14 网络配置命令123456ifconfig eth0 192.168.1.13 设置IP地址ifconfig eth0 up 启动网卡ifconfig eth0 down 禁用网卡ifup eth0 启动网卡ifdown eth0 禁用网卡ifconfig eth0 192.168.1.1 netmask 255.255.255.0 同时设置IP和子网掩码 命令–help命令的简单帮助 man ==命令的复杂帮助 help ==命令的帮助（bash的内置命令） ls ==list，查看目录列表，-l(long)，-d(directory) mkdir ==make directory作用是创建目录，例如:mkdir /data -p 递归创建目录 cd ==change directory 作用切换路径，例如：cd / touch ==摸一下，作用是创建文件，例如：touch oldboy.txt vi ==编辑器，相当于记事本，有编辑功能，但较弱 vim ==复杂编辑器。相当于，emeditor editplus，notepad++ echo ==打印输出内容。配合“&gt;或&gt;&gt;”可以为文件覆盖及追加内容1echo&quot;oldboy oldgirl&quot;&gt;oldboy.txt cat ==查看文件内容 特殊用法：增加多行内容123456789101112cat &gt;&gt;/data/oldboy.txt&lt;&lt;EOFI am studing linux.EOFEOF要成对出现，EOF可以被任意成对内容替换cp ==copy 复制命令ctrl+c，例如：cp oldboy.txt /tmp/-r：递归，用于复制目录；-p保持属性-a: 相当于 -pdrcp==&apos;cp -i&apos; -i需要确认mv ==移动目录或文件，例如：mv /data/root/pwd ==print work directory 查看当前用户所在的路径rm ==remove 删除文件或目录 -f强制,-r删除目录 生产场景尽量不要使用rm，如果非要使用，一定要先cp等备份 替代方法： mv移动到一个临时目录。回收站。 find删除 1234567891011121314151617find /root/data -type f -exec rm -f &#123; &#125; \;find /root/data -type f |xargs rm -ffind ***** 查找-type 按文件类型查找，-name按照名字查找，查找的内容最好用双引号括起来，!取反。在 man find中搜索 输入/type 如果没搜到 按小写n继续搜 f代表文件 d代表目录&#123;&#125;：find找到的内容-exec到\：都是参数（它与额外命令之前后都要空格） 处理查找的结果rm -f 前面找到内容处理命令ls -l&#123;&#125;:额外命令 \；是bash是特殊的应用，；就是反斜杆转义touch 可以并排创建多个文件\让一个有意义的字符，脱掉马甲.. 上级目录.当前目录 想要它变成一个点 \.代表.号。| 管道（把前一个命令结果的输出交给后一个命令继续处理）find 另一个删除命令:find /root/data/ -type f |xargs rm -f 按名字查找要有双引号 所有的linux命令只要有参数可以接多个 删除一个目录下的所有文件，但保留一个指定的文件 退出到上一级目录 cd .. 或cd../ rm -r data 或rmdir data #里面是空目录了不需要-rf 总结：1234567891011..绝对路径，表示上一级目录。例如 /mnt/oldboy,mnt就是oldboy的上一级目录.相对路径，表示当前目录，即当前命令行的目录rm[-irf][文件/目录] ----删除文件/目录-i：询问用户是否确认删除，用y或者n来回答-r: 删除目录时加该选项，删除目录及目录下的文件和目录，可以递归删除-f: 强制删除，不用确认rmdir[-p][目录名]：用来删除空目录，-p 表示递归删除目录，目录里不能有文件或目录如：a/b/crmdir /a/b/c 会删除/a/b/c。而/a/b还在。rmdir -p /a/b/c 会删除/a,/a/b,/a/b/c 8.已知文件test.txt内容为： test liyao oldboy请给出打印text.txt内容时，不包含oldboy字符串的命令12345678cat&gt;test.txt&lt;&lt;EOF~]#grep -v &quot;oldboy&quot; text.txt test liyao~]# head -2 text.txt test liyao~]#cat text.txt |grep -v &quot;oldboy&quot; text.txt head ==头部，取文件的前N行，不加参数默认前10行， 取前三行-n 3 简写就是 -3tail ==尾巴，取文件的后N行，不加参数默认后10行， 取最后三行-n 3 简写就是 -3 -f 跟踪一个文件尾部的时时变化 awk** 一门语言，过滤内容(擅长取列) linux三剑客 老大awk -F “分割符号”‘ { print $1}’文件 &lt;==$1第一列,$2第二列 ..$NF 最后一列最后一列减一倒数第二列 $(NF-1)123456例：awk‘ &#123; print $1&#125;’awk.txt awk -F&quot;“:”‘ &#123; print $1&#125;’awk.txt 指定冒号为分隔符 awk -F&quot;“:”‘ &#123; print $1“”$2&quot;&quot; $3&#125;’awk.txt 例：awk &apos;&#123;if(NR&lt;31&amp;&amp;NR&gt;19) printf $1&quot;\n&quot;&#125;&apos; test.txt NR表示行号 &amp;&amp; (and )并且 \n回车换行 grep** ==擅长过滤器，把想要的或者不想要的分离开。-v排除 linux三剑客 老三123grep -E &quot;3306|1521&quot; /etc/services==egrep &quot;3306|1521&quot; /etc/services -E过滤多个字符串 -v排除 -i 不区分大小写 -o输出精确匹配的字符而不是默认的整行 想要什么接什么 一般用双引号 例：grep “oldboy” text.txt 不想要加-v 例：grep -v “oldboy” text.txt123456789#Context control-B 除了显示匹配的一行之外，并显示该行之前的num行-A 除了显示匹配的一行之外，并显示该行之后的num行-C 除了显示匹配的一行之外，并显示该行之前后各num行例：打印20-30行grep 30 -B 10 test.txt 匹配的内容30前面n行显示出来grep 20 -A 10 test.txt 匹配的内容20之后n行显示出来grep 25 -C 5 test.txt 匹配的内容前后5行显示出来grep &quot;匹配的字符串&quot; -B 参数 文件 sed(stream editor)**擅长取行，替换 linux三剑客 老二 sed*过滤：sed -n ‘/过滤的内容/处理的命令’ 文件 -n 取消sed的默认输出 -i 改变文件内容 set***替换 sed ‘s#oldboy#oldgirl#g’只改变输出 改变内容加-i sed -i‘s#oldboy#oldgirl#g’ find /root/data -type f -name “test.txt”|xargs sed -i‘s#oldboy#oldgirl#g’ 例子：sed ‘/oldboy/d’test.txt sed -n &apos;/oldboy/p&apos; test.txt 处理的命令：p print打印，d delete 删除 n 取消默认输出 9.请用一条命令完成创建目录/oldboy/test,即创建/oldbooy目录及test目录mkdir -p /oldboy/test123实践过程：~]#mkdir -p /oldboy/test 递归创建目录，一般第一级目录不存在时用-p，否则报错~]#tree /oldboy/ 查看目录树结果 yum linux里包管理器，yum帮助解决依赖问题 例子：yum install tree -y （-y直接装） 下载tree包，然后调用rpm命令安装tree包 如果需要依赖包，帮你下载帮提前安装 rpm -i install -v -h human（安装、显示输出，人类可读展示） rpm -ivh 包名.rpm（提前下载好） 最大问题，依赖问题不好解决：a——-b——-c——–d1234~]#yum install tree -y 安装tree包~]#rpm -qa tree 查看tree包版本 &lt;===q query -a alltree-1.5.3.2.e16.x86_64 tree 显示目录树结构 乱码解决 字符集问题 LANG==en 最小化安装缺包用yum install tree nmap sysstat lrzsz dosunix -y安装 软件包下载下来 rpm格式 rpm -ivh包名 yum update 更新所有软件到最新版本 10.已知/tmp目录下一句存在了test.txt文件，如何执行命令才能把/mnt/test.txt拷贝到/tmp下覆盖/tmp/test.txt，而让linux系统不提示是否覆盖（root权限下） 法一：用全路径 /bin/cp /mnt/test.txt /tmp/法二： \cp /mnt/test.txt /tmp/ alias 查看以及定义别名（外号、小名） 例子：oldboy=&apos;echo&quot;i am oldboy linux.&quot;&apos; alias rm=&apos;echo&quot;rm can not be used,pls use mv.&quot;&apos; 别名生效的位置：root用户：grep alias /root/.bashrc 所有用户都生效：/etc/bashrc或者/etc/profile定义 生效 source /etc/profile 别名的作用：1)通过给危险命令加一些保护参数，防止人为误操作2)把很多复杂的字符串或命令变成一个简单的字符串或命令。unalias 取消别名~用户的家目录，针对root环境~就代表/root seq==sequence 序列 -s指定序列的分隔符123456789101112131415161718~]# seq 2 52345~]# seq 1 2 10 奇数13579~]# seq 2 2 10 偶数246810横着输出 seq -s “@&quot; 5 @为分隔符 11.只查看ett.txt文件(100行)内第20行到第30行的内容 123456seq 100 &gt;test.txt seq 100追加到测试文件里法一：head -30 test.txt|tail -11 不推荐 效率慢循坏 for n in ‘seq 201 300&apos;; do echo $n&gt;&gt;test.text.txt;sleep 1;done法二：sed -n &apos;20，30p&apos; test.txt 常用 简单 易用 高效只取一行 sed -n &apos;30p&apos; test.txt 法三：awk &apos;&#123;if(NR&lt;31&amp;&amp;NR&gt;19) printf $1&quot;\n&quot;&#125;&apos; test.txt 12.分析图片服务日志，把日志（每个图片访问次数 *图片大小总和）排行， 取top10，也就是计算每个url的总访问大小 13.把/oldboy目录及其子目录下所有以扩展名.sh结尾的文件中包含./hostlists.txt的字符串 全部替换成../idctest_iplist.12find ./ -name &quot;*.sh&quot; -type f -exec sed -i &apos;s#./hostlists.txt#../idctest_iplist#g&apos;&#123;&#125; \;find /root/data -type f -name &quot;test.txt&quot;|xargs sed -i‘s#oldboy#oldgirl#g’ (1)sed替换12345sed -i &apos;s#oldboy#oldgirl#g&apos; a.txts 常说的查找并替换，用一个字符串替换成另一个g(global)与s联合使用时，表示对当前全局匹配替换（与下一个g意义不同）-i修改文件内容#是分隔符，可以用/@等替换 （2）find查找find / -type f -name “a.txt”history 打印用户操作的历史记录{} 输出字符序列或者字符序列 快捷键使用：12345678910Tab 命令或路径补全键，linux里最有用的ctrl+shift+c 复制ctrl+shift+v 粘贴命令结尾到命令开头 ctrl+a命令开头到命令结尾 ctrl+e剪切光标前的内容 ctrl+u剪切光标后的内容 ctrl+kctrl+c 终止当前任务命令或程序ctrl+l 清屏 clearctrl+d 退出当前会话 相当于exit,logout 基础正则表达式：一些特殊的符号 表示一些特殊的作用和功能12345678. 单个任意字符*重复前面任意0个或多个字符.*匹配任意字符sed -i ‘s#(可以用正则匹配)#\1#g’oldboy.txtawk -F &quot;:&quot;‘&#123;print $1 &quot; &quot; $2&quot; &quot; $NF&#125;’oldboy.txt linux优化： 建立普通账号，使用普通用户登录 处理SELINUX。 处理防火墙。 精简开机自启动服务。sshd,network,crond,rsyslog,sysstat LINUX最小化安全理念。5条 1.查询文件使用情况du -h *]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -396,14 +443,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[端口被占用问题]]></title>
-    <url>%2F2016%2F11%2F15%2F%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[当我们同时安装了Oracle和Tomcat的时候，Tomcat启动时就会报错说端口被占用了。那么如何来解决呢?两种方法： 第一种方法就是修改我们的Tomcat的端口号，改成其他不冲突的即可。方便简单 第二种方法就是结束当前占用端口的进程，下面是具体步骤： 以我电脑进程为例： 1.打开cmd 输入 netstat -ano|findstr 8080 //说明：查看占用8080端口的进程 2.接着输入 taskkill /pid 2956 /f 2956是占用端口的进程 //说明：结束掉占用端口号的进程 但是呢这种方法只能是一时的，下次启动还是会占用的。个人认为修改端口较好。一次解决。]]></content>
+    <title><![CDATA[mysql常用语句]]></title>
+    <url>%2F2018%2F02%2F02%2FMysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[创建数据库 create database 数据库名 例：create database test; 创建表 create table 表名称 DEFAULT CHARSET=utf8; 操作数据库 向表插入数据1insert [into] 表名 values (值1, 值2, 值3, ...); 向表中字段插入数据1insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...); 向表中字段插入多条数据 1insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...), (值1, 值2, 值3, ...), (值1, 值2, 值3, ...); 删 1delete from 表名称 where 删除条件; 改 1update 表名称 set 列名称=新值 where 更新条件; 查1select 列名称 from 表名称 [查询条件]; 多表查询1select 要查询的字段 from 表1,表2 where 关联条件 模糊查询1select from 表名称 where 字段名 like &apos;%值a%&apos; 统计查询 1select count(*) from 表名称 where 条件表达式 分组查（GROUP BY） 对表的修改 重命名表1alter table 表名 rename 新表名; 删除整张表1drop table 表名; 删除整个数据库1drop database 数据库名; 其他 asc(升序) desc(降序)]]></content>
       <categories>
-        <category>学习中遇到问题及解决方法</category>
+        <category>mysql</category>
       </categories>
       <tags>
-        <tag>Tomcat</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试基础]]></title>
+    <url>%2F2018%2F01%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[一、软件测试目标 基于软件测试的目标，站在不同的立场，有两种完全不同的观点。从用户的角度出发，用户普遍希望通过软件测试暴露软件中隐藏的错误和缺陷，以考虑是否可以接受该产品；那么从软件开发者的角度来说，他们希望测试成为表明软件中不存在错误的过程，验证该软件已正确的实现了用户的要求，确立人们对软件质量的信心。 由于一个软件产品不可能完全正确，没有bug,如果只是为了表明软件产品中不存在错误，那么这样的软件测试对于软件质量的提高和功能的完善没有任何的帮助。所以，归根到底，软件测试就是为了发现软件产品中错误和缺陷，然后软件开发人员对错误和缺陷进行修复，提高软件的质量，最后提交一个满足用户需求的软件产品。 《软件测试艺术》中有这样的观点： 软件测试是程序的执行过程，目的在于发现错误 测试是为了证明程序有错，而不是证明程序无错误 一个好的测试用例在于能发现至今未发现的错误 一个成功的测试是发现了至今未发现的错误的测试]]></content>
+      <tags>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>
