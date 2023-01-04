@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo博客图片不显示问题]]></title>
+    <url>%2F2023%2F01%2F04%2FHexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[使用hexo博客不能显示图床图片，原来发布博客使用的是本地图片，上传比较麻烦，现换成图床图片方式插入，发布博客后，发现图片不能显示，百度搜索了半天，记录一下解决过程，以后遇到可以再次看下解决方案。 解决步骤： 分析问题 1.检查图床图片的链接，点击发现图片能正常显示，排除图床服务器问题。 2.用Chrome打开博文，右键检查或者查看网页源码，找到图床图片链接，点击发生403(Forbidden)错误，找到问题根源。 解决问题 403(Forbidden)，说明获取网络资源的时候被拒绝了 解决方法：只需要在markdown文章开头添加一个 1&lt;meta name="referrer" content="no-referrer" /&gt; 然后重新发布博客，再次打开文章，图片显示正常，问题解决。 原理解析： 1231. HTML的 标签提供了 HTML 文档的元数据。元数据不会显示在客户端，但是会被浏览器解析。这也是为什么加在markdown文章里不会看到这段代码的原因。2. HTML 的 name 属性规定了元数据的名称，这里我们用到的是referer属性，这个属性的作用是让服务器判断来源页面，即用户是从哪来的，很多时候referer被当做防盗链来使用，服务器根据你的访问来源判断是否应该让你下载这个资源，如果你的来源不和规范，比如是个恶意爬虫，那么就会产生403错误。3. content=&quot;no-referrer&quot;表示既然我们想拿到这个资源但被服务器认出来之后又被拒绝了，那么伪装一下，不告诉服务器不就行了？所以，这里content的no-referer就是表示不发送引用数据，隐藏自己的来源信息。这样，图片就能正常显示了。]]></content>
+      <categories>
+        <category>问题+解决方法记录</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Could not read from remote repository]]></title>
+    <url>%2F2023%2F01%2F04%2FCould%20not%20read%20from%20remote%20repository%2F</url>
+    <content type="text"><![CDATA[发布blog时，github报错：git@github.com: Permission denied (publickey).fatal: Could not read from remote repository 原因： 因为缺少公钥导致。 解决方案： 随即显示出一个输入key的框。 但是这时候不知道key是什么？找到需要上传的项目文件夹的根目录，右键Git Base Here。 然后先输入 cd ~/.ssh 查询.ssh文件 接着输入 ssh-keygen -t rsa -C ‘邮箱’ 生成公钥，如下图操作 生成公钥之后进入.ssh文件下查询id_rsa.pub即可，命令如下。 然后将这里生成的公钥复制到github上的key中，保存后如下。]]></content>
+      <categories>
+        <category>问题+解决方法记录</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[日志收集及全量字段校验(八)]]></title>
     <url>%2F2022%2F12%2F13%2F%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E5%8F%8A%E5%85%A8%E9%87%8F%E5%AD%97%E6%AE%B5%E6%A0%A1%E9%AA%8C(%E5%85%AB)%2F</url>
     <content type="text"><![CDATA[11111]]></content>
@@ -407,7 +423,7 @@
     <url>%2F2019%2F01%2F02%2F%E6%8D%A2%E4%BA%86%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[电脑中病毒了，换了系统，无法使用hexo再发布文章到个人博客，百度找教程0.0特此记录一下，万一哪天又中病毒了呢！ 一、安装必要软件 安装Git客户端 安装node.js 二、原文件拷贝将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如D:/Blog目录下），注意无需拷全部，只拷如下几个目录：12345config.ymlpackage.jsonscaffolds/source/themes/ 三、安装 hexo在 cmd 下输入下面指令安装 hexo：1npm install hexo-cli -g 四、进入 D:/Blog 目录（你拷贝到新电脑的目录），输入下面指令安装相关模块12npm installnpm install hexo-deployer-git --save // 文章部署到 git 的模块 五、在github官网添加新电脑产生的秘钥 Github 添加 SSH Keys 首先在本地创建 SSH Keys:1$ ssh-keygen -t rsa -C "15754367707@163.com" 后面的邮箱即为 github 注册邮箱，也是登录 Github 的邮箱，之后会要求确认路径和输入密码，一路回车就行。 成功的话会在 ~/下生成 .ssh文件夹，进去，打开 id_rsa.pub，复制里面的key即可。 输入 eval “$(ssh-agent -s)” ，添加密钥到ssh-agent，再输入 ssh-add ~/.ssh/id_rsa ，添加生成的SSH key到ssh-agent 然后我们再次测试下公钥有没有添加成功：ssh -T git@github.com 六、测试 这时候使用 hexo s 基本可以看到你新添加的文章了。 七、部署发布文章123hexo clean // 清除缓存 网页正常情况下可以忽略此条命令hexo g // 生成静态网页hexo d // 开始部署]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>问题+解决方法记录</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -579,14 +595,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mysql常用语句]]></title>
-    <url>%2F2018%2F02%2F02%2FMysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <title><![CDATA[MySQL常用语句]]></title>
+    <url>%2F2018%2F02%2F02%2FMySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[创建数据库 create database 数据库名 例：create database test; 创建表 create table 表名称 DEFAULT CHARSET=utf8; 操作数据库 向表插入数据1insert [into] 表名 values (值1, 值2, 值3, ...); 向表中字段插入数据1insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...); 向表中字段插入多条数据 1insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...), (值1, 值2, 值3, ...), (值1, 值2, 值3, ...); 删 1delete from 表名称 where 删除条件; 改 1update 表名称 set 列名称=新值 where 更新条件; 查1select 列名称 from 表名称 [查询条件]; 多表查询1select 要查询的字段 from 表1,表2 where 关联条件 模糊查询1select from 表名称 where 字段名 like &apos;%值a%&apos; 统计查询 1select count(*) from 表名称 where 条件表达式 分组查（GROUP BY） 对表的修改 重命名表1alter table 表名 rename 新表名; 删除整张表1drop table 表名; 删除整个数据库1drop database 数据库名; 其他 asc(升序) desc(降序)]]></content>
       <categories>
-        <category>mysql</category>
+        <category>MySQL</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
 </search>
