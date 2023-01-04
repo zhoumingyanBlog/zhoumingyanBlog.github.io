@@ -95,12 +95,12 @@
 
 
 
-<meta name="description" content="数据库操作应用场景 校验测试数据 接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。 如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。     构造测试数据  测试数据使用一次就失效。 如：ihrm添加员工接口，使用的手机号。   测试前，无法保证测试数据是否存在。 如：ihrm查询员工接口，使用的员工id">
+<meta name="description" content="数据库操作应用场景 校验测试数据  接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。  如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyMySQL操作数据库(五)">
 <meta property="og:url" content="http://yoursite.com/2022/12/08/PyMySQL操作数据库(五)/index.html">
 <meta property="og:site_name" content="Zhou&#39;Note">
-<meta property="og:description" content="数据库操作应用场景 校验测试数据 接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。 如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。     构造测试数据  测试数据使用一次就失效。 如：ihrm添加员工接口，使用的手机号。   测试前，无法保证测试数据是否存在。 如：ihrm查询员工接口，使用的员工id">
+<meta property="og:description" content="数据库操作应用场景 校验测试数据  接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。  如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212311719177.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212311557215.png">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212311731024.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212311805396.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212312043508.png">
-<meta property="og:updated_time" content="2023-01-04T06:49:19.536Z">
+<meta property="og:updated_time" content="2023-01-04T07:40:13.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyMySQL操作数据库(五)">
-<meta name="twitter:description" content="数据库操作应用场景 校验测试数据 接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。 如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。     构造测试数据  测试数据使用一次就失效。 如：ihrm添加员工接口，使用的手机号。   测试前，无法保证测试数据是否存在。 如：ihrm查询员工接口，使用的员工id">
+<meta name="twitter:description" content="数据库操作应用场景 校验测试数据  接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。  如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。">
 <meta name="twitter:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212311719177.png">
 
 
@@ -413,9 +413,13 @@
 
       
         <h4 id="数据库操作应用场景"><a href="#数据库操作应用场景" class="headerlink" title="数据库操作应用场景"></a>数据库操作应用场景</h4><ul>
-<li>校验测试数据<ul>
-<li>接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。<ul>
-<li>如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。</li>
+<li><p>校验测试数据</p>
+<ul>
+<li><p>接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。</p>
+<ul>
+<li><p>如：ihrm删除员工接口。is_delete字段，没有在响应结果中出现！需要借助数据库校验。</p>
+<a id="more"></a>
+</li>
 </ul>
 </li>
 </ul>
@@ -431,7 +435,6 @@
 </ul>
 </li>
 </ul>
-<a id="more"></a>
 </li>
 </ul>
 <h4 id="PyMySQL操作数据库"><a href="#PyMySQL操作数据库" class="headerlink" title="PyMySQL操作数据库"></a>PyMySQL操作数据库</h4><hr>
