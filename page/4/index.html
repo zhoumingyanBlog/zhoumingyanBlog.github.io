@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/03/登录用例/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/Robot-Framework-下拉选择框/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhoumingyan">
@@ -335,7 +335,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/03/登录用例/" itemprop="url">登录用例</a></h1>
+                <a class="post-title-link" href="/2020/08/14/Robot-Framework-下拉选择框/" itemprop="url">Robot Framework-下拉列表</a></h1>
         
 
         <div class="post-meta">
@@ -347,213 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T11:55:39+08:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：</p>
-<ul>
-<li>输入已注册的用户名和正确的密码，验证是否登录成功；</li>
-<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；</li>
-<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</li>
-</ul>
-<p>有经验的测试工程师会再增加的测试用例：</p>
-<ul>
-<li>用户名和密码是否大小写敏感；</li>
-<li>页面上的密码框是否加密显示；</li>
-<li>后台系统创建的用户第一次登录成功时，是否提示修改密码；</li>
-<li>忘记用户名和忘记密码的功能是否可用；</li>
-<li>前端页面是否根据设计要求限制用户名和密码长度；</li>
-<li>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用；</li>
-<li>刷新页面是否会刷新验证码；</li>
-<li>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性；</li>
-<li>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面；</li>
-<li>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确；</li>
-<li>页面默认焦点是否定位在用户名的输入框中；</li>
-<li>快捷键 Tab 和 Enter 等，是否可以正常使用。</li>
-</ul>
-<p>看完这些用例，你可能会说：“哇塞，原来一个简简单单的登录功能居然有这么多需要测试的点”。但是，你别高兴得太早，“用户登录”功能的测试还没结束。虽然改进后的测试用例集相比之前的测试覆盖率的确已经提高了很多，但是站在资深测试人员的角度来看，还有很多用例需要设计。经我这么一说，你可能已经发现，上面所有的测试用例设计都是围绕显式功能性需求的验证展开的，换句话说，这些用例都是直接针对“用户登录”功能的功能性进行验证和测试的。但是，一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。<strong>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能</strong>， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。那什么是非功能性需求（Non-functional requirement）呢？<strong>从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面</strong>。 在上面所有的测试用例设计中，我们完全没有考虑对非功能性需求的测试，但这些往往是决定软件质量的关键因素。如下：</p>
-<p><strong>安全性测试用例包括</strong>：</p>
-<ul>
-<li>用户密码后台存储是否加密；</li>
-<li>用户密码在网络传输过程中是否加密；</li>
-<li>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码；</li>
-<li>不登录的情况下，在浏览器中直接输入登录后的 URL 地址，验证是否会重新定向到用户登录界面；</li>
-<li>密码输入框是否不支持复制和粘贴；密码输入框内输入的密码是否都可以在页面源码模式下被查看；</li>
-<li>用户名和密码的输入框中分别输入典型的“SQL 注入攻击”字符串，验证系统的返回页面；</li>
-<li>用户名和密码的输入框中分别输入典型的“XSS 跨站脚本攻击”字符串，验证系统行为是否被篡改；</li>
-<li>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；</li>
-<li>同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；</li>
-<li>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</li>
-</ul>
-<p><strong>性能压力测试用例包括:</strong></p>
-<ul>
-<li>单用户登录的响应时间是否小于 3 秒；</li>
-<li>单用户登录时，后台请求数量是否过多；</li>
-<li>高并发场景下用户登录的响应时间是否小于 5 秒；</li>
-<li>高并发场景下服务端的监控指标是否符合预期；</li>
-<li>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；</li>
-<li>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。</li>
-</ul>
-<p><strong>兼容性测试用例包括：</strong></p>
-<ul>
-<li>不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；</li>
-<li>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；</li>
-<li>不同分辨率的界面下，验证登录页面的显示以及功能正确性</li>
-</ul>
-<p>补充：</p>
-<ul>
-<li>网络延迟或者弱网或者切换网络或者断网时正常登录是否正常</li>
-<li>是否支持第三方登录</li>
-<li>是否可记住密码，记住的密码保存是否加密</li>
-<li><p>记住密码是否有有效期，有有效期，过期之后是否会清空密码</p>
-</li>
-<li><p>用户名密码是否支持特殊字符和中文等</p>
-</li>
-<li>是否可以使用登录的API发送登录请求，并绕开验证码校验</li>
-<li>是否可以用抓包工具抓到的请求包直接登录</li>
-<li>截取到的token等信息，是否可以在其他终端上直接使用，绕开登录。token过期时间校验</li>
-<li>除了前端校验格式长度等，后端是否也校验？</li>
-<li>登录后输入登录URL，是否还能再次登录？如果能，原登录用户是否变得无效</li>
-<li><p>登录错误后的提示是否有安全隐患</p>
-</li>
-<li><p>输入账号密码时对键盘格式是否有要求比如数字键盘；</p>
-</li>
-<li>密码一栏是否需要设置明暗码切换按钮；</li>
-<li>输入账号密码格式不规范时是否将按钮设置为不可点击；</li>
-<li>输入栏是否设置快速删除按钮</li>
-<li>用户名和密码是否对空格敏感</li>
-<li>更改密码后是否还能用之前的密码登录</li>
-<li>一个用户是否具备多种登录方式(用户名，手机号，邮箱…)</li>
-<li>若支持手机号+验证码登录，验证码是否有时间限制？移动端设备是否可以直接获取验证码登录？</li>
-</ul>
-<p>1、登录失败后二次登录<br>（1）输入正确的用户名，不输入密码，点击登录；登录失败后，再次输入正确的密码登录并观察登录情况<br>（2）输入正确的用户名和错误的密码登录失败后，再次输入正确的密码登录并观察登录情况<br>（3）输入未注册的用户和任意密码登录失败后，再次输入正确的用户名和密码，观察登录情况<br>2、修改密码后<br>（1）修改完密码后是否重定向到登录界面<br>（2）修改完密码后，分别使用原密码和新密码登录<br>（3）在其他终端修改密码后，本终端是否自动下线？下线后，使用原密码能否继续登录？<br>3、退出登录<br>（1）退出登录是否有记住账号或记住密码功能<br>（2）退出登录后，再次输入密码登录<br>4、数据同步<br>（1）第一次登录时，数据的同步情况，如个人头像，好友列表等<br>（2）本终端切换其他账号登录后，数据的同步情况，日志记录情况，如：用户文件夹是否自动创建<br>5、账号互踢<br>（1）不同页面下被踢，如：后台运行时被踢，进入前台查看反应；前台运行时一级、二级页面下被踢能否提示正确并重定向到登录界面<br>（2）本终端被踢下线后点击登录能否再次登录<br>6、密码错误限制次数<br>（1）密码输入错误是否有最大次数限制？分别测试最大值-1、最大值、最大值+1时的输错密码情况<br>（2）超过最大次数限制后，是否采取强制手段限制登录或对账号暂时冻结处理<br>（3）超过最大次数限制后，分别输入正确的密码和错误的密码再次登录<br>7、安全性<br>（1）本终端用户已登录，在其他终端尝试登录本用户账号登录失败时、本终端是否有账号异常操作的安全提示<br>（2）输入密码时是否有安全键盘模式？点击密码输入框是否能调起安全键盘？<br>（1）无网络模式下登录，是否给出“网络未连接”或“网络异常”的提示及提示是否正确<br>（2）第一次登录请求超时后（服务器出问题，随后恢复正常），再次请求登录能否登录成功<br>（3）第一次无网络情况下登录失败后，再次连接网络并登录<br>（4）正在登录过程中，遇到网络切换，如（4G切换到WiFi环境时）能否正常登录<br>8、其他<br>（1）已登录的用户，杀死APP进程后，再次打开APP是否依然为已登录状态</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-       <div>
-      
-        </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/02/换了电脑如何使用hexo继续写博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoumingyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhou'Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/02/换了电脑如何使用hexo继续写博客/" itemprop="url">换了电脑如何使用hexo继续写博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-02T10:55:39+08:00">
-                2019-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-14T16:42:57+08:00">
+                2020-08-14
               </time>
             
 
@@ -575,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
                   </a>
                 </span>
 
@@ -613,18 +408,17 @@
 
       
         
-          <ul>
-<li>电脑中病毒了，换了系统，无法使用hexo再发布文章到个人博客，百度找教程0.0特此记录一下，万一哪天又中病毒了呢！
+          <p>下拉选择框很常见，选择下拉框有几种方式处理，首先在浏览器F12选择下拉框,F12后看见下拉框的源码是 option xxx，可使用Select From List By Index，Select From List By Label和Select From List By Label关键字<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/02/换了电脑如何使用hexo继续写博客/#more" rel="contents">
+            <a class="btn" href="/2020/08/14/Robot-Framework-下拉选择框/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </li></ul></div>
+    </p></div>
     
     
     
@@ -672,7 +466,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/端口被占用问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/Robot-Framework-分层思想/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhoumingyan">
@@ -691,7 +485,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/15/端口被占用问题/" itemprop="url">端口被占用问题</a></h1>
+                <a class="post-title-link" href="/2020/08/14/Robot-Framework-分层思想/" itemprop="url">Robot Framework--分层思想</a></h1>
         
 
         <div class="post-meta">
@@ -703,8 +497,158 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T18:54:36+08:00">
-                2018-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-14T08:50:27+08:00">
+                2020-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在Java中，程序设计讲究设计模式，设计模式其实就是根据需求使用抽象和封装，其实这个就是分层思想，把一个实现过程分成不同多层，提高灵活性，从而达到可扩展性和可维护性。<br>要谈RF的分层思想，就不得不说到关键字驱动，刚刚我们介绍了关键字驱动：类似函数，通过调用不同的关键字，从而测试结果就不同。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/14/Robot-Framework-分层思想/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+       <div>
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/FAIL-For-loop-has-no-closing-END/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/13/FAIL-For-loop-has-no-closing-END/" itemprop="url">Robot Framework-FAIL For loop has no closing 'END'</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T14:47:09+08:00">
+                2020-08-13
               </time>
             
 
@@ -764,10 +708,10 @@
 
       
         
-          <p>当我们同时安装了Oracle和Tomcat的时候，Tomcat启动时就会报错说端口被占用了。<br>那么如何来解决呢?
+          <p>今天练习条件与循环跟着网上的例子执行循环时，一直执行不通过，写法都一样，一直报错FAIL For loop has no closing ‘END’<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/15/端口被占用问题/#more" rel="contents">
+            <a class="btn" href="/2020/08/13/FAIL-For-loop-has-no-closing-END/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -822,7 +766,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/winscp上传文件发生错误码4的问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/Robot-Framework-Selenium2Library关键字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhoumingyan">
@@ -841,7 +785,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/20/winscp上传文件发生错误码4的问题/" itemprop="url">winscp上传文件发生错误码4的问题</a></h1>
+                <a class="post-title-link" href="/2020/08/13/Robot-Framework-Selenium2Library关键字/" itemprop="url">Robot Framework-关键字</a></h1>
         
 
         <div class="post-meta">
@@ -853,8 +797,308 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T10:41:29+08:00">
-                2018-06-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T11:42:57+08:00">
+                2020-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>关键字的使用可以通过F5查找关键字库，输入关键字，点击搜索。选择关键字就可以查看关键字的说明。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/13/Robot-Framework-Selenium2Library关键字/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+       <div>
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/Robot-Framework-元素定位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/13/Robot-Framework-元素定位/" itemprop="url">Robot Framework -元素定位</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T09:10:01+08:00">
+                2020-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-id和name定位"><a href="#1-id和name定位" class="headerlink" title="1.id和name定位"></a>1.id和name定位</h3><p>id、name定位，这两个比较简单直接可以id=和name=，前提是这个id和name的值在当前页面上是唯一的。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/13/Robot-Framework-元素定位/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+       <div>
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/[ ERROR ] Suite 'TestProject' contains no tests matching name/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/12/[ ERROR ] Suite 'TestProject' contains no tests matching name/" itemprop="url">Robot Framework-[ ERROR ] Suite 'TestProject' contains no tests matching name</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-12T18:21:04+08:00">
+                2020-08-12
               </time>
             
 
@@ -914,11 +1158,160 @@
 
       
         
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于使用winscp 上传文件发生错误码4的问题，各种百度找资料，最后的原因竟然是磁盘容量不足。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;换个物理分区，重新上传就好了。
+          <p>编写用例完成，运行测试用例，运行完成报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ ERROR ] Suite &apos;TestProject&apos; contains no tests matching name &apos;TestProject.TestSuites.baidu_search&apos; in suite &apos;TestProject.TestSuites&apos;.</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/20/winscp上传文件发生错误码4的问题/#more" rel="contents">
+            <a class="btn" href="/2020/08/12/[ ERROR ] Suite 'TestProject' contains no tests matching name/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+       <div>
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/Robot-Framework-第一个脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/12/Robot-Framework-第一个脚本/" itemprop="url">Robot Framework--第一个脚本</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-12T17:21:04+08:00">
+                2020-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Robot-Framework介绍"><a href="#1-Robot-Framework介绍" class="headerlink" title="1.Robot Framework介绍"></a>1.Robot Framework介绍</h3><p>Robot Framework的架构是一个通用的验收测试和验收测试驱动开发的自动化测试框架（ATDD）。它具有易于使用的表格来组织测试过程和测试数据。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/12/Robot-Framework-第一个脚本/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -973,7 +1366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/查看Linux系统配置的命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/python3.8与ride不兼容问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhoumingyan">
@@ -992,7 +1385,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/09/查看Linux系统配置的命令/" itemprop="url">查看Linux系统配置的命令</a></h1>
+                <a class="post-title-link" href="/2020/08/12/python3.8与ride不兼容问题/" itemprop="url">Robot Framework-python3.8与ride不兼容问题</a></h1>
         
 
         <div class="post-meta">
@@ -1004,8 +1397,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T12:52:40+08:00">
-                2018-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-12T16:22:58+08:00">
+                2020-08-12
               </time>
             
 
@@ -1027,8 +1420,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/问题-解决方法记录/" itemprop="url" rel="index">
+                    <span itemprop="name">问题+解决方法记录</span>
                   </a>
                 </span>
 
@@ -1065,161 +1458,11 @@
 
       
         
-          <h3 id="一：CPU"><a href="#一：CPU" class="headerlink" title="一：CPU"></a>一：CPU</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@zhoumingyan /]<span class="comment"># cat /proc/cpuinfo</span></span><br></pre></td></tr></table></figure>
+          <p>robotframework环境搭建完成，运行ride报错</p>
+<p>1、robotframework 环境（pip list）：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/09/查看Linux系统配置的命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-       <div>
-      
-        </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/Linux常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoumingyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhou'Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/Linux常用命令/" itemprop="url">Linux常用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T12:52:40+08:00">
-                2018-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>1.1 find</strong><br>功能：在linux文件系统中，用来查找一个文件放在哪里了。</p>
-<p>举例：find /etc -name “interfaces”<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/09/Linux常用命令/#more" rel="contents">
+            <a class="btn" href="/2020/08/12/python3.8与ride不兼容问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1274,7 +1517,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/Linux目录结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/Robot Framework-RIDE桌面快捷方式制作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhoumingyan">
@@ -1293,7 +1536,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/04/Linux目录结构/" itemprop="url">Linux 目录结构</a></h1>
+                <a class="post-title-link" href="/2020/08/12/Robot Framework-RIDE桌面快捷方式制作/" itemprop="url">Robot Framework-RIDE桌面快捷方式制作</a></h1>
         
 
         <div class="post-meta">
@@ -1305,8 +1548,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T12:52:40+08:00">
-                2018-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-12T10:05:39+08:00">
+                2020-08-12
               </time>
             
 
@@ -1328,8 +1571,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
                   </a>
                 </span>
 
@@ -1366,11 +1609,166 @@
 
       
         
-          <p><strong>/</strong>：根目录</p>
-<p><strong>/usr</strong>:包含所有的命令、程序库、文档和其它文件等。这些文件在正常操作下不会被改变的。这个目录也包含你的linux发行版本的主要的应用程序，如Netscape. /var:包含在正常操作中被改变的文件：假脱机文件、记录文件、加锁文件、临时文件和页格式化文件等。
+          <p>接上一篇笔记0.0</p>
+<p>1.创建快捷方式</p>
+<p>在桌面右键鼠标，弹出的菜单选择 新建-快捷方式，然后在请键入对象的位置输入这一行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Python38\pythonw.exe -c  “from robotide import main; main()”</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/04/Linux目录结构/#more" rel="contents">
+            <a class="btn" href="/2020/08/12/Robot Framework-RIDE桌面快捷方式制作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+       <div>
+      
+        </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/11/Robot Framework环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhoumingyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhou'Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/11/Robot Framework环境搭建/" itemprop="url">Robot Framework环境搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-11T11:45:39+08:00">
+                2020-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robot-Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Robot Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Python3-8安装"><a href="#1-Python3-8安装" class="headerlink" title="1.Python3.8安装"></a>1.Python3.8安装</h3><ul>
+<li>下载地址：<a href="https://www.python.org/downloads/release/python-381/" target="_blank" rel="noopener">https://www.python.org/downloads/release/python-381/</a></li>
+</ul>
+<p>python-3.8.1.amd64.msi(python2官方已宣布到2020年元旦起不再维护，所以为了以后方便在这里安装python3)</p>
+<p>下载完成后，选择安装路径自行安装即可。安装完成后注意配置系统环境变量path:配置Python38安装路径和Python38/Scripts路径。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/11/Robot Framework环境搭建/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1378,460 +1776,6 @@
         
       
     </p></div>
-    
-    
-    
-
-       <div>
-      
-        </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/hwclock命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoumingyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhou'Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/22/hwclock命令/" itemprop="url">hwclock命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T08:50:38+08:00">
-                2018-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/常用linux命令/" itemprop="url" rel="index">
-                    <span itemprop="name">常用linux命令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="hwclock命令"><a href="#hwclock命令" class="headerlink" title="hwclock命令"></a>hwclock命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hwclock 显示当前时间</span><br><span class="line">hwclock --hctosys 将系统时钟调整为与目前的硬件时钟一致。</span><br><span class="line">hwclock --<span class="built_in">set</span> --date=&lt;日期与时间&gt; 设定硬件时钟。</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/22/hwclock命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-       <div>
-      
-        </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/du命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoumingyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhou'Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/du命令/" itemprop="url">du命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T09:59:30+08:00">
-                2018-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/常用linux命令/" itemprop="url" rel="index">
-                    <span itemprop="name">常用linux命令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p>du命令是检查硬盘使用情况，统计文件或目录及子目录使用硬盘的空间大小。参数的不同组合，可以更快的提高工作效率，以下仅列出了经常使用到的参数，如需更详细的信息，请用man du命令来获得。</p>
-<p>1．命令格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [选项][文件]</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/20/du命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-       <div>
-      
-        </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/df命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoumingyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558324676811&di=d1a13282825a8b4da11872ba029e2654&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20182%2F21%2F2018221142159_MZ33z.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhou'Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/17/df命令/" itemprop="url">df命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T09:38:30+08:00">
-                2018-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/常用linux命令/" itemprop="url" rel="index">
-                    <span itemprop="name">常用linux命令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="df"><a href="#df" class="headerlink" title="df"></a>df</h4><p>df命令作用是列出文件系统的整体磁盘空间使用情况。可以用来查看磁盘已被使用多少空间和还剩余多少空间。</p>
-<p>df命令显示系统中包含每个文件名参数的磁盘使用情况，如果没有文件名参数，则显示所有当前已挂载文件系统的磁盘空间使用情况</p>
-<p>在默认情况下，磁盘空间是以1KB为单位进行显示的，但是，如果POSIXLY_CORRECT环境变量被设置为true，这种情况下默认使用512字节为单位显示</p>
-<p>df命令语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df [选项] [文件名]</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/17/df命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
     
     
     
@@ -1870,7 +1814,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1918,7 +1862,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1929,7 +1873,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1940,7 +1884,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2028,7 +1972,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

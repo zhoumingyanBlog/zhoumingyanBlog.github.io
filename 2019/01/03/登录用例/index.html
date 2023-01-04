@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功； 输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确； 输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确； 用户名和密码两者都为空，验证是否登录失败，并且提示信息正确； 用户名和密码两者之一为空，验证是否登录失败，并且提示信息正">
+<meta name="description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功；  输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；  输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；  用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；  用户名和密码两者之一为空，验证是否登录失败，并且提">
 <meta name="keywords" content="测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="登录用例">
 <meta property="og:url" content="http://yoursite.com/2019/01/03/登录用例/index.html">
 <meta property="og:site_name" content="Zhou&#39;Note">
-<meta property="og:description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功； 输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确； 输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确； 用户名和密码两者都为空，验证是否登录失败，并且提示信息正确； 用户名和密码两者之一为空，验证是否登录失败，并且提示信息正">
+<meta property="og:description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功；  输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；  输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；  用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；  用户名和密码两者之一为空，验证是否登录失败，并且提">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-27T03:34:18.135Z">
+<meta property="og:updated_time" content="2023-01-04T06:21:07.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="登录用例">
-<meta name="twitter:description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功； 输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确； 输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确； 用户名和密码两者都为空，验证是否登录失败，并且提示信息正确； 用户名和密码两者之一为空，验证是否登录失败，并且提示信息正">
+<meta name="twitter:description" content="现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：  输入已注册的用户名和正确的密码，验证是否登录成功；  输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；  输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；  用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；  用户名和密码两者之一为空，验证是否登录失败，并且提">
 
 
 
@@ -386,13 +386,21 @@
       
         <p>现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：</p>
 <ul>
-<li>输入已注册的用户名和正确的密码，验证是否登录成功；</li>
-<li>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；</li>
-<li>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；</li>
-<li>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</li>
-<li>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</li>
+<li><p>输入已注册的用户名和正确的密码，验证是否登录成功；</p>
+</li>
+<li><p>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；</p>
+</li>
+<li><p>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；</p>
+</li>
+<li><p>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；</p>
+</li>
+<li><p>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；</p>
+<a id="more"></a>
+</li>
+<li><p>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；</p>
+</li>
+<li><p>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</p>
+</li>
 </ul>
 <p>有经验的测试工程师会再增加的测试用例：</p>
 <ul>
@@ -586,7 +594,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -597,7 +605,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -608,7 +616,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -696,7 +704,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -102,21 +102,21 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="1.Robot Framework介绍Robot Framework的架构是一个通用的验收测试和验收测试驱动开发的自动化测试框架（ATDD）。它具有易于使用的表格来组织测试过程和测试数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/RF12.png">
-<meta property="og:image" content="http://yoursite.com/img/RF13.png">
-<meta property="og:image" content="http://yoursite.com/img/RF14.png">
-<meta property="og:image" content="http://yoursite.com/img/RF15.png">
-<meta property="og:image" content="http://yoursite.com/img/RF16.png">
-<meta property="og:image" content="http://yoursite.com/img/RF17.png">
-<meta property="og:image" content="http://yoursite.com/img/RF18.png">
-<meta property="og:image" content="http://yoursite.com/img/RF19.png">
-<meta property="og:image" content="http://yoursite.com/img/RF20.png">
-<meta property="og:image" content="http://yoursite.com/img/RF21.png">
-<meta property="og:updated_time" content="2020-08-12T09:38:40.912Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041400011.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041400376.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041400512.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041400740.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041401765.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041401799.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041401608.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041402163.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041402299.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041402706.png">
+<meta property="og:updated_time" content="2023-01-04T06:02:42.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot Framework--第一个脚本">
 <meta name="twitter:description" content="1.Robot Framework介绍Robot Framework的架构是一个通用的验收测试和验收测试驱动开发的自动化测试框架（ATDD）。它具有易于使用的表格来组织测试过程和测试数据。">
-<meta name="twitter:image" content="http://yoursite.com/img/RF12.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041400011.png">
 
 
 
@@ -416,26 +416,26 @@
       
 
       
-        <h3 id="1-Robot-Framework介绍"><a href="#1-Robot-Framework介绍" class="headerlink" title="1.Robot Framework介绍"></a>1.Robot Framework介绍</h3><p>Robot Framework的架构是一个通用的验收测试和验收测试驱动开发的自动化测试框架（ATDD）。它具有易于使用的表格来组织测试过程和测试数据。<br> <a id="more"></a><br>  <img src="/img/RF12.png" alt="示例图" title="示例图"></p>
+        <h3 id="1-Robot-Framework介绍"><a href="#1-Robot-Framework介绍" class="headerlink" title="1.Robot Framework介绍"></a>1.Robot Framework介绍</h3><p>Robot Framework的架构是一个通用的验收测试和验收测试驱动开发的自动化测试框架（ATDD）。它具有易于使用的表格来组织测试过程和测试数据。<br> <a id="more"></a><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041400011.png" alt="RF12"></p>
 <p>它使用关键字驱动的测试方法。<br>对于上面的例子来说，Open Browser、input text、click element、sleep、Get Title、Should Contain和close browser，都是“关键字”，这些关键字由robotframework-selenium2library类库所提供。当然我们也可以自定义关键字。<br>Robot Framework的操作系统和应用独立框架。核心框架是使用Python和运行在Jython(JVM)和IronPython(.NET)</p>
 <h3 id="2-Robot-Framework入门"><a href="#2-Robot-Framework入门" class="headerlink" title="2.Robot Framework入门"></a>2.Robot Framework入门</h3><p>下面一步一步来创建我们的第一条用例</p>
 <p>1.创建测试项目<br>选择菜单栏file—-&gt;new Project, Name 输入项目名称,Type 选择Directory</p>
-<p><img src="/img/RF13.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041400376.png" alt="RF13"></p>
 <p>2.创建测试套件<br>右键点击“测试项目”选择new Suite选项，Name 输入项目名称，Type 选择File，Format选择ROBOT<font color="red">（如果选的是TXT格式，运行用例时会报错）</font></p>
-<p><img src="/img/RF14.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041400512.png" alt="RF14"></p>
 <p>3.创建测试用例<br>右键点击“测试套件”选择new Test Case,点击OK即可。</p>
-<p><img src="/img/RF15.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041400740.png" alt="RF15"></p>
 <ol start="4">
 <li>导入Selenium2Library库<br>   因为RF框架编写基于web 的测试用例，所以，我们需要selenium 的库支持。所以，我们在使用的过程中需要加载Selenium2Library库</li>
 </ol>
-<p><img src="/img/RF16.png" alt="示例图" title="示例图"><br>在“测试套件”的Edit标签页，点击“Library”按钮，弹出输入框，Name输入：Selenium2Library，点击OK完成。如果导入的库显示红色，表示导入的库不存在。如果是黑色则表示导入成功。注意区分大小写。</p>
-<p>5.编写用例<br>下面就可以写我们的用例了，可以通过F5快捷键来查询库提供的关键字。<br><img src="/img/RF17.png" alt="示例图" title="示例图"></p>
-<p>如上图，自动化脚本从打开浏览器开始，我想打开一个浏览器，自然想到的是以“open”为关键字搜索，结果找到了“Open Browser”的关键字，点击这个关键字，显示它的用法和说明。<br>下面开始实操创建百度搜索用例如下：<br><img src="/img/RF18.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041401765.png" alt="RF16"><br>在“测试套件”的Edit标签页，点击“Library”按钮，弹出输入框，Name输入：Selenium2Library，点击OK完成。如果导入的库显示红色，表示导入的库不存在。如果是黑色则表示导入成功。注意区分大小写。</p>
+<p>5.编写用例<br>下面就可以写我们的用例了，可以通过F5快捷键来查询库提供的关键字。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041401799.png" alt="RF17"></p>
+<p>如上图，自动化脚本从打开浏览器开始，我想打开一个浏览器，自然想到的是以“open”为关键字搜索，结果找到了“Open Browser”的关键字，点击这个关键字，显示它的用法和说明。<br>下面开始实操创建百度搜索用例如下：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041401608.png" alt="RF18"></p>
 <p>“Open Browser”变蓝了，说明它是一个合法的关键字，后面有一个方框是红色的，表示这个参数不能缺省的。通过说明信息中，发现它需要一个url 地址是必填的，当然还需要指定browser （默认不填为 friefox）</p>
-<p><img src="/img/RF19.png" alt="示例图" title="示例图"></p>
-<p>6.运行测试用例<br>勾选当前需要运行的测试用例，点击工具栏运行按钮，如果只运行单个用例的话，也可以切换到用例的Run标签页，点击“start”按钮。<br><img src="/img/RF20.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041402163.png" alt="RF19"></p>
+<p>6.运行测试用例<br>勾选当前需要运行的测试用例，点击工具栏运行按钮，如果只运行单个用例的话，也可以切换到用例的Run标签页，点击“start”按钮。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041402299.png" alt="RF20"></p>
 <p>运行信息：</p>
-<p><img src="/img/RF21.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041402706.png" alt="RF21"></p>
 <p>运行信息显示会生成三个文件：Output.xml、Log.html、Report.html<br>我们重点查看Log.html和Report.html ，Log.html更关注脚本的执行过程的记录，Report.html更关注脚本的执行结果的展示。</p>
 
       
@@ -560,7 +560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +571,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -582,7 +582,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -686,7 +686,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

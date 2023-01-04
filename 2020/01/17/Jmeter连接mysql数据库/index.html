@@ -103,17 +103,17 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="1、下载数据库驱动，放至D:\apache-jmeter-5.1.1\lib\ext目录下 2、在顶层目录《测试计划》中加载驱动，点击【浏览】按钮，在jmeter/lib目录下选择mysql驱动包。如图所示：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter8.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter9.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter10.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter11.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter12.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter13.png">
-<meta property="og:updated_time" content="2021-04-28T09:58:58.479Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041440197.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041440874.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041440681.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041441312.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041441406.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041441566.png">
+<meta property="og:updated_time" content="2023-01-04T06:41:30.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jmeter连接mysql数据库">
 <meta name="twitter:description" content="1、下载数据库驱动，放至D:\apache-jmeter-5.1.1\lib\ext目录下 2、在顶层目录《测试计划》中加载驱动，点击【浏览】按钮，在jmeter/lib目录下选择mysql驱动包。如图所示：">
-<meta name="twitter:image" content="http://yoursite.com/img/Jmeter8.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041440197.png">
 
 
 
@@ -415,19 +415,19 @@
       
         <p>1、下载数据库驱动，放至D:\apache-jmeter-5.1.1\lib\ext目录下</p>
 <p>2、在顶层目录《测试计划》中加载驱动，点击【浏览】按钮，在jmeter/lib目录下选择mysql驱动包。如图所示：<br><a id="more"></a></p>
-<p> <img src="/img/Jmeter8.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041440197.png" alt="Jmeter8"></p>
 <p>3、新增线程组，右键添加-&gt;配置元件-&gt; JDBC Connection Configuration</p>
-<p>  <img src="/img/Jmeter9.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041440874.png" alt="Jmeter9"></p>
 <p>4、配置数据库信息<br>1）Variable Name数据库变量名，不能为空，后续JDBC Request中会用到这个值<br>2）DataBase URL 格式为：jdbc:mysql://服务器ip:端口号/数据库名称<br>3）JDBC Driver Class：com.mysql.jdbc.Driver<br>4）输入连接的数据库用户名和密码</p>
-<p> <img src="/img/Jmeter10.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041440681.png" alt="Jmeter10"></p>
 <p>5、线程组右键添加-取样器-JDBC Request</p>
-<p>  <img src="/img/Jmeter11.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041441312.png" alt="Jmeter11"></p>
 <p>6、添加变量和查询语句<br>Variable Name：数据库变量名，必须和JDBC Connection Configuration中的Variable Name保持一致</p>
 <p>按照下面的操作执行，执行单条sql语句时可以执行成功，执行多条的时候，报错了，这时需要配置数据库信息DataBase URL那里在数据库后加参数<font color="red">?allowMultiQueries=true</font>,就可同时执行多条mysql语句；否则报错</p>
-<p>  <img src="/img/Jmeter12.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041441406.png" alt="Jmeter12"></p>
 <p>7、执行查询语句</p>
 <p>可以看到上方写的两条查询sql脚本已经能够查询出数据。</p>
-<p><img src="/img/Jmeter13.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041441566.png" alt="Jmeter13"></p>
 
       
     </div>
@@ -548,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -658,7 +658,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

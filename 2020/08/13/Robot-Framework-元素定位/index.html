@@ -102,17 +102,17 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="1.id和name定位id、name定位，这两个比较简单直接可以id=和name=，前提是这个id和name的值在当前页面上是唯一的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/RF22.png">
-<meta property="og:image" content="http://yoursite.com/img/RF23.png">
-<meta property="og:image" content="http://yoursite.com/img/RF24.png">
-<meta property="og:image" content="http://yoursite.com/img/RF25.png">
-<meta property="og:image" content="http://yoursite.com/img/RF26.png">
-<meta property="og:image" content="http://yoursite.com/img/RF27.png">
-<meta property="og:updated_time" content="2020-08-13T03:33:45.834Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041414299.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041414516.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041414568.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041415799.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041415040.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041415964.png">
+<meta property="og:updated_time" content="2023-01-04T06:15:37.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot Framework -元素定位">
 <meta name="twitter:description" content="1.id和name定位id、name定位，这两个比较简单直接可以id=和name=，前提是这个id和name的值在当前页面上是唯一的。">
-<meta name="twitter:image" content="http://yoursite.com/img/RF22.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041414299.png">
 
 
 
@@ -416,12 +416,13 @@
 <p>根据上面的例子，百度输入框可以提取id或name进行定位。</p>
 <ul>
 <li>id=kw</li>
-<li>name=wd<br>在Robot framework中可以这样写：<br><img src="/img/RF22.png" alt="示例图" title="示例图"><br>Input Text 用于文本输入的关键字，“robot framework学习”是要给输入框输入的内容.<br>百度按钮没有name，所以这里可以用id：</li>
-<li><p>id=su<br><img src="/img/RF23.png" alt="示例图" title="示例图"><br>Click Button 是按钮点击的关键字。</p>
-<h3 id="2-Xpath定位"><a href="#2-Xpath定位" class="headerlink" title="2.Xpath定位"></a>2.Xpath定位</h3><p>Xpath是XML文档中定位元素的一种语言，HTML可以看成一种XML文档，Xpath定位也是所有定位元素的方法中用的最多的。<br>Xpath 中的绝对路径从 HTML 根节点开始算，相对路径从任意节点开始。<br>通过开发者工具，我们可以拷贝到 Xpath 的绝对路径和相对路径代码：<br><img src="/img/RF24.png" alt="示例图" title="示例图"><br>但是由于拷贝出来的代码缺乏灵活性，也不全然准确。大部分情况下，都需要自己定义 Xpath 语句，因此 Xpath 语法还是有必要学习。</p>
+<li>name=wd<br>在Robot framework中可以这样写：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041414299.png" alt="RF22"><br>Input Text 用于文本输入的关键字，“robot framework学习”是要给输入框输入的内容.<br>百度按钮没有name，所以这里可以用id：</li>
+<li><p>id=su<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041414516.png" alt="RF23"><br>Click Button 是按钮点击的关键字。</p>
+<h3 id="2-Xpath定位"><a href="#2-Xpath定位" class="headerlink" title="2.Xpath定位"></a>2.Xpath定位</h3><p>Xpath是XML文档中定位元素的一种语言，HTML可以看成一种XML文档，Xpath定位也是所有定位元素的方法中用的最多的。<br>Xpath 中的绝对路径从 HTML 根节点开始算，相对路径从任意节点开始。<br>通过开发者工具，我们可以拷贝到 Xpath 的绝对路径和相对路径代码：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041414568.png" alt="RF24"><br>但是由于拷贝出来的代码缺乏灵活性，也不全然准确。大部分情况下，都需要自己定义 Xpath 语句，因此 Xpath 语法还是有必要学习。</p>
 </li>
 </ul>
-<h4 id="2-1绝对路径定位"><a href="#2-1绝对路径定位" class="headerlink" title="2.1绝对路径定位"></a>2.1绝对路径定位</h4><p>以百度中的输入框和按钮为例，通过拷贝出来的 full Xpath：<br><img src="/img/RF25.png" alt="示例图" title="示例图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/html/body/div[1]/div[1]/div[5]/div/div/form/span[1]/input</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1绝对路径定位"><a href="#2-1绝对路径定位" class="headerlink" title="2.1绝对路径定位"></a>2.1绝对路径定位</h4><p>以百度中的输入框和按钮为例，通过拷贝出来的 full Xpath：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041415799.png" alt="RF25"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/html/body/div[1]/div[1]/div[5]/div/div/form/span[1]/input</span><br></pre></td></tr></table></figure>
 <p>这是一个绝对路径，绝对路径是从根节点/html开始往下找，html下面的body下面的div下面的第5个div下面的….input标签。通过一级一级的锁定就找到了想要的元素。</p>
 <h4 id="2-2相对路径定位"><a href="#2-2相对路径定位" class="headerlink" title="2.2相对路径定位"></a>2.2相对路径定位</h4><p>除了绝对路径，Xpath中更常用的方式是相对路径定位方法，以“//”开头<br>相对路径可以从任意节点开始，一般我们会选取一个可以唯一定位到的元素开始写，增加查找的准确性。</p>
 <h5 id="2-2-1元素属性定位"><a href="#2-2-1元素属性定位" class="headerlink" title="2.2.1元素属性定位"></a>2.2.1元素属性定位</h5><p>Xpath可以利用元素自身的属性进行定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Xpath=//*[@id=’kw’]</span><br></pre></td></tr></table></figure></p>
@@ -438,13 +439,13 @@
 <p>查找 name 属性为 wd 或者 class 属性为 s_ipt 的任意元素，取其中之一满足即可</p>
 <p>3、使用|，同时查找多个路径，取或：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//form[@id=&quot;form&quot;]//span | //form[@id=&quot;form&quot;]//input</span><br></pre></td></tr></table></figure></p>
 <p>选取 form 下所有的 span 和所有的 input。</p>
-<h3 id="3-CSS定位"><a href="#3-CSS定位" class="headerlink" title="3.CSS定位"></a>3.CSS定位</h3><p>CSS(Cascading Style Sheets)是一种语言，它被用来描述HTML 和XML 文档的表现。CSS 使用选择器来为页面元素绑定属性。CSS 可以比较灵活选择控件的任意属性，一般情况下定位速度要比XPath 快，但对于初学者来说比较难以学习使用，下面我们就详细的介绍CSS 的语法与使用。<br>CSS 选择器的常见语法:<br><img src="/img/RF26.png" alt="示例图" title="示例图"><br>同样以百度输入框的代码，我们来看看CSS如何定位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=&quot;form1&quot; class=&quot;fm&quot; action=&quot;/s&quot; name=&quot;f1&quot;&gt;</span><br><span class="line">　　&lt;span class=&quot;bg s_ipt_wr&quot;&gt;</span><br><span class="line">　　　　&lt;input id=&quot;kw&quot; class=&quot;s_ipt&quot; type=&quot;text&quot; maxlength=&quot;100&quot; name=&quot;wd&quot; autocomplete=&quot;off&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-CSS定位"><a href="#3-CSS定位" class="headerlink" title="3.CSS定位"></a>3.CSS定位</h3><p>CSS(Cascading Style Sheets)是一种语言，它被用来描述HTML 和XML 文档的表现。CSS 使用选择器来为页面元素绑定属性。CSS 可以比较灵活选择控件的任意属性，一般情况下定位速度要比XPath 快，但对于初学者来说比较难以学习使用，下面我们就详细的介绍CSS 的语法与使用。<br>CSS 选择器的常见语法:<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041415040.png" alt="RF26"><br>同样以百度输入框的代码，我们来看看CSS如何定位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=&quot;form1&quot; class=&quot;fm&quot; action=&quot;/s&quot; name=&quot;f1&quot;&gt;</span><br><span class="line">　　&lt;span class=&quot;bg s_ipt_wr&quot;&gt;</span><br><span class="line">　　　　&lt;input id=&quot;kw&quot; class=&quot;s_ipt&quot; type=&quot;text&quot; maxlength=&quot;100&quot; name=&quot;wd&quot; autocomplete=&quot;off&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>id定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css=#kw</span><br></pre></td></tr></table></figure></p>
 <p>class 定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css=.s_ipt</span><br></pre></td></tr></table></figure></p>
 <p>其他属性定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">css=[name=wd]</span><br><span class="line">css=[type=text]</span><br><span class="line">css=[autocomplete=off]</span><br></pre></td></tr></table></figure></p>
 <p>父子定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Css=span&gt;input</span><br><span class="line">Css=from&gt;span&gt;input</span><br></pre></td></tr></table></figure></p>
 <p>根据标签名定位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Css=input</span><br></pre></td></tr></table></figure></p>
-<p>代码实现：<br><img src="/img/RF27.png" alt="示例图" title="示例图"></p>
+<p>代码实现：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041415964.png" alt="RF27"></p>
 
       
     </div>
@@ -568,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -579,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -590,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -694,7 +695,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

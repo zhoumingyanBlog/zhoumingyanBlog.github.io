@@ -102,14 +102,14 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="爬虫的原理就是写代码自动化的获取数据，保存下来数据，那怎么写代码来请求一个网址，获取结果，就要用到requests模块了。requests模块是python的一个第三方的模块，它是基于python自带的urllib模块封装的，用来发送http请求和获取返回的结果。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/PC15.png">
-<meta property="og:image" content="http://yoursite.com/img/PC16.png">
-<meta property="og:image" content="http://yoursite.com/img/PC17.png">
-<meta property="og:updated_time" content="2020-09-25T08:07:52.259Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447924.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447829.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447019.png">
+<meta property="og:updated_time" content="2023-01-04T06:48:13.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requests模块使用（四）">
 <meta name="twitter:description" content="爬虫的原理就是写代码自动化的获取数据，保存下来数据，那怎么写代码来请求一个网址，获取结果，就要用到requests模块了。requests模块是python的一个第三方的模块，它是基于python自带的urllib模块封装的，用来发送http请求和获取返回的结果。">
-<meta name="twitter:image" content="http://yoursite.com/img/PC15.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447924.png">
 
 
 
@@ -426,12 +426,13 @@
 <p>从结果可以看出request里面集成的json其实就是执行了json.loads()方法，两者的结果是一样的</p>
 <h4 id="获取二进制数据"><a href="#获取二进制数据" class="headerlink" title="获取二进制数据"></a>获取二进制数据</h4><p>在上面提到了response.content，这样获取的数据是二进制数据，同样的这个方法也可用于下载图片以及视频资源</p>
 <h4 id="添加headers"><a href="#添加headers" class="headerlink" title="添加headers"></a>添加headers</h4><p>和前面我们将urllib模块的时候一样，我们同样可以定制headers的信息，如当我们直接通过requests请求知乎网站的时候，默认是无法访问的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;https://www.zhihu.com&quot;)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure></p>
-<p>这样会得到如下错误：<br><img src="/img/PC15.png" alt="示例图" title="示例图"><br>因为访问知乎需要头部信息，这个时候我们在谷歌浏览器里输入chrome://version/ 就可以看到用户代理，将用户代理添加到头部信息。<br><img src="/img/PC16.png" alt="示例图" title="示例图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">headers=&#123;</span><br><span class="line">&apos;User-Agent&apos;:&apos;Mozilla/5.0(WindowsNT6.1;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/85.0.4183.83Safari/537.36&apos;</span><br><span class="line">&#125;</span><br><span class="line">response=requests.get(&quot;https://www.zhihu.com&quot;,headers=headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure></p>
+<p>这样会得到如下错误：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041447924.png" alt="PC15"><br>因为访问知乎需要头部信息，这个时候我们在谷歌浏览器里输入chrome://version/ 就可以看到用户代理，将用户代理添加到头部信息。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041447829.png" alt="PC16"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">headers=&#123;</span><br><span class="line">&apos;User-Agent&apos;:&apos;Mozilla/5.0(WindowsNT6.1;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/85.0.4183.83Safari/537.36&apos;</span><br><span class="line">&#125;</span><br><span class="line">response=requests.get(&quot;https://www.zhihu.com&quot;,headers=headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure></p>
 <p>这样就可以正常访问知乎了。</p>
 <h4 id="基本的POST请求"><a href="#基本的POST请求" class="headerlink" title="基本的POST请求"></a>基本的POST请求</h4><p>通过在发送POST请求时添加一个data参数，这个data参数可以通过字典构造成，这样对于发送post请求就非常方便。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">data=&#123;</span><br><span class="line">&quot;name&quot;:&quot;Marry&quot;,</span><br><span class="line">&quot;age&quot;:23</span><br><span class="line">&#125;</span><br><span class="line">response=requests.post(&quot;http://httpbin.org/post&quot;,data=data)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure></p>
 <p>同样在发送POST请求的时候也可以和发送get请求一样通过headers参数传递一个字典类型的数据。</p>
 <h4 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h4><p>我们可以通过response获得很多属性，例子如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">print(type(response.status_code),response.status_code)</span><br><span class="line">print(type(response.headers),response.headers)</span><br><span class="line">print(type(response.cookies),response.cookies)</span><br><span class="line">print(type(response.url),response.url)</span><br><span class="line">print(type(response.history),response.history)</span><br></pre></td></tr></table></figure></p>
-<p>结果如下:<br><img src="/img/PC17.png" alt="示例图" title="示例图"><br>状态码判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">ifresponse.status_code==requests.codes.ok:</span><br><span class="line">print(&quot;访问成功&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>结果如下:<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041447019.png" alt="PC17"><br>状态码判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">ifresponse.status_code==requests.codes.ok:</span><br><span class="line">print(&quot;访问成功&quot;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>requests高级用法<h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4>实现方法和其他参数类似，也是构造一个字典后通过files参数传递<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">files=&#123;&quot;files&quot;:open(&quot;m.jpg&quot;,&quot;rb&quot;)&#125;</span><br><span class="line">response=requests.post(&quot;http://httpbin.org/post&quot;,files=files)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
 </li>
@@ -561,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +573,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -583,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -687,7 +688,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

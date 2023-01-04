@@ -102,16 +102,16 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="robotframework环境搭建完成，运行ride报错 1、robotframework 环境（pip list）：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/RF11.png">
-<meta property="og:image" content="http://yoursite.com/img/RF7.png">
-<meta property="og:image" content="http://yoursite.com/img/RF8.png">
-<meta property="og:image" content="http://yoursite.com/img/RF10.png">
-<meta property="og:image" content="http://yoursite.com/img/RF9.png">
-<meta property="og:updated_time" content="2020-08-12T09:44:14.280Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041444676.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041444085.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041444995.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041444976.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041446172.png">
+<meta property="og:updated_time" content="2023-01-04T06:46:46.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot Framework-python3.8与ride不兼容问题">
 <meta name="twitter:description" content="robotframework环境搭建完成，运行ride报错 1、robotframework 环境（pip list）：">
-<meta name="twitter:image" content="http://yoursite.com/img/RF11.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041444676.png">
 
 
 
@@ -414,19 +414,19 @@
         <p>robotframework环境搭建完成，运行ride报错</p>
 <p>1、robotframework 环境（pip list）：<br><a id="more"></a><br>python 3.8.2<br>robotframework 3.2.1<br>wxpython 4.0.7<br>ride 1.7.4.2</p>
 <p>2、运行ride报错</p>
-<p> <img src="/img/RF11.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041444676.png" alt="RF11"></p>
 <p>百度上找了一圈，有人说是robotframework-ride最新版本1.7.4.2 不兼容 python 3.8，后来把1.7.4.2版本的卸载了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall robotframework</span><br></pre></td></tr></table></figure></p>
 <p>又重新指定版本安装1.7.4.1的试试看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework-ride==1.7.4.1</span><br></pre></td></tr></table></figure></p>
 <p>终于装上了！</p>
 <p>然而又报了新的错误…</p>
-<p> <img src="/img/RF7.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041444085.png" alt="RF7"></p>
 <p>又继续百度说是系统语言的问题，在 robotide 中找到应用程序配置项Lib\site-packages\robotide\application\application.py，看到初始加载的语言环境是英文。</p>
-<p> <img src="/img/RF8.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041444995.png" alt="RF8"></p>
 <p> 加上一个局部支持的语言试试</p>
 <p>把修改application.py中 self._initial_locale = wx.Locale(wx.LANGUAGE_ENGLISH)改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.locale = wx.Locale(wx.LANGUAGE_ENGLISH)</span><br></pre></td></tr></table></figure></p>
-<p> <img src="/img/RF10.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041444976.png" alt="RF10"></p>
 <p>又出现了新的问题..</p>
-<p> <img src="/img/RF9.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041446172.png" alt="RF9"></p>
 <p> 这次报的是缩进的问题，源码缩进格式不正确，简单粗暴的复制下面没问题的源码缩进，终于终于运行能够打开了！</p>
 
       
@@ -542,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -564,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

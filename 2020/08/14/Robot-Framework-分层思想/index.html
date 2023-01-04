@@ -102,26 +102,26 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="在Java中，程序设计讲究设计模式，设计模式其实就是根据需求使用抽象和封装，其实这个就是分层思想，把一个实现过程分成不同多层，提高灵活性，从而达到可扩展性和可维护性。要谈RF的分层思想，就不得不说到关键字驱动，刚刚我们介绍了关键字驱动：类似函数，通过调用不同的关键字，从而测试结果就不同。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/RF32.png">
-<meta property="og:image" content="http://yoursite.com/img/RF33.png">
-<meta property="og:image" content="http://yoursite.com/img/RF34.png">
-<meta property="og:image" content="http://yoursite.com/img/RF35.png">
-<meta property="og:image" content="http://yoursite.com/img/RF36.png">
-<meta property="og:image" content="http://yoursite.com/img/RF37.png">
-<meta property="og:image" content="http://yoursite.com/img/RF38.png">
-<meta property="og:image" content="http://yoursite.com/img/RF39.png">
-<meta property="og:image" content="http://yoursite.com/img/RF40.png">
-<meta property="og:image" content="http://yoursite.com/img/RF41.png">
-<meta property="og:image" content="http://yoursite.com/img/RF42.png">
-<meta property="og:image" content="http://yoursite.com/img/RF43.png">
-<meta property="og:image" content="http://yoursite.com/img/RF44.png">
-<meta property="og:image" content="http://yoursite.com/img/RF45.png">
-<meta property="og:image" content="http://yoursite.com/img/RF46.png">
-<meta property="og:updated_time" content="2020-08-14T08:36:09.489Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041407450.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041407932.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041408138.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041408091.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041408497.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041408469.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041409897.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041409668.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041409624.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041409100.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041410679.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041412996.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041411022.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041410325.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041412169.png">
+<meta property="og:updated_time" content="2023-01-04T06:12:53.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot Framework--分层思想">
 <meta name="twitter:description" content="在Java中，程序设计讲究设计模式，设计模式其实就是根据需求使用抽象和封装，其实这个就是分层思想，把一个实现过程分成不同多层，提高灵活性，从而达到可扩展性和可维护性。要谈RF的分层思想，就不得不说到关键字驱动，刚刚我们介绍了关键字驱动：类似函数，通过调用不同的关键字，从而测试结果就不同。">
-<meta name="twitter:image" content="http://yoursite.com/img/RF32.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041407450.png">
 
 
 
@@ -423,15 +423,15 @@
       
         <p>在Java中，程序设计讲究设计模式，设计模式其实就是根据需求使用抽象和封装，其实这个就是分层思想，把一个实现过程分成不同多层，提高灵活性，从而达到可扩展性和可维护性。<br>要谈RF的分层思想，就不得不说到关键字驱动，刚刚我们介绍了关键字驱动：类似函数，通过调用不同的关键字，从而测试结果就不同。<a id="more"></a><br>在RF中，我们可以把操作步骤封装一个一个的方法（关键字），通过调用关键字来实现测试用例。</p>
 <p>比如我们要登录测试环境，创建下面的一条登录的测试用例。</p>
-<p> <img src="/img/RF32.png" alt="示例图" title="示例图"></p>
+<p> <img src="https://gitee.com/mashuqingyu/note/raw/master/202301041407450.png" alt="RF32"></p>
 <p>现在我要写3条测试环境登录的用例：</p>
-<p><img src="/img/RF33.png" alt="示例图" title="示例图"><br>可以在测试套件下创建3条测试用例，如果我们现在要检查登录，登陆不同的账号，其实只是输入的文本变了，而操作步骤和操作的元素都是不变的，如果这样做，无疑增加的脚本的冗余，而且不便于维护。假如，输入框的定位方式变了，我不得不打开每一条用例进行修改。</p>
-<p>所以我们把一个个操作封装成关键字，放在一个专放操作的文件夹里，以便管理。需要用到是则去一一调用这些关键字，而不需要重复写这些步骤，从而实现分层的思想来解决这个问题。<br>如下：<br>右键“测试项目”选择“new resource”创建资源。<br><img src="/img/RF34.png" alt="示例图" title="示例图"><br>输入资源名称：<br><img src="/img/RF35.png" alt="示例图" title="示例图"><br>2、创建关键字<br>右键“业务关键字”选择“new User Keyword” 来创建用户关键字。<br><img src="/img/RF36.png" alt="示例图" title="示例图"><br>输入关键字的名称：<br><img src="/img/RF37.png" alt="示例图" title="示例图"></p>
-<p>3、编辑关键字<br><img src="/img/RF38.png" alt="示例图" title="示例图"><br>对于一个测试用例来说，用户关心的是输入什么内容，得到什么结果。<br>所以，对于“登录”关键字来说，需要创建三个接口变量${mobile}，${password}和${result}三个变量，用于接收输入内容和预期结果。<br>点击Arguments输入框，定义变量，多个变量从用“|”隔开。</p>
-<p>在登录用户中使用参数化变量。<br><img src="/img/RF39.png" alt="示例图" title="示例图"></p>
-<p>4、添加创建的资源<br>切换到测试套件页面，添加资源（业务关键字.txt）<br><img src="/img/RF40.png" alt="示例图" title="示例图"><br>5、调用关键字<br>现在就可以在测试用例中使用创建的关键字了（登录页面）。<br><img src="/img/RF41.png" alt="示例图" title="示例图"><br>对于每一条用例来说，调用“登录”关键字，输入手机号、密码，输入预期结果即可。不用关心用例是如何执行的。如果手机号码，密码输入框的定位发生了变化，只用去修改“登录”关键字即可，不用对每一条用例做任何修改。大大提高的用例的维护性和扩展性。</p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041407932.png" alt="RF33"><br>可以在测试套件下创建3条测试用例，如果我们现在要检查登录，登陆不同的账号，其实只是输入的文本变了，而操作步骤和操作的元素都是不变的，如果这样做，无疑增加的脚本的冗余，而且不便于维护。假如，输入框的定位方式变了，我不得不打开每一条用例进行修改。</p>
+<p>所以我们把一个个操作封装成关键字，放在一个专放操作的文件夹里，以便管理。需要用到是则去一一调用这些关键字，而不需要重复写这些步骤，从而实现分层的思想来解决这个问题。<br>如下：<br>右键“测试项目”选择“new resource”创建资源。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041408138.png" alt="RF34"><br>输入资源名称：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041408091.png" alt><br>2、创建关键字<br>右键“业务关键字”选择“new User Keyword” 来创建用户关键字。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041408497.png" alt="RF36"><br>输入关键字的名称：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041408469.png" alt="RF37"></p>
+<p>3、编辑关键字<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041409897.png" alt="RF38"><br>对于一个测试用例来说，用户关心的是输入什么内容，得到什么结果。<br>所以，对于“登录”关键字来说，需要创建三个接口变量${mobile}，${password}和${result}三个变量，用于接收输入内容和预期结果。<br>点击Arguments输入框，定义变量，多个变量从用“|”隔开。</p>
+<p>在登录用户中使用参数化变量。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041409668.png" alt="RF39"></p>
+<p>4、添加创建的资源<br>切换到测试套件页面，添加资源（业务关键字.txt）<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041409624.png" alt="RF40"><br>5、调用关键字<br>现在就可以在测试用例中使用创建的关键字了（登录页面)。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041409100.png" alt="RF41"><br>对于每一条用例来说，调用“登录”关键字，输入手机号、密码，输入预期结果即可。不用关心用例是如何执行的。如果手机号码，密码输入框的定位发生了变化，只用去修改“登录”关键字即可，不用对每一条用例做任何修改。大大提高的用例的维护性和扩展性。</p>
 <p>继续分层的设计：</p>
-<p><img src="/img/RF42.png" alt="示例图" title="示例图"><br><img src="/img/RF43.png" alt="示例图" title="示例图"><br><img src="/img/RF44.png" alt="示例图" title="示例图"><br><img src="/img/RF45.png" alt="示例图" title="示例图"><br>为了以后维护更方便，可以再把元素定位分离出来，放在一个专放元素定位的文件夹里…如果以后页面发生了调整，我们就需要修改元素的定位，就不用一条条用例打开去修改，只要修改页面定位元素即可如下：<br><img src="/img/RF46.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041410679.png" alt="RF42"><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041412996.png" alt="RF43"><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041411022.png" alt="RF44"><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041410325.png" alt="RF45"><br>为了以后维护更方便，可以再把元素定位分离出来，放在一个专放元素定位的文件夹里…如果以后页面发生了调整，我们就需要修改元素的定位，就不用一条条用例打开去修改，只要修改页面定位元素即可如下：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041412169.png" alt="RF46"></p>
 
       
     </div>
@@ -546,7 +546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -568,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -656,7 +656,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

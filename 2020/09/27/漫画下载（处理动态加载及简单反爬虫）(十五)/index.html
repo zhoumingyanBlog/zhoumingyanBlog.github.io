@@ -102,18 +102,18 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="在动漫之家选择一本漫画下载，下载一本已完结的。《一条狗》">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/PC8.png">
-<meta property="og:image" content="http://yoursite.com/img/PC9.png">
-<meta property="og:image" content="http://yoursite.com/img/PC10.png">
-<meta property="og:image" content="http://yoursite.com/img/PC11.png">
-<meta property="og:image" content="http://yoursite.com/img/PC12.png">
-<meta property="og:image" content="http://yoursite.com/img/PC13.png">
-<meta property="og:image" content="http://yoursite.com/img/PC14.png">
-<meta property="og:updated_time" content="2020-10-19T05:44:13.809Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041423562.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041424883.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041424463.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041424682.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041424152.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041424933.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041425513.png">
+<meta property="og:updated_time" content="2023-01-04T06:25:22.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="漫画下载(十五)">
 <meta name="twitter:description" content="在动漫之家选择一本漫画下载，下载一本已完结的。《一条狗》">
-<meta name="twitter:image" content="http://yoursite.com/img/PC8.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041423562.png">
 
 
 
@@ -413,7 +413,7 @@
       
 
       
-        <p>在动漫之家选择一本漫画下载，下载一本已完结的。《一条狗》<br><a id="more"></a><br>url=<a href="https://www.dmzj.com/info/yitiaogou.html" target="_blank" rel="noopener">https://www.dmzj.com/info/yitiaogou.html</a><br><img src="/img/PC8.png" alt="示例图" title="示例图"></p>
+        <p>在动漫之家选择一本漫画下载，下载一本已完结的。《一条狗》<br><a id="more"></a><br>url=<a href="https://www.dmzj.com/info/yitiaogou.html" target="_blank" rel="noopener">https://www.dmzj.com/info/yitiaogou.html</a><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041423562.png" alt="PC8"></p>
 <p>想下载这本动漫，需要保存所有章节的图片到本地。先捋捋思路：</p>
 <ul>
 <li>拿到所有章节名和章节链接</li>
@@ -421,21 +421,21 @@
 <li>根据章节名，分类保存漫画</li>
 </ul>
 <p>** 获取章节名和章节链接</p>
-<p>分析一下html<br><img src="/img/PC9.png" alt="示例图" title="示例图"></p>
+<p>分析一下html<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041424883.png" alt="PC9"></p>
 <p>分析可以发现div标签下有个ul标签，ul标签是距离a标签最近的标签。</p>
 <p>用上一篇文章讲解的Beautiful Soup，实际上直接匹配最近的class属性为list_con_li的ul标签即可。代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">target_url=&apos;https://www.dmzj.com/info/yitiaogou.html&apos;</span><br><span class="line">req=requests.get(url=target_url)</span><br><span class="line">html=req.text</span><br><span class="line">bs=BeautifulSoup(html,&apos;lxml&apos;)</span><br><span class="line">list_con_li=bs.find(&apos;ul&apos;,class_=&apos;list_con_li&apos;)</span><br><span class="line">comic_list=list_con_li.find_all(&apos;a&apos;)</span><br><span class="line">chapter_name=[]</span><br><span class="line">chapter_urls=[]</span><br><span class="line"></span><br><span class="line">for comic in comic_list:</span><br><span class="line">    href=comic.get(&apos;href&apos;)</span><br><span class="line">    name=comic.text</span><br><span class="line">    chapter_name.insert(0,name)</span><br><span class="line">    chapter_urls.insert(0,href)</span><br><span class="line">print(chapter_name)</span><br><span class="line">print(chapter_urls)</span><br></pre></td></tr></table></figure>
-<p>章节名和章节链接就搞定了。<br><img src="/img/PC10.png" alt="示例图" title="示例图"></p>
+<p>章节名和章节链接就搞定了。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041424463.png" alt="PC10"></p>
 <p><strong>获取漫画图片地址</strong></p>
 <p>我们只要分析在一个章节里怎么获取图片，就能批量的在各个章节获取漫画图片。</p>
 <p>我们先看第一章的内容。</p>
 <p>url：<a href="https://www.dmzj.com/view/yitiaogou/34449.html#@page=1" target="_blank" rel="noopener">https://www.dmzj.com/view/yitiaogou/34449.html#@page=1</a></p>
 <p>打开第一章的链接，你会发现，链接后面自动添加了#@page=1<br>但是这个并不是图片的真实地址，而是这个页面的地址，要下载图片，我们首先要拿到真实地址，审查元素找图片，页面无法<strong>右键</strong>这就是反爬虫手段，不过我们可以通过<strong>F12</strong>调出审查元素窗口。<br>有的网站甚至还会把<strong>F12</strong>都禁掉，这也是反爬虫手段。面对这种禁止看页面源码的初级手段，一个优雅的通用解决方法就是，在链接前面加个view-source:。</p>
 <p>view-source:<a href="https://www.dmzj.com/view/yitiaogou/34449.html" target="_blank" rel="noopener">https://www.dmzj.com/view/yitiaogou/34449.html</a></p>
-<p>用这个链接，直接看的就是页面源码。<br><img src="/img/PC11.png" alt="示例图" title="示例图"></p>
-<p>更简单的办法是，将鼠标焦点放在浏览器地址栏，然后按下<strong>F12</strong>调出调试窗口。<br>在Network中找到我们的图片真实地址，链接如下：<br><img src="/img/PC12.png" alt="示例图" title="示例图"></p>
+<p>用这个链接，直接看的就是页面源码。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041424682.png" alt="PC11"></p>
+<p>更简单的办法是，将鼠标焦点放在浏览器地址栏，然后按下<strong>F12</strong>调出调试窗口。<br>在Network中找到我们的图片真实地址，链接如下：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041424152.png" alt="PC12"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://images.dmzj.com/img/chapterpic/175/866/14417836509461.jpg</span><br></pre></td></tr></table></figure>
-<p>这就是图片的真实地址，拿着这个链接去html页面中搜索，可以找到是有这个图片链接的。<br><img src="/img/PC13.png" alt="示例图" title="示例图"></p>
+<p>这就是图片的真实地址，拿着这个链接去html页面中搜索，可以找到是有这个图片链接的。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041424933.png" alt="PC13"></p>
 <p>但是用view-source:<a href="https://www.dmzj.com/view/yitiaogou/34449.html打开的页面找不到这个图片链接。说明这个图片是**动态加载**的。" target="_blank" rel="noopener">https://www.dmzj.com/view/yitiaogou/34449.html打开的页面找不到这个图片链接。说明这个图片是**动态加载**的。</a></p>
 <p>view-source:方法只能看页面源码，不管动态加载的内容，这里面没有图片链接，就说明图片是动态加载的。使用JavaScript动态加载，无外乎两种方式：</p>
 <ul>
@@ -444,7 +444,7 @@
 </ul>
 <p>外部加载就是在html页面中，以引用的形式，加载一个js，例如这样：</p>
 <p><script type="text/javascript" src="https://xxxxxx.com/call.js"></script><br>这段代码的意思是，引用xxxxxx.com域名下的call.js文件。<br>内部加载就是javascript脚本内容写在html内，例如这个漫画网站。<br>一般这种动态加载都是程序合成的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var arr_img = new Array();</span><br><span class="line">    var page = &apos;&apos;;</span><br><span class="line">    eval(function(p,a,c,k,e,d)&#123;e=function(c)&#123;return c.toString(36)&#125;;if(!&apos;&apos;.replace(/^/,String))&#123;while(c--)&#123;d[c.toString(a)]=k[c]||c.toString(a)&#125;k=[function(e)&#123;return d[e]&#125;];e=function()&#123;return&apos;\\w+&apos;&#125;;c=1&#125;;while(c--)&#123;if(k[c])&#123;p=p.replace(new RegExp(&apos;\\b&apos;+e(c)+&apos;\\b&apos;,&apos;g&apos;),k[c])&#125;&#125;return p&#125;(&apos;7 8=\&apos;&#123;&quot;9&quot;:&quot;6&quot;,&quot;5&quot;:&quot;0&quot;,&quot;2&quot;:&quot;3\\/4\\/a\\/b\\/h.i&quot;,&quot;g&quot;:&quot;1&quot;,&quot;d&quot;:&quot;e&quot;,&quot;j&quot;:&quot;\\c\\f&quot;&#125;\&apos;;&apos;,20,20,&apos;||page_url|img|chapterpic|hidden|34449|var|pages|id|175|866|u7b2c01|chapter_order|10|u8bdd|sum_pages|14417836509461|jpg|chapter_name&apos;.split(&apos;|&apos;),0,&#123;&#125;))</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>图片链接：<a href="https://images.dmzj.com/img/chapterpic/175/866/14417836509461.jpg" target="_blank" rel="noopener">https://images.dmzj.com/img/chapterpic/175/866/14417836509461.jpg</a><br><img src="/img/PC14.png" alt="示例图" title="示例图"></p>
+<p>图片链接：<a href="https://images.dmzj.com/img/chapterpic/175/866/14417836509461.jpg" target="_blank" rel="noopener">https://images.dmzj.com/img/chapterpic/175/866/14417836509461.jpg</a><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041425513.png" alt="PC14"></p>
 <p>由图可以看出链接的这几个数字就是合成的，可以把这些数字弄出来，拼接成图片链接。</p>
 <p>未完。。</p>
 
@@ -488,6 +488,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/07/MySQL安装配置教程/" rel="prev" title="MySQL安装配置教程">
+                MySQL安装配置教程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -557,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -568,7 +572,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -579,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -667,7 +671,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

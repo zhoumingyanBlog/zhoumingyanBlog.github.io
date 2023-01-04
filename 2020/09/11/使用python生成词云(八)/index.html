@@ -102,15 +102,15 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="什么是词云呢？ 词云就是一些关键词组成的一个图片。大家在网上经常看到，下面看一些例子：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/again.jpg">
-<meta property="og:image" content="http://yoursite.com/img/again.jpg">
-<meta property="og:image" content="http://yoursite.com/img/test01.png">
-<meta property="og:image" content="http://yoursite.com/img/test02.jpg">
-<meta property="og:updated_time" content="2020-10-19T05:49:26.511Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041428352.jpg">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041428352.jpg">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041429380.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041430775.jpg">
+<meta property="og:updated_time" content="2023-01-04T06:30:21.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用python生成词云（八）">
 <meta name="twitter:description" content="什么是词云呢？ 词云就是一些关键词组成的一个图片。大家在网上经常看到，下面看一些例子：">
-<meta name="twitter:image" content="http://yoursite.com/img/again.jpg">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041428352.jpg">
 
 
 
@@ -411,22 +411,22 @@
 
       
         <p>什么是词云呢？</p>
-<p>词云就是一些关键词组成的一个图片。大家在网上经常看到，下面看一些例子：<br><a id="more"></a><br> <img src="/img/again.jpg" alt="示例图" title="示例图"></p>
+<p>词云就是一些关键词组成的一个图片。大家在网上经常看到，下面看一些例子：<br><a id="more"></a><br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041428352.jpg" alt></p>
 <p> 用python生成词云，首先要有一些词，随便找些词放在txt文件里就好了。</p>
 <p> 首先我们会用到wordcloud这个模块，他可以实现分词，生成我们想要的词云图片，用下面的命令进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wordcloud</span><br></pre></td></tr></table></figure></p>
 <p>过程如下：</p>
 <p>首先先读取到放在txt里面的词，然后给WordCloud，让他帮忙分词，分词的意思就是把里面的一些关键词提取出来，以及指定图片的大小，背景颜色，字体等等。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from wordcloud import WordCloud #导入词云模块</span><br><span class="line">words = open(&apos;test.txt&apos;,encoding=&apos;utf-8&apos;).read()#打开词语文件，获取到词语</span><br><span class="line">wordcloud = WordCloud(width=1000, #图片的宽度</span><br><span class="line">                      height=860,  #高度</span><br><span class="line">                      margin=2, #边距</span><br><span class="line">                      background_color=&apos;black&apos;,#指定背景颜色</span><br><span class="line">                      font_path=&apos;C:\Windows\Fonts\simfang.ttf&apos;#设置字体，不然会出现口字乱码，文字的路径是电脑的字体一般路径，可以换成别的</span><br><span class="line">                      )</span><br><span class="line">wordcloud.generate(words) #分词</span><br><span class="line">wordcloud.to_file(&apos;test.jpg&apos;)#保存到图片</span><br></pre></td></tr></table></figure>
 <p>注意，这个地方可能会报“OSError: cannot open resource”的一个错误，这是由于找不到字体的原因。我上面的字体位置就是系统中字体位置，所以如果报错了，检查一下是否有该字体，更换一下就好。</p>
-<p>简单的几行代码就ok拉，下面是生成的效果图<br> <img src="/img/again.jpg" alt="示例图" title="示例图"></p>
+<p>简单的几行代码就ok拉，下面是生成的效果图<br> <img src="https://gitee.com/mashuqingyu/note/raw/master/202301041428352.jpg" alt></p>
 <p> wordcloud这个模块对中文分词支持不怎么好，因为英文的每个单词都是空格分开的，但是中文每个词语都是连着，另外jieba这个模块对中文分词比较好。</p>
 <p> 先安装jieba这个模块</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jieba</span><br></pre></td></tr></table></figure>
 <p>再找个中文词语，保存到test1里面，用jieba分词，保存到test1.jpg里面，代码如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import jieba</span><br><span class="line">from wordcloud import WordCloud #导入词云模块</span><br><span class="line">words = open(&apos;test1.txt&apos;,encoding=&apos;utf-8&apos;).read()#打开词语文件，获取到词语</span><br><span class="line">new_words = &apos; &apos;.join(jieba.cut(words))#使用jieba.cut分词，然后把分好的词变成一个字符串，每个词用空格隔开</span><br><span class="line">wordcloud = WordCloud(width=1000, #图片的宽度</span><br><span class="line">                      height=860,  #高度</span><br><span class="line">                      margin=2, #边距</span><br><span class="line">                      background_color=&apos;black&apos;,#指定背景颜色</span><br><span class="line">                      font_path=&apos;C:\Windows\Fonts\simfang.ttf#设置字体，不然会出现口字乱码，文字的路径是电脑的字体一般路径，可以换成别的</span><br><span class="line">                      )</span><br><span class="line">wordcloud.generate(new_words) #分词</span><br><span class="line">wordcloud.to_file(&apos;test1.jpg&apos;)#保存到图片</span><br></pre></td></tr></table></figure>
 <p>词云已经生成，还可以做成各种形状的，首先先找到一个形状的图片，然后用到PIL模块，处理图片，用numpy把这个图片的各种属性转成数字，这2个模块需要安装，pip安装即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install PIL</span><br><span class="line"></span><br><span class="line">pip install numpy</span><br></pre></td></tr></table></figure></p>
-<p>原来的高跟鞋参照物<br> <img src="/img/test01.png" alt="示例图" title="示例图"></p>
-<p>下面是产生高跟鞋形状的词云:<br> <img src="/img/test02.jpg" alt="示例图" title="示例图"></p>
+<p>原来的高跟鞋参照物<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041429380.png" alt="test01"></p>
+<p>下面是产生高跟鞋形状的词云:<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041430775.jpg" alt="test02"></p>
 <p>下面是源代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import jieba,numpy</span><br><span class="line">from PIL import Image#导入PIL模块处理图片</span><br><span class="line">from wordcloud import WordCloud #导入词云模块</span><br><span class="line">words = open(&apos;test00.txt&apos;,encoding=&apos;utf-8&apos;).read()#打开词语文件，获取到词语</span><br><span class="line">new_words = &apos; &apos;.join(jieba.cut(words))#使用jieba.cut分词，然后把分好的词变成一个字符串，每个词用空格隔开</span><br><span class="line">alice_mask = numpy.array(Image.open(&apos;test01.png&apos;))</span><br><span class="line">#使用pil模块打开这个图片，然后用numpy获取到这个图片各种乱八七糟的属性</span><br><span class="line">wordcloud = WordCloud(width=1000, #图片的宽度</span><br><span class="line">                      height=860,  #高度</span><br><span class="line">                      margin=2, #边距</span><br><span class="line">                      mask=alice_mask,</span><br><span class="line">                      background_color=&apos;white&apos;,#指定背景颜色</span><br><span class="line">                      font_path=&apos;C:\Windows\Fonts\simfang.ttf&apos;#设置字体，不然会出现口字乱码，文字的路径是电脑的字体一般路径，可以换成别的</span><br><span class="line">                      )</span><br><span class="line">wordcloud.generate(new_words) #分词</span><br><span class="line">wordcloud.to_file(&apos;test02.jpg&apos;)#保存到图片</span><br></pre></td></tr></table></figure></p>
 
       
@@ -542,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -564,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -103,18 +103,18 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="一、Jmeter简介 Apache JMeter是100%纯JAVA桌面应用程序，被设计为用于测试客户端/服务端结构的软件(例如web应用程序)。它可以用来测试静态和动态资源的性能，例如：静态文件，Java Servlet,CGI Scripts,Java Object,数据库和FTP服务器等等。JMeter可用于模拟大量负载来测试一台服务器，网络或者对象的健壮性或者分析不同负载下的整体性能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter1.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter2.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter3.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter4.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter5.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter6.png">
-<meta property="og:image" content="http://yoursite.com/img/Jmeter7.png">
-<meta property="og:updated_time" content="2021-04-28T09:58:39.165Z">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439263.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439284.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439735.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439848.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439641.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439844.png">
+<meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041440161.png">
+<meta property="og:updated_time" content="2023-01-04T06:40:14.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jmeter介绍">
 <meta name="twitter:description" content="一、Jmeter简介 Apache JMeter是100%纯JAVA桌面应用程序，被设计为用于测试客户端/服务端结构的软件(例如web应用程序)。它可以用来测试静态和动态资源的性能，例如：静态文件，Java Servlet,CGI Scripts,Java Object,数据库和FTP服务器等等。JMeter可用于模拟大量负载来测试一台服务器，网络或者对象的健壮性或者分析不同负载下的整体性能。">
-<meta name="twitter:image" content="http://yoursite.com/img/Jmeter1.png">
+<meta name="twitter:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041439263.png">
 
 
 
@@ -416,31 +416,31 @@
       
         <p>一、Jmeter简介<br> Apache JMeter是100%纯JAVA桌面应用程序，被设计为用于测试客户端/服务端结构的软件(例如web应用程序)。它可以用来测试静态和动态资源的性能，例如：静态文件，Java Servlet,CGI Scripts,Java Object,数据库和FTP服务器等等。JMeter可用于模拟大量负载来测试一台服务器，网络或者对象的健壮性或者分析不同负载下的整体性能。<br> <a id="more"></a><br>同时，JMeter可以帮助你对你的应用程序进行回归测试。通过你创建的测试脚本和assertions来验证你的程序返回了所期待的值。为了更高的适应性，JMeter允许你使用正则表达式来创建这些assertions.</p>
 <p>二、安装Jmeter运行环境<br>安装JDK<br>下载地址：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p> <img src="/img/Jmeter1.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439263.png" alt="Jmeter1"></p>
 <p> JDK环境变量配置</p>
 <p>a、安装JDK 选择安装目录 安装过程中会出现两次 安装提示 。第一次是安装 jdk ，第二次是安装 jre 。建议两个都安装在同一个java文件夹中的不同文件夹中。（不能都安装在java文件夹的根目录下，jdk和jre安装在同一文件夹会出错）正确的安装如下图所示</p>
-<p><img src="/img/Jmeter2.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439284.png" alt="Jmeter2"></p>
 <p>b、安装完JDK后配置环境变量  计算机→右键属性→高级系统设置→高级→环境变量</p>
-<p><img src="/img/Jmeter3.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439735.png" alt="Jmeter3"></p>
 <p>c、系统变量→新建 JAVA_HOME 变量</p>
 <p>变量值填写上面安装jdk的安装目录，这里注意根据自己安装的路径来写，不是都一样（本人是 C:\Program Files\Java\jdk1.8.0_101)所以填的这个路径。</p>
-<p><img src="/img/Jmeter4.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439848.png" alt="Jmeter4"></p>
 <p>d、系统变量→寻找 Path 变量→编辑</p>
 <p>在变量值最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;<br>（注意原来Path的变量值末尾有没有;号，如果没有的话，记得要先输入；号再输入上面的代码）</p>
 <p>e、系统变量→新建 CLASSPATH 变量</p>
 <p>变量值填写.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（注意最前面有一点）<br>系统变量配置完毕</p>
 <p>f、检验是否配置成功运行cmd 输入 java -version （java 和 -version 之间有空格）</p>
 <p>若如图所示 显示版本信息 则说明安装和配置成功。</p>
-<p><img src="/img/Jmeter5.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439641.png" alt="Jmeter5"></p>
 <p>安装JMeter<br>下载最新版本的JMeter，解压缩到本地任意目录，下载地址如下：</p>
 <p><a href="http://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">http://jmeter.apache.org/download_jmeter.cgi</a></p>
-<p><img src="/img/Jmeter6.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041439844.png" alt="Jmeter6"></p>
 <p>运行JMeter</p>
 <p>a)    进入bin目录运行jmeter.bat启动JMeter</p>
 <p>b)    注意：打开的时候会有两个窗口，JMeter的命令窗口和JMeter的图形操作界面，不可以关闭命令窗口。</p>
 <p>c)    Jmeter默认为英文界面，可通过修改安装路径下bin目录下的</p>
 <p>jmeter.properties中#language=en所在的第37行修改为language=zh_CN（记得去掉注释#）重启后即为中文界面</p>
-<p><img src="/img/Jmeter7.png" alt="示例图" title="示例图"></p>
+<p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041440161.png" alt="Jmeter7"></p>
 
       
     </div>
@@ -561,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +572,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -583,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -671,7 +671,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
