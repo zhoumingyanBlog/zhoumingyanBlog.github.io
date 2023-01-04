@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041406328.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041406941.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041406319.png">
-<meta property="og:updated_time" content="2023-01-04T06:06:50.881Z">
+<meta property="og:updated_time" content="2023-01-04T08:36:28.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot Framework-断言函数">
 <meta name="twitter:description" content="测试用例的目的是要验证一些操作否符合我们的预期结果，所以在测试用例中，断言函数是必不可少的一项。我们做的每一步操作都会有预期的结果，为了保证操作得到的结果符合预期，我们需要在测试用例中添加断言，来保证实际结果和预期结果一致。常用的断言函数：">
@@ -426,7 +426,9 @@
       
 
       
-        <p>测试用例的目的是要验证一些操作否符合我们的预期结果，所以在测试用例中，断言函数是必不可少的一项。我们做的每一步操作都会有预期的结果，为了保证操作得到的结果符合预期，我们需要在测试用例中添加断言，来保证实际结果和预期结果一致。常用的断言函数：<br><a id="more"></a></p>
+        <meta name="referrer" content="no-referrer">
+
+<p>测试用例的目的是要验证一些操作否符合我们的预期结果，所以在测试用例中，断言函数是必不可少的一项。我们做的每一步操作都会有预期的结果，为了保证操作得到的结果符合预期，我们需要在测试用例中添加断言，来保证实际结果和预期结果一致。常用的断言函数：<br><a id="more"></a></p>
 <h3 id="1、should-be-equal-与should-not-be-equal"><a href="#1、should-be-equal-与should-not-be-equal" class="headerlink" title="1、should be equal 与should not be equal"></a>1、should be equal 与should not be equal</h3><p><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041403098.png" alt="RF72"><br>第一行设置一个变量并赋值为1，第二行变量${var}和1应该是相等的。<br>运行：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041403357.png" alt="RF73"><br>会发现只是打印出了变量的值，一般来说，断言函数只起断言作用，符合断言没有任何操作，不符合则会报错：<br>现在我们把${var}值改为2，断言不变，再运行：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041403830.png" alt="RF74"><br>得到结果2！=1，用例报红，并且这里给出了断言出错。</p>
 <p>should not be equal恰好相反，用来断言不相等。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041403300.png" alt></p>
 <h3 id="2、should-be-empty与should-not-be-empty"><a href="#2、should-be-empty与should-not-be-empty" class="headerlink" title="2、should be empty与should not be empty"></a>2、should be empty与should not be empty</h3><p>断言为空或不为空。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041404261.png" alt="RF76"><br>如上图，Create List是一个创建列表的函数，我们没有为列表赋值，则${var}是一个空列表，运行：<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041404895.png" alt="RF77"><br>可以看到打出了预期的空列表，并且用例成功运行。<br>should not be empty恰好相反，用来断言不为空。<br><img src="https://gitee.com/mashuqingyu/note/raw/master/202301041404660.png" alt="RF78"></p>

@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447924.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447829.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/note/raw/master/202301041447019.png">
-<meta property="og:updated_time" content="2023-01-04T06:48:13.290Z">
+<meta property="og:updated_time" content="2023-01-04T08:35:37.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requests模块使用（四）">
 <meta name="twitter:description" content="爬虫的原理就是写代码自动化的获取数据，保存下来数据，那怎么写代码来请求一个网址，获取结果，就要用到requests模块了。requests模块是python的一个第三方的模块，它是基于python自带的urllib模块封装的，用来发送http请求和获取返回的结果。">
@@ -409,7 +409,10 @@
       
 
       
-        <p>爬虫的原理就是写代码自动化的获取数据，保存下来数据，那怎么写代码来请求一个网址，获取结果，就要用到requests模块了。<br>requests模块是python的一个第三方的模块，它是基于python自带的urllib模块封装的，用来发送http请求和获取返回的结果。<br><a id="more"></a><br>安装requests<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure></p>
+        <meta name="referrer" content="no-referrer">
+
+<p>爬虫的原理就是写代码自动化的获取数据，保存下来数据，那怎么写代码来请求一个网址，获取结果，就要用到requests模块了。<br>requests模块是python的一个第三方的模块，它是基于python自带的urllib模块封装的，用来发送http请求和获取返回的结果。<br><a id="more"></a><br>安装requests</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <p>requests模块用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">print(type(response))</span><br><span class="line">print(response.status_code)</span><br><span class="line">print(type(response.text))</span><br><span class="line">print(response.text)</span><br><span class="line">print(response.cookies)</span><br><span class="line">print(response.content)</span><br><span class="line">print(response.content.decode(&quot;utf-8&quot;))</span><br></pre></td></tr></table></figure></p>
 <p>我们可以看出response使用起来确实非常方便，这里有个问题需要注意一下：<br>很多情况下的网站如果最直接response.text会出现乱码问题，所以这个使用response.content<br>这样返回的数据格式其实是二进制格式，然后通过decode()转换为utf-8，这样就解决了通过response.text直接返回显示乱码的问题。</p>
 <p>请求发出后，requests会基于HTTP头部对响应的编码作出有根据的推测。当你访问response.text<br>之时，requests会使用其推测的文本编码。你可以找出Requests使用了什么编码，并且能够使用response.encoding属性来改变它。<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">response=requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">response.encoding=&quot;utf-8&quot;</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure></p>

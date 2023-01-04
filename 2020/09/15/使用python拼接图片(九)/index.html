@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Zhou&#39;Note">
 <meta property="og:description" content="用python把多张图片按比例缩小，然后拼成一张图片，首先分析一下需求 这个拼图片就像要做一个照片墙，首先要有一张680*680的墙，算出这个墙的面积，然后算出来有多少张照片，拿总的面积除以照片的数量，就算出来每张照片的面积，裁剪好大小正好的照片，这样子就可以把照片都贴这块墙上了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-19T07:11:46.181Z">
+<meta property="og:updated_time" content="2023-01-04T08:44:14.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用python拼接图片（九）">
 <meta name="twitter:description" content="用python把多张图片按比例缩小，然后拼成一张图片，首先分析一下需求 这个拼图片就像要做一个照片墙，首先要有一张680*680的墙，算出这个墙的面积，然后算出来有多少张照片，拿总的面积除以照片的数量，就算出来每张照片的面积，裁剪好大小正好的照片，这样子就可以把照片都贴这块墙上了。">
@@ -405,7 +405,9 @@
       
 
       
-        <p>用python把多张图片按比例缩小，然后拼成一张图片，首先分析一下需求</p>
+        <meta name="referrer" content="no-referrer">
+
+<p>用python把多张图片按比例缩小，然后拼成一张图片，首先分析一下需求</p>
 <p>这个拼图片就像要做一个照片墙，首先要有一张680*680的墙，算出这个墙的面积，然后算出来有多少张照片，<br>拿总的面积除以照片的数量，就算出来每张照片的面积，裁剪好大小正好的照片，这样子就可以把照片都贴这块墙上了。<br><a id="more"></a><br>现在思路已经缕清了，要注意上面几个需要运算的数据：</p>
 <ul>
 <li>1、墙的面积</li>
@@ -416,27 +418,7 @@
 </ul>
 <p>处理图片需要用到PIL模块，直接pip安装即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pillow</span><br></pre></td></tr></table></figure>
-<p>  　<br>拼接图片如下：<br><code>`</code><br>import math  # math模块计算平方根<br>from PIL import Image  # 导入PIL模块，处理图片<br>import glob  # glob模块，获取目录下的文件</p>
-<p>size = 680  # 照片墙的边长<br>img1 = Image.new(‘RGBA’, (size, size), ‘white’)</p>
-<h1 id="生成一个680-680像素的图片"><a href="#生成一个680-680像素的图片" class="headerlink" title="生成一个680*680像素的图片"></a>生成一个680*680像素的图片</h1><p>pics = glob.glob(r’C:\Users\admin\Desktop\img/*.png’)</p>
-<h1 id="glob模块和os-listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下"><a href="#glob模块和os-listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下" class="headerlink" title="glob模块和os.listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下"></a>glob模块和os.listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下</h1><p>bianchang = int(math.sqrt(size * size / len(pics)))</p>
-<h1 id="先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长"><a href="#先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长" class="headerlink" title="先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长"></a>先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长</h1><p>line_num = int(size / bianchang)</p>
-<h1 id="照片墙的边长除以照片的边长就是每行能放照片的数量"><a href="#照片墙的边长除以照片的边长就是每行能放照片的数量" class="headerlink" title="照片墙的边长除以照片的边长就是每行能放照片的数量"></a>照片墙的边长除以照片的边长就是每行能放照片的数量</h1><p>x = 0  # 列<br>y = 0  # 行<br>for f in pics:  # 循环取到每个图片<br>    img = Image.open(f)  # 打开图片<br>    img = img.resize((bianchang, bianchang), Image.ANTIALIAS)</p>
-<pre><code># resize方法是重置这个图片的尺寸，也就是他的面积，这里用传了2个边长，就算出来了面积
-# Image.ANTIALIAS这个参数的意思是，重置尺寸了之后，高质量的图片
-img1.paste(img, (x * bianchang, y * bianchang))
-# 这里就开始粘贴图片了，(x,y)是列和行，第一开始是0,0在左上角贴了一张，
-# 这里乘以边长的意思就是，每张照片占的长度
-
-x += 1
-# 这个x其实就代表每行贴了几张了，每贴一张就加一
-if x == line_num:
-    # 这里判断了一下，这一行是否贴满了，
-    # 如果贴满了就从第二行开始贴，列还是从第1列开始
-    x = 0  # 列从最前面开始
-    y += 1  # 第一行贴满了，那就从第二行开始了，行号+1
-</code></pre><p>img1.save(‘photo.png’)</p>
-<h1 id="保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾-RGBA模式是一种色彩模式"><a href="#保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾-RGBA模式是一种色彩模式" class="headerlink" title="保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾,RGBA模式是一种色彩模式"></a>保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾,RGBA模式是一种色彩模式</h1><p><code>`</code>　　　</p>
+<p>拼接图片如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import math  # math模块计算平方根</span><br><span class="line">from PIL import Image  # 导入PIL模块，处理图片</span><br><span class="line">import glob  # glob模块，获取目录下的文件</span><br><span class="line"></span><br><span class="line">size = 680  # 照片墙的边长</span><br><span class="line">img1 = Image.new(&apos;RGBA&apos;, (size, size), &apos;white&apos;)</span><br><span class="line"># 生成一个680*680像素的图片</span><br><span class="line">pics = glob.glob(r&apos;C:\Users\admin\Desktop\img/*.png&apos;)</span><br><span class="line"># glob模块和os.listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下</span><br><span class="line">bianchang = int(math.sqrt(size * size / len(pics)))</span><br><span class="line"># 先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长</span><br><span class="line">line_num = int(size / bianchang)</span><br><span class="line"># 照片墙的边长除以照片的边长就是每行能放照片的数量</span><br><span class="line">x = 0  # 列</span><br><span class="line">y = 0  # 行</span><br><span class="line">for f in pics:  # 循环取到每个图片</span><br><span class="line">    img = Image.open(f)  # 打开图片</span><br><span class="line">    img = img.resize((bianchang, bianchang), Image.ANTIALIAS)</span><br><span class="line">    # resize方法是重置这个图片的尺寸，也就是他的面积，这里用传了2个边长，就算出来了面积</span><br><span class="line">    # Image.ANTIALIAS这个参数的意思是，重置尺寸了之后，高质量的图片</span><br><span class="line">    img1.paste(img, (x * bianchang, y * bianchang))</span><br><span class="line">    # 这里就开始粘贴图片了，(x,y)是列和行，第一开始是0,0在左上角贴了一张，</span><br><span class="line">    # 这里乘以边长的意思就是，每张照片占的长度</span><br><span class="line"></span><br><span class="line">    x += 1</span><br><span class="line">    # 这个x其实就代表每行贴了几张了，每贴一张就加一</span><br><span class="line">    if x == line_num:</span><br><span class="line">        # 这里判断了一下，这一行是否贴满了，</span><br><span class="line">        # 如果贴满了就从第二行开始贴，列还是从第1列开始</span><br><span class="line">        x = 0  # 列从最前面开始</span><br><span class="line">        y += 1  # 第一行贴满了，那就从第二行开始了，行号+1</span><br><span class="line">img1.save(&apos;photo.png&apos;)</span><br><span class="line"># 保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾,RGBA模式是一种色彩模式</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -533,17 +515,8 @@ if x == line_num:
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -649,22 +622,6 @@ if x == line_num:
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生成一个680-680像素的图片"><span class="nav-number">1.</span> <span class="nav-text">生成一个680*680像素的图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#glob模块和os-listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下"><span class="nav-number">2.</span> <span class="nav-text">glob模块和os.listdir功能一样，获取某个目录下的文件，只不过是它可以支持模糊匹配，图片都放在这个目录下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长"><span class="nav-number">3.</span> <span class="nav-text">先用边长乘以边长算出来总面积，然后除以个数，就算出来每个图片的面积，然后面积开方就算出来了边长</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#照片墙的边长除以照片的边长就是每行能放照片的数量"><span class="nav-number">4.</span> <span class="nav-text">照片墙的边长除以照片的边长就是每行能放照片的数量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾-RGBA模式是一种色彩模式"><span class="nav-number">5.</span> <span class="nav-text">保存图片，这里不能用jpg格式的，前面在创建图片的时候用的是RGBA模式的，只能用png结尾,RGBA模式是一种色彩模式</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

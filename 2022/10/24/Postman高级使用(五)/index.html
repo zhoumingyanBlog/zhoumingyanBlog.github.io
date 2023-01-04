@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212262109498.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212262110204.png">
 <meta property="og:image" content="https://gitee.com/mashuqingyu/typora_pictures/raw/master/img/202212262110560.png">
-<meta property="og:updated_time" content="2023-01-04T07:43:43.652Z">
+<meta property="og:updated_time" content="2023-01-04T08:34:13.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Postman高级使用(五)">
 <meta name="twitter:description" content="Postman 断言Postman断言简介 让Postman工具代替人工自动判断预期结果和实际结果是否一致。">
@@ -429,7 +429,9 @@
       
 
       
-        <h3 id="Postman-断言"><a href="#Postman-断言" class="headerlink" title="Postman 断言"></a>Postman 断言</h3><h4 id="Postman断言简介"><a href="#Postman断言简介" class="headerlink" title="Postman断言简介"></a>Postman断言简介</h4><ul>
+        <meta name="referrer" content="no-referrer">
+
+<h3 id="Postman-断言"><a href="#Postman-断言" class="headerlink" title="Postman 断言"></a>Postman 断言</h3><h4 id="Postman断言简介"><a href="#Postman断言简介" class="headerlink" title="Postman断言简介"></a>Postman断言简介</h4><ul>
 <li>让Postman工具代替人工自动判断预期结果和实际结果是否一致。<a id="more"></a>
 <h4 id="Postman常用断言"><a href="#Postman常用断言" class="headerlink" title="Postman常用断言"></a>Postman常用断言</h4><h5 id="1-断言响应状态码"><a href="#1-断言响应状态码" class="headerlink" title="1.断言响应状态码"></a>1.断言响应状态码</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//断言响应状态码为 200</span></span><br><span class="line">pm.test(<span class="string">"Status code is 200"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    pm.response.to.have.status(<span class="number">200</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pm:postman的实例。</span><br><span class="line">test() postman实例的测试方法。这个方法有<span class="number">2</span>个参数。</span><br><span class="line">    参<span class="number">1</span>：<span class="string">"Status code is 200"</span>。这个参数可以任意修改，不影响断言</span><br><span class="line">    作用：在断言结束后，显示给用户，断言结果的提示文字。</span><br><span class="line">    参<span class="number">2</span>：是一个匿名函数调用。</span><br><span class="line">pm.response.to.have.status(<span class="number">200</span>);意思是postman的响应结果中应该有响应状态码<span class="number">200</span>-<span class="number">-200</span>是预期结果。</span><br></pre></td></tr></table></figure>
 </li>

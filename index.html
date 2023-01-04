@@ -409,7 +409,8 @@
       
         
           
-            
+            <p>11111</p>
+
           
         
       
@@ -553,7 +554,9 @@
 
       
         
-          <h4 id="接口自动化测试框架"><a href="#接口自动化测试框架" class="headerlink" title="接口自动化测试框架"></a>接口自动化测试框架</h4><h5 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h5><p>7部分（5个目录、2个文件）：<br><strong>api/:存储接口对象层（自己封装的 接口）</strong><br><strong>scripts/:存储测试脚本层（unittest框架实现的 测试类、测试方法）</strong><br>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="接口自动化测试框架"><a href="#接口自动化测试框架" class="headerlink" title="接口自动化测试框架"></a>接口自动化测试框架</h4><h5 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h5><p>7部分（5个目录、2个文件）：<br><strong>api/:存储接口对象层（自己封装的 接口）</strong><br><strong>scripts/:存储测试脚本层（unittest框架实现的 测试类、测试方法）</strong><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2022/12/12/接口自动化测试框架(七)/#more" rel="contents">
@@ -703,7 +706,9 @@
 
       
         
-          <h4 id="接口对象封装"><a href="#接口对象封装" class="headerlink" title="接口对象封装"></a>接口对象封装</h4><h5 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h5><ul>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="接口对象封装"><a href="#接口对象封装" class="headerlink" title="接口对象封装"></a>接口对象封装</h4><h5 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h5><ul>
 <li>代码冗余度高（有大量重复代码）</li>
 <li>代码耦合度高</li>
 <li>代码维护成本高</li>
@@ -857,7 +862,9 @@
 
       
         
-          <h4 id="数据库操作应用场景"><a href="#数据库操作应用场景" class="headerlink" title="数据库操作应用场景"></a>数据库操作应用场景</h4><ul>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="数据库操作应用场景"><a href="#数据库操作应用场景" class="headerlink" title="数据库操作应用场景"></a>数据库操作应用场景</h4><ul>
 <li><p>校验测试数据</p>
 <ul>
 <li><p>接口发送请求后明确会对数据库中的某个字段进行修改，但响应结果中无该字段数据时。</p>
@@ -1012,7 +1019,9 @@
 
       
         
-          <h4 id="生成HTML测试报告"><a href="#生成HTML测试报告" class="headerlink" title="生成HTML测试报告"></a>生成HTML测试报告</h4><h5 id="HTMLTestReport"><a href="#HTMLTestReport" class="headerlink" title="HTMLTestReport"></a>HTMLTestReport</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">说明：</span><br><span class="line">* Unittest 框架本身不支持生成HTML格式的测试报告</span><br><span class="line">* 网上有很多类库都可以实现，基本用法都类似，只是生成的HTML报告样式有差别</span><br><span class="line">* 本文使用的是HTMLTestReport类库来生成测试报告</span><br></pre></td></tr></table></figure>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="生成HTML测试报告"><a href="#生成HTML测试报告" class="headerlink" title="生成HTML测试报告"></a>生成HTML测试报告</h4><h5 id="HTMLTestReport"><a href="#HTMLTestReport" class="headerlink" title="HTMLTestReport"></a>HTMLTestReport</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">说明：</span><br><span class="line">* Unittest 框架本身不支持生成HTML格式的测试报告</span><br><span class="line">* 网上有很多类库都可以实现，基本用法都类似，只是生成的HTML报告样式有差别</span><br><span class="line">* 本文使用的是HTMLTestReport类库来生成测试报告</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2022/12/08/生成测试报告(四)/#more" rel="contents">
@@ -1162,7 +1171,9 @@
 
       
         
-          <h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用代码自动的判断预期结果和实际结果是否相符</span><br><span class="line">assertEqual(预期结果，实际结果)</span><br><span class="line">- 判断预期结果和实际结果是否相等，如果相等，用例通过，如果不相等，抛出异常，用例不通过</span><br><span class="line"></span><br><span class="line">assertIn(预期结果，实际结果)</span><br><span class="line">- 判断预期结果是否包含在实际结果中，如果存在，用例通过，如果不存在，抛出异常，用例不通过</span><br></pre></td></tr></table></figure>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用代码自动的判断预期结果和实际结果是否相符</span><br><span class="line">assertEqual(预期结果，实际结果)</span><br><span class="line">- 判断预期结果和实际结果是否相等，如果相等，用例通过，如果不相等，抛出异常，用例不通过</span><br><span class="line"></span><br><span class="line">assertIn(预期结果，实际结果)</span><br><span class="line">- 判断预期结果是否包含在实际结果中，如果存在，用例通过，如果不存在，抛出异常，用例不通过</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2022/12/07/断言&参数化(三)/#more" rel="contents">
@@ -1312,7 +1323,9 @@
 
       
         
-          <h3 id="Requests库安装和简介"><a href="#Requests库安装和简介" class="headerlink" title="Requests库安装和简介"></a>Requests库安装和简介</h3><p><strong>简介：</strong></p>
+          <meta name="referrer" content="no-referrer">
+
+<h3 id="Requests库安装和简介"><a href="#Requests库安装和简介" class="headerlink" title="Requests库安装和简介"></a>Requests库安装和简介</h3><p><strong>简介：</strong></p>
 <ul>
 <li><p>Requests库是Python编写的，基于urllib的HTTP库，使用方便。</p>
           <!--noindex-->
@@ -1464,7 +1477,9 @@
 
       
         
-          <h4 id="unittest框架的介绍"><a href="#unittest框架的介绍" class="headerlink" title="unittest框架的介绍"></a>unittest框架的介绍</h4><ul>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="unittest框架的介绍"><a href="#unittest框架的介绍" class="headerlink" title="unittest框架的介绍"></a>unittest框架的介绍</h4><ul>
 <li>框架</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">framework</span><br><span class="line">为解决一类事情的功能集合</span><br></pre></td></tr></table></figure>
@@ -1617,7 +1632,9 @@
 
       
         
-          <h4 id="IHRM项目实战"><a href="#IHRM项目实战" class="headerlink" title="IHRM项目实战"></a>IHRM项目实战</h4><h5 id="初始化项目环境"><a href="#初始化项目环境" class="headerlink" title="初始化项目环境"></a>初始化项目环境</h5><h6 id="新建用例集"><a href="#新建用例集" class="headerlink" title="新建用例集"></a><strong>新建用例集</strong></h6>
+          <meta name="referrer" content="no-referrer">
+
+<h4 id="IHRM项目实战"><a href="#IHRM项目实战" class="headerlink" title="IHRM项目实战"></a>IHRM项目实战</h4><h5 id="初始化项目环境"><a href="#初始化项目环境" class="headerlink" title="初始化项目环境"></a>初始化项目环境</h5><h6 id="新建用例集"><a href="#新建用例集" class="headerlink" title="新建用例集"></a><strong>新建用例集</strong></h6>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2022/10/25/项目实战(六)/#more" rel="contents">
@@ -1767,7 +1784,9 @@
 
       
         
-          <h3 id="Postman-断言"><a href="#Postman-断言" class="headerlink" title="Postman 断言"></a>Postman 断言</h3><h4 id="Postman断言简介"><a href="#Postman断言简介" class="headerlink" title="Postman断言简介"></a>Postman断言简介</h4><ul>
+          <meta name="referrer" content="no-referrer">
+
+<h3 id="Postman-断言"><a href="#Postman-断言" class="headerlink" title="Postman 断言"></a>Postman 断言</h3><h4 id="Postman断言简介"><a href="#Postman断言简介" class="headerlink" title="Postman断言简介"></a>Postman断言简介</h4><ul>
 <li>让Postman工具代替人工自动判断预期结果和实际结果是否一致。
           <!--noindex-->
           <div class="post-button text-center">
